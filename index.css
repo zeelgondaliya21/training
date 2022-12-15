@@ -1,0 +1,58 @@
+.rightsidebar{
+    position: relative;
+    float: right;
+    font-size: 25pt;
+    border-style: groove;
+}
+.headermain{
+    display: flex;
+    border-style: groove;
+}
+
+.topnav{
+    justify-content: right;
+    align-items: right;
+}
+
+  .main {
+    display: flex;
+    font-size: 50px;
+  }
+
+  .patientinfo{
+    float: center;
+    position: relative;
+    padding-top: 100px;
+    padding-left: 170px;
+    font-size: 50px;
+    box-align: center;
+  }
+
+
+
+  .sidebar{
+    padding: 6px 8px 6px 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    border-style: solid;
+    border-style: groove;
+  }
+
+  .headerbar{
+    align-items: left;
+    font-size: 25pt;
+  }
+  .left{
+    padding-right: 70pt;
+    padding-left: 140pt;
+    display: flex;
+
+  }
+  .center{
+    padding-left: 70pt;
+    padding-right: 70pt;
+  }
+  .right{
+    padding-right: 70pt;
+  }
