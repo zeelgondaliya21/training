@@ -10,48 +10,48 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
-    <header>
-        <div class="headermain">
-            <div class="headerbar">
-                <i class="fa-solid fa-gear"></i>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-user"></i>
-                <i class="fa-solid fa-calendar-days"></i>
-                <i class="fa-solid fa-user-shield"></i>
-                <i class="fa-solid fa-shield-heart"></i>
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                <i class="fa-solid fa-notes-medical"></i>
-                <i class="fa-solid fa-flask"></i>
-                <i class="fa-solid fa-arrow-down"></i>
-                <i class="fa-solid fa-arrow-up"></i>
-                <i class="fa-solid fa-file-invoice"></i>
-                <i class="fa-solid fa-dollar-sign"></i>
-                <i class="fa-solid fa-file-invoice-dollar"></i>
-                <i class="fa-solid fa-magnifying-glass-dollar"></i>
-                <i class="fa-solid fa-hand-holding-dollar"></i>
-                <i class="fa-solid fa-envelope-circle-check"></i>
-                <i class="fa-solid fa-circle-dollar-to-slot"></i>
-                <i class="fa-solid fa-sack-dollar"></i>
-                <i class="fa-solid fa-receipt"></i>
-                <i class="fa-solid fa-book"></i>
-                <i class="fa-solid fa-envelope-open-text"></i>
-                <i class="fa-solid fa-chart-line"></i>
-                <i class="fa-solid fa-calendar-week"></i>
-                <i class="fa-solid fa-circle-question"></i>
-                <i class="fa-solid fa-lock"></i>
-            </div>
-            <div class="topnav">
-                <div class="search-container">
-                    <form>
-                        <input type="text" placeholder="Search.." name="search">
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<body class="body">
+    <form name="formfin" id="formfinal" method="post">
+        <nav class="headermain">
+            <i class="fa-solid fa-gear"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-calendar-days"></i>
+            <i class="fa-solid fa-user-shield"></i>
+            <i class="fa-solid fa-shield-heart"></i>
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <i class="fa-solid fa-notes-medical"></i>
+            <i class="fa-solid fa-flask"></i>
+            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-arrow-up"></i>
+            <i class="fa-solid fa-file-invoice"></i>
+            <i class="fa-solid fa-dollar-sign"></i>
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <i class="fa-solid fa-magnifying-glass-dollar"></i>
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <i class="fa-solid fa-envelope-circle-check"></i>
+            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            <i class="fa-solid fa-sack-dollar"></i>
+            <i class="fa-solid fa-receipt"></i>
+            <i class="fa-solid fa-book"></i>
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-calendar-week"></i>
+            <i class="fa-solid fa-circle-question"></i>
+            <i class="fa-solid fa-lock"></i>
 
-        <div class="rightsidebar" style="width:1%">
+            <!-- <aside class="topnav-right">
+            <form action="#">
+                <input type="text" class="searchpatientbox" name="searchbox" id="searchpatient"
+                    placeholder="Search Patient">
+            </form>
+            <i class="fa-solid fa-calendar-week"></i>
+            <i class="fa-solid fa-circle-question"></i>
+            <i class="fa-solid fa-lock"></i>
+        </aside> -->
+        </nav>
+
+        <aside class="rightsidebar" style="width:3%">
             <i class="fa-solid fa-fax"></i>
             <i class="fa-solid fa-comment-dots"></i>
             <i class="fa-solid fa-envelope"></i>
@@ -59,7 +59,7 @@
             <i class="fa-solid fa-list-check"></i>
             <i class="fa-solid fa-calendar-plus"></i>
             <i class="fa-solid fa-note-sticky"></i>
-        </div>
+        </aside>
 
         <!-- <h1>Right Side Icons</h1>
             -->
@@ -72,8 +72,9 @@
             <i class="fa-solid fa-location-dot"></i>
             <i class="fa-solid fa-mars"></i> -->
         <div class="main">
+            <!-- <h6 style="width: 10px;">Patient Bar</h6> -->
             <div class="sidebar" style="width:10%">
-                <h3>Patient Bar</h3>
+                
                 <a>Dashboard</a><br>
                 <a>Demographics</a><br>
                 <a>Insurance</a><br>
@@ -101,190 +102,387 @@
                 <a>Statement</a><br>
                 <a>Ledger</a><br>
             </div>
-            <div class="patientinfo">
-                <div class="left" >
-                    <table>
-                        <tr><td><img src="blob:https://iemodemoindia.meditab.com/9b2412a2-e765-4cd5-a3db-d477aeb1bd4f"
-                                alt="person" width="100" height="100"></td></tr>
-                        <tr><td><label>Prefix:</label></td><td><input type="text"></td></tr>
-                        <tr><td><label>First Name:</label></td><td><input type="text"></td></tr>
-                        <tr><td><label>Middle Name:</label></td><td><input type="text"></td></tr>
-                        <tr><td><label>Last Name:</label></td><td><input type="text"></td></tr>
-                        <tr><td><label>Suffix:</label></td><td><input type="text"></td></tr>
-                        <tr><td><label>AKA:</label></td><td><input type="text"></td></tr>
+            
+            <div class="patientinofmain">
+                <div class="buttonss">
+                    <label for="#" style="font-size: small;">Active</label>
+                    <input type="checkbox" name="active" id="active">
+                    <input type="button" id="reverify" value="Reverify" name="b1"/>
+                    <input type="reset" id="reset-button" value="Cancel Changes" name="b2"/>
+                    <input type="submit" id="save" value="Save Changes" name="b3" />
+                </div>
+                <div class="patientinfo">
+                    <div class="left">
+                        <table>
+                            <tr>
+                                <td><img src="blob:https://iemodemoindia.meditab.com/9b2412a2-e765-4cd5-a3db-d477aeb1bd4f"
+                                        alt="person" width="100" height="100" name="img"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Prefix:</label></td>
+                                <td><input name="prefix" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><label>First Name:</label></td>
+                                <td><input type="text" name="fname"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Middle Name:</label></td>
+                                <td><input type="text" name="mname"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Last Name:</label></td>
+                                <td><input type="text"name="lname"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Suffix:</label></td>
+                                <td><input type="text"name="suffix"></td>
+                            </tr>
+                            <tr>
+                                <td><label>AKA:</label></td>
+                                <td><input type="text"name="aka"></td>
+                            </tr>
                         </table>
 
-                    <div class="center">
-                        <table>
-                            <tr>
-                                <td><label>Sex:</label></td>
-                                <td><select name="SelectSex" id="Sex">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Unknown</option>
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td><label>DOB:</label></td>
-                                <td><input type="date"></td>
-                            </tr>
-                            <tr>
-                                <td><label>Pref Language:</label></td>
-                                <td><select name="SelectLang" id="Lang">
-                                    <option>English</option>
-                                    <option>Hindi</option>
-                                    <option>Gujarati</option>
-                                </select></td>
-                            </tr>
-                        <tr>
-                            <td><label>interpreter:</label></td>
-                            <td><input type="checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Status:</label></td>
-                            <td><select name="Status" id="Status">
-                                <option>First Appointment Pending</option>
-                                <option>Regestration Pending</option>
-                                <option>Immunization Pending</option>
-                                <option>Insurance Inclusion Pending</option>
-                                <option>Insurance12</option>
-                            </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label>Risk:</label></td>
-                            <td><input type="button" value="high"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Marital Status:</label></td>
-                            <td><select name="MaritalStatus" id="MaritalStatus">
-                            <option>Married</option>
-                            <option>Unmarried</option>
-                            <option>Divorced</option>
-                            </select></td>
-                        </tr>
-                        <tr>
-                            <td><label>SSN:</label></td>
-                            <td><input type="text"><br></td>
-                        </tr>
-                        <tr>
-                            <td><label>Race:</label></td>
-                            <td><select name="Race" id="Race">
-                            <option>White</option>
-                            <option>American Indian or Alaskan Native</option>
-                            <option>Asian</option>
-                            <option>Black or African</option>
-                            <option>Hawaiin or Pacific</option>
-                            </select></td>
-                        </tr>
-                        <tr>
-                        <td><label>Ethnicity:</label></td>
-                        <td><select name="Ethnicity" id="Ethnicity">
-                            <option>Unreported/Refused</option>
-                            <option>Hispanic/Latino</option>
-                            <option>NonHispanic/Latino</option>
-                            </select></td>
-                        </tr>
-                        </table>
+                        <div class="center">
+                            <table>
+                                <tr>
+                                    <td><label>Sex:</label></td>
+                                    <td><select name="SelectSex" id="Sex">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Unknown</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>DOB:</label></td>
+                                    <td><input type="date" name="date"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Pref Language:</label></td>
+                                    <td><select name="SelectLang" id="Lang" name="lang">
+                                            <option>English</option>
+                                            <option>Hindi</option>
+                                            <option>Gujarati</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>interpreter:</label></td>
+                                    <td><input type="checkbox" name="interpret"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Status:</label></td>
+                                    <td><select name="Status" id="Status" name="status">
+                                            <option>First Appointment Pending</option>
+                                            <option>Regestration Pending</option>
+                                            <option>Immunization Pending</option>
+                                            <option>Insurance Inclusion Pending</option>
+                                            <option>Insurance12</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Risk:</label></td>
+                                    <td><input type="button" value="high" name="risk"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Marital Status:</label></td>
+                                    <td><select name="MaritalStatus" name="marital" id="MaritalStatus">
+                                            <option>Married</option>
+                                            <option>Unmarried</option>
+                                            <option>Divorced</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>SSN:</label></td>
+                                    <td><input type="text" name="ssn"><br></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Race:</label></td>
+                                    <td><select name="Race" id="Race">
+                                            <option>White</option>
+                                            <option>American Indian or Alaskan Native</option>
+                                            <option>Asian</option>
+                                            <option>Black or African</option>
+                                            <option>Hawaiin or Pacific</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Ethnicity:</label></td>
+                                    <td><select name="Ethnicity" id="Ethnicity">
+                                            <option>Unreported/Refused</option>
+                                            <option>Hispanic/Latino</option>
+                                            <option>NonHispanic/Latino</option>
+                                        </select></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="right">
+                            <table>
+                                <tr>
+                                    <td><label>Self Pay:</label></td>
+                                    <td><input type="checkbox" name="selfpay"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Default Facility:</label></td>
+                                    <td><select name="DefaultFacility" id="Default Facility">
+                                            <option>(FAC8)Aviral</option>
+                                            <option>(FAC13)Facility</option>
+                                            <option>(FACFRE)CMC Fresno</option>
+                                        </select><br></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Default Provider:</label></td>
+                                    <td><select name="DefaultProvider" id="DefaultProvider">
+                                            <option>Agrawal,Sumit</option>
+                                            <option>Jones,Charlie</option>
+                                            <option>Jourden,Charles</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Time Zone:</label></td>
+                                    <td><select name="TimeZone" id="TimeZone">
+                                            <option>UTC</option>
+                                            <option>GMT</option>
+                                            <option>IST</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Default Pharmacy</label></td>
+                                    <td><select name="DefPharm" id="DefPharm">
+                                            <option>Pharmacy1</option>
+                                            <option>Pharmacy2</option>
+                                            <option>Pharmacy3</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Use current Pharmacy for all Rx:</label></td>
+                                    <td><input type="checkbox" name="rx"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>PCP same as provider:</label></td>
+                                    <td><input type="checkbox" name="sameasrx"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>PCP:</label></td>
+                                    <td><select name="Pcp" id="Pcp">
+                                            <option>Agrawal,Sumit</option>
+                                            <option>Jones,Charlie</option>
+                                            <option>Jourden,Charles</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Fees Schedule:</label></td>
+                                    <td><select name="FeesSchedule" id="FeesSchedule">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class="right">
-                        <table>
-                            <tr>
-                                <td><label>Self Pay:</label></td>
-                                <td><input type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td><label>Default Facility:</label></td>
-                                <td><select name="DefaultFacility" id="Default Facility">
-                                    <option>(FAC8)Aviral</option>
-                                    <option>(FAC13)Facility</option>
-                                    <option>(FACFRE)CMC Fresno</option>
-                                </select><br></td>
-                            </tr>
-                            <tr>
-                                <td><label>Default Provider:</label></td>
-                                <td><select name="DefaultProvider" id="DefaultProvider">
-                                    <option>Agrawal,Sumit</option>
-                                    <option>Jones,Charlie</option>
-                                    <option>Jourden,Charles</option>
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td><label>Time Zone:</label></td>
-                                <td><select name="TimeZone" id="TimeZone">
-                                    <option>UTC</option>
-                                    <option>GMT</option>
-                                    <option>IST</option>
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td><label>Default Pharmacy</label></td>
-                                <td><select name="DefPharm" id="DefPharm">
-                                    <option>Pharmacy1</option>
-                                    <option>Pharmacy2</option>
-                                    <option>Pharmacy3</option>
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td><label>Use current Pharmacy for all Rx:</label></td>
-                                <td><input type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td><label>PCP same as provider:</label></td>
-                                <td><input type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td><label>PCP:</label></td>
-                                <td><select name="Pcp" id="Pcp">
-                                    <option>Agrawal,Sumit</option>
-                                    <option>Jones,Charlie</option>
-                                    <option>Jourden,Charles</option>
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td><label>Fees Schedule:</label></td>
-                                <td><select name="FeesSchedule" id="FeesSchedule">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select></td>
-                            </tr>
-                        </table>
+                </div>
+                <div class="contact">
+                    <div class="header-contact">
+                        <div class="contact-header">
+                            <h5>Contact Details <i class="fa-solid fa-circle-plus"></i></h5>
+                            <span>Please set the preferences after adding the contact information, the section to set
+                                preference can be found below the
+                                contact section of the page.</p>
+                            </span>
+                        </div>
+                        <!-- <div class="contact12"> -->
+                        <div class="section12">
+                            <div class="section1">
+                                <div id="form1">
+                                    <fieldset>
+                                        <legend>
+                                            <select name="home" id="add1">
+                                                <option>Home</option>
+                                                <option>Work</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </legend>
+                                        <label>Street</label><br><input type="text" name="street1" id="">
+                                        <table>
+                                            <tr>
+                                                <td><label>Zip</label><br><input type="text" name="zip1" id=""></td>
+                                                <td><label>City</label><br><input type="text" name="city1" id=""></td>
+                                                <td><label>State</label><br><select name="state1" id="state1">
+                                                        <option>California</option>
+                                                        <option>Pensilvenia</option>
+                                                        <option>Florida</option>
+                                                    </select>
+                                                <td><label>Coutnry</label><br><select name="country1" id="coutnry1">
+                                                        <option>India</option>
+                                                        <option>US</option>
+                                                        <option>Canada</option>
+                                                    </select></td>
+                                            </tr>
+                                        </table>
+                                        <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
+                                        <table>
+                                            <tr>
+                                                <td colspan="2"><label>Type</label>
+                                                    <hr><select name="type1" id="type">
+                                                        <option>Call</option>
+                                                        <option>Landline</option>
+                                                    </select>
+                                                </td>
+                                                <td colspan="2"><label>Code</label>
+                                                    <hr><select name="code1" id="code1">
+                                                        <option>+1(US)</option>
+                                                        <option>+91(Ind)</option>
+                                                        <option>+7(Rus)</option>
+                                                    </select>
+                                                </td>
+                                                <td colspan="2"><label>Number</label>
+                                                    <hr><input type="text" name="number1" id="">
+                                                </td>
+                                                <td colspan="2"><label>Ext</label>
+                                                    <hr><input type="text" name="ext1" id="">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <h6>Fax<i class="fa-solid fa-circle-plus"></i></h6>
+                                        <h6>Email<i class="fa-solid fa-circle-plus"></i></h6>
+                                        <input type="text" name="email1" id="">
+                                        <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
+
+                                    </fieldset>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="section2">
+                                <div id="form2">
+                                    <fieldset>
+                                        <legend>
+                                            <select name="work2" id="add2">
+                                                <option>Home</option>
+                                                <option>Work</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </legend>
+                                        <label>Street</label><br><input type="text" name="street2" id="">
+                                        <table>
+                                            <tr>
+                                                <td><label>Zip</label><br><input type="text" name="zip2" id=""></td>
+                                                <td><label>City</label><br><input type="text" name="city2" id=""></td>
+                                                <td><label>State</label><br><select name="state2" id="state2">
+                                                        <option>California</option>
+                                                        <option>Pensilvenia</option>
+                                                        <option>Florida</option>
+                                                    </select>
+                                                <td><label>Coutnry</label><br><select name="country2" id="coutnry2">
+                                                        <option>India</option>
+                                                        <option>US</option>
+                                                        <option>Canada</option>
+                                                    </select></td>
+                                            </tr>
+                                        </table>
+                                        <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
+                                        <table>
+                                            <tr>
+                                                <td colspan="2"><label>Type</label>
+                                                    <hr><select name="type2" id="type2">
+                                                        <option>Call</option>
+                                                        <option>Landline</option>
+                                                    </select>
+                                                </td>
+                                                <td colspan="2"><label>Code</label>
+                                                    <hr><select name="code2" id="code2">
+                                                        <option>+1(US)</option>
+                                                        <option>+91(Ind)</option>
+                                                        <option>+7(Rus)</option>
+                                                    </select>
+                                                </td>
+                                                <td colspan="2"><label>Number</label>
+                                                    <hr><input type="text" name="number2" id="">
+                                                </td>
+                                                <td colspan="2"><label>Ext</label>
+                                                    <hr><input type="text" name="ext2" id="">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <h6>Fax<i class="fa-solid fa-circle-plus"></i></h6>
+                                        <h6>Email<i class="fa-solid fa-circle-plus"></i></h6>
+                                        <input type="text" name="email2" id="">
+                                        <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
+
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contactpref">
+                            <h5>Contact Preference</h5>
+                            <table class="contactpreference" name="conpre" border="1">
+                                <tr>
+                                    <td>Type</td>
+                                    <td>Address</td>
+                                    <td>Phone</td>
+                                    <td>Fax</td>
+                                    <td>Email</td>
+                                    <td>Website</td>
+                                </tr>
+                                <tr>
+                                    <td>Appointment Reminder</td>
+                                    <td><input type="text" name="e1" id=""></td>
+                                    <td><input type="text" name="e2" id=""></td>
+                                    <td><input type="text" name="e3" id=""></td>
+                                    <td><input type="text" name="e4" id=""></td>
+                                    <td><input type="text" name="e5" id=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Mailing</td>
+                                    <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Primary</td>
+                                    <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Statement</td>
+                                    <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferred Comm.</td>
+                                    <td colspan="5">
+                                        <label for="type">Type:</label>
+                                        <select class="typeco" name="seltype">
+                                            <option>Email</option>
+                                            <option>Fax</option>
+                                            <option>Mail</option>
+                                            <option>Phone</option>
+                                            <option>Text</option>
+                                        </select>
+                                        <label>Value:</label>
+                                        <input class="valueco" type="text" name="valueco">
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
         </div>
-            <div class="contact">
-                <p>set the preferences</p>
-                <select name="Address" id="ad1">
-                    <option>Home</option>
-                    <option>Work</option>
-                    <option>Other</option>
-                </select>
-                <form class="form1">
-                    <Label>Street</Label>
-                    <input type="text" name="street">
-                    <span>
-                    <table>
-                        <tr>Zip</tr>
-                        <tr><input type="text" name="zip"></tr>
-                    </table>
-                    <table>
-                        <tr>City</tr>
-                        <tr><input type="text" name="city"></tr>
-                    </table>
-                    <table>
-                        <tr>State</tr>
-                        <tr><input type="text" name="state"></tr>
-                    </table>
-                    <table>
-                        <tr>Country</tr>
-                        <tr><input type="text" name="country"></tr>
-                    </table>
-                </span>
-                </form>       
-            </div>
-        
-    </header>
+        <input type="button" id="reset-button" value="Reset" onclick="clear()"/>
+    </form>
 </body>
+
 </html>

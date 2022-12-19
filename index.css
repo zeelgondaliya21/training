@@ -1,58 +1,183 @@
-.rightsidebar{
-    position: relative;
-    float: right;
-    font-size: 25pt;
-    border-style: groove;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.headermain{
-    display: flex;
-    border-style: groove;
+.body{
+  overflow: hidden;
 }
 
-.topnav{
-    justify-content: right;
-    align-items: right;
+.rightsidebar {
+  float: right;
+  font-size: 25pt;
+  border-style: groove;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  justify-content: center;
 }
 
-  .main {
-    display: flex;
-    font-size: 50px;
-  }
+.headermain {
+  display: flex;
+  border-style: groove;
+  font-size: 25pt;
+}
 
-  .patientinfo{
-    float: center;
-    position: relative;
-    padding-top: 100px;
-    padding-left: 170px;
-    font-size: 50px;
-    box-align: center;
-  }
+.topnav-right {
+  padding-right: 0px;
+}
+
+.main {
+  display: flex;
+  font-size: 50px;
+}
+
+.buttonss{
+
+  margin-top: 1px;
+  margin-right: 2px;
+}
+.patientinfo {
+  float: center;
+  padding-top: 100px;
+  padding-left: 170px;
+  font-size: 50px;
+  box-align: center;
+  border-style: groove;
+  width: 100%;
+}
 
 
 
-  .sidebar{
-    padding: 6px 8px 6px 8px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    border-style: solid;
-    border-style: groove;
-  }
+.sidebar {
+  padding: 6px 8px 6px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  margin: auto;
+  color: #818181;
+  border-style: groove;
+  height: 700px;
+  overflow-y: scroll;
+}
 
-  .headerbar{
-    align-items: left;
-    font-size: 25pt;
-  }
-  .left{
-    padding-right: 70pt;
-    padding-left: 140pt;
-    display: flex;
+.headerbar {
+  align-items: left;
+  font-size: 25pt;
+}
 
-  }
-  .center{
-    padding-left: 70pt;
-    padding-right: 70pt;
-  }
-  .right{
-    padding-right: 70pt;
-  }
+.left {
+  padding-right: 70pt;
+  padding-left: 140pt;
+  display: flex;
+
+}
+
+.center {
+  padding-left: 70pt;
+  padding-right: 70pt;
+}
+
+.right {
+  padding-right: 70pt;
+}
+
+.patientinfomain {
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding-top: 200px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  border-style: groove;
+  overflow-y: scroll;
+  height: 47%;
+}
+
+.contact-header {
+  font-size: 25px;
+  width: 100%;
+}
+
+.section12 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  border-style: groove;
+}
+
+.section1 {
+  font-size: 25px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 50%;
+}
+
+.section2 {
+  font-size: 25px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 50%;
+}
+
+.topnav-right {
+  float: right;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.nav {
+  width: 100%;
+}
+
+input[type=text],
+input[type=date],
+select,
+textarea {
+  padding: .3rem.2rem;
+  color: #627d98;
+  border: 2px solid transparent;
+  border-radius: .2rem;
+  outline: 1px solid #dadada;
+  width: 100%;
+}
+
+select:disabled,
+input[type=date]:disabled,
+input[type=text]:disabled {
+  background-color: #b6b6b66c;
+}
+
+input[type=text]:focus {
+  border: 2px solid #5a5fe2;
+  background-color: rgba(238, 238, 238, 0.301)
+}
+
+.contactpref {
+  border: groove;
+}
+
+.contactpreference {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.typeco{
+  width: 100px;
+}
+
+.valueco{
+  width: 10px;
+}
+
