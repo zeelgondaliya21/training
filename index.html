@@ -5,13 +5,14 @@
 
     </tite>
     <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="body">
-    <form name="formfin" id="formfinal" method="post">
+    <form name="formfin" id="formfinal" onsubmit="submitData(event)" action="#">
         <nav class="headermain">
             <i class="fa-solid fa-gear"></i>
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -74,7 +75,7 @@
         <div class="main">
             <!-- <h6 style="width: 10px;">Patient Bar</h6> -->
             <div class="sidebar" style="width:10%">
-                
+
                 <a>Dashboard</a><br>
                 <a>Demographics</a><br>
                 <a>Insurance</a><br>
@@ -102,14 +103,14 @@
                 <a>Statement</a><br>
                 <a>Ledger</a><br>
             </div>
-            
+
             <div class="patientinofmain">
                 <div class="buttonss">
                     <label for="#" style="font-size: small;">Active</label>
-                    <input type="checkbox" name="active" id="active">
-                    <input type="button" id="reverify" value="Reverify" name="b1"/>
-                    <input type="reset" id="reset-button" value="Cancel Changes" name="b2"/>
-                    <input type="submit" id="save" value="Save Changes" name="b3" />
+                    <input type="checkbox" name="active" id="active" class="c1">
+                    <input type="button" id="reverify" value="Reverify" name="b1" class="b1" />
+                    <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2" />
+                    <input type="submit" id="save" value="Save Changes" name="b3" class="b3"/>
                 </div>
                 <div class="patientinfo">
                     <div class="left">
@@ -132,15 +133,15 @@
                             </tr>
                             <tr>
                                 <td><label>Last Name:</label></td>
-                                <td><input type="text"name="lname"></td>
+                                <td><input type="text" name="lname"></td>
                             </tr>
                             <tr>
                                 <td><label>Suffix:</label></td>
-                                <td><input type="text"name="suffix"></td>
+                                <td><input type="text" name="suffix"></td>
                             </tr>
                             <tr>
                                 <td><label>AKA:</label></td>
-                                <td><input type="text"name="aka"></td>
+                                <td><input type="text" name="aka"></td>
                             </tr>
                         </table>
 
@@ -148,7 +149,7 @@
                             <table>
                                 <tr>
                                     <td><label>Sex:</label></td>
-                                    <td><select name="SelectSex" id="Sex">
+                                    <td><select name="Sex" id="Sex">
                                             <option>Male</option>
                                             <option>Female</option>
                                             <option>Unknown</option>
@@ -156,7 +157,7 @@
                                 </tr>
                                 <tr>
                                     <td><label>DOB:</label></td>
-                                    <td><input type="date" name="date"></td>
+                                    <td><input type="date" name="dob" id="dob"></td>
                                 </tr>
                                 <tr>
                                     <td><label>Pref Language:</label></td>
@@ -409,9 +410,7 @@
                                         <h6>Email<i class="fa-solid fa-circle-plus"></i></h6>
                                         <input type="text" name="email2" id="">
                                         <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
-
                                     </fieldset>
-
                                 </div>
                             </div>
                         </div>
@@ -437,26 +436,26 @@
                                 <tr>
                                     <td>Mailing</td>
                                     <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><input type="text" name="e6" id=""></td>
+                                    <td><input type="text" name="e7" id=""></td>
+                                    <td><input type="text" name="e8" id=""></td>
+                                    <td><input type="text" name="e9" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Primary</td>
                                     <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><input type="text" name="e10" id=""></td>
+                                    <td><input type="text" name="e11" id=""></td>
+                                    <td><input type="text" name="e12" id=""></td>
+                                    <td><input type="text" name="e13" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Statement</td>
                                     <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><input type="text" name="e14" id=""></td>
+                                    <td><input type="text" name="e15" id=""></td>
+                                    <td><input type="text" name="e16" id=""></td>
+                                    <td><input type="text" name="e17" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Preferred Comm.</td>
@@ -474,14 +473,13 @@
                                     </td>
                                 </tr>
                             </table>
-                            
+
                         </div>
                         <!-- </div> -->
                     </div>
                 </div>
             </div>
         </div>
-        <input type="button" id="reset-button" value="Reset" onclick="clear()"/>
     </form>
 </body>
 
