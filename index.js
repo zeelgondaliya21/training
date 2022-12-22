@@ -1,6 +1,3 @@
-document.getElementById("formfinal").reset();
-
-
 function submitData(event) {
   event.preventDefault();
 
@@ -10,18 +7,22 @@ function submitData(event) {
   for (let [k, v] of data.entries()) {
     pdata[k] = v;
   }
+  console.log(pdata)
+
   let dob = new Date(pdata.dob);
   let month_diff = Date.now() - dob.getTime();
   let age_dt = new Date(month_diff);
   let year = age_dt.getUTCFullYear();
   let age = year - 1970;
-  
+
   if (age < 18) {
-      window.alert(`Please add a contact for the Patient as ${pdata.Sex == "Male" ? "he" : "she"}, is a minor.`)
-  
+    window.alert(`Please add a contact for the Patient as ${pdata.Sex == "Male" ? "he" : "she"}, is a minor.`)
+
   }
-  console.log(pdata)
+  
 }
+
+document.getElementById("formfinal").reset();
 
 // function patientOtherDetailShowFun() {
 //   let patientOtherDetailView = document.getElementsByClassName("PDCCODbottom")[0];

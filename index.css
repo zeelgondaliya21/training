@@ -22,6 +22,10 @@
   display: flex;
   border-style: groove;
   font-size: 25pt;
+  padding-left: 4px;
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
 }
 
 .topnav-right {
@@ -30,22 +34,28 @@
 
 .main {
   display: flex;
+  flex-direction: row;
   font-size: 50px;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .buttonss{
-
+  align-items: baseline;
   margin-top: 1px;
+  margin-bottom: 120px;
   margin-right: 2px;
+  justify-content: right;
 }
-.patientinfo {
-  float: center;
-  padding-top: 100px;
-  padding-left: 170px;
-  font-size: 50px;
-  box-align: center;
+
+.patientinfo {  
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  font-size: 15px;
   border-style: groove;
   width: 100%;
+
 }
 
 
@@ -53,7 +63,7 @@
 .sidebar {
   /* padding: 6px 8px 6px 8px; */
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   padding-left: 5px;
   padding-top: 5px;
   padding-right: 5px;
@@ -63,6 +73,8 @@
   border-style: groove;
   height: 600px;
   overflow-y: scroll;
+  overflow-x: hidden;
+  margin-top: 10%;
 }
 
 .headerbar {
@@ -72,9 +84,7 @@
 
 .left {
   padding-right: 70pt;
-  padding-left: 140pt;
   display: flex;
-
 }
 
 .center {
@@ -82,9 +92,9 @@
   padding-right: 70pt;
 }
 
-.right {
-  padding-right: 70pt;
-}
+/* .right {
+  
+} */
 
 .patientinfomain {
 
@@ -92,14 +102,15 @@
   flex-direction: column;
   overflow-y: scroll;
   padding-top: 200px;
+  height: auto;
 }
 
 .contact {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border-style: groove;
-  overflow-y: scroll;
-  height: 35%;
+  /* overflow-y: scroll; */
+  height: 50%;
 }
 
 .contact-header {
@@ -169,12 +180,17 @@ input[type=text]:focus {
 
 .contactpref {
   border: groove;
+  height: 90%;
 }
 
-.contactpreference {
-  border: 1px solid black;
+.contactpreference{
   border-collapse: collapse;
   width: 100%;
+  font-size: small;
+  
+}
+.table tr td{
+  padding: 0px;
 }
 
 .typeco{
@@ -187,4 +203,24 @@ input[type=text]:focus {
 
 .b1{
   justify-items: right;
+}
+
+.otherinfo{
+  padding-top: 2px;
+  display: flex;
+  border-style: groove;
+  flex-direction: row;
+  font-size: 15px;
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.left1{
+  padding-right: 70pt;
+  padding-left: 70pt;
+}
+
+.center1{
+  padding-right: 70pt;
 }
