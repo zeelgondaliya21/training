@@ -13,7 +13,7 @@
 
 <body class="body">
     <form name="formfin" id="formfinal" onsubmit="submitData(event)" action="#">
-        <div class="headermain">
+        <div class="headermain" ondrag="cursor">
             <i class="fa-solid fa-gear"></i>
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-user"></i>
@@ -37,10 +37,17 @@
             <i class="fa-solid fa-book"></i>
             <i class="fa-solid fa-envelope-open-text"></i>
             <i class="fa-solid fa-chart-line"></i>
-            <i class="fa-solid fa-calendar-week"></i>
-            <i class="fa-solid fa-circle-question"></i>
-            <i class="fa-solid fa-lock"></i>
+
+
+            <input type="text" class="searchpatientbox" name="searchbox" id="searchpatient"
+                placeholder="Search Patient">
+
+            <a href="#about"><i class="fa-solid fa-calendar-week" style="color: black;"></i></a>
+            <a href="#about"><i class="fa-solid fa-circle-question" style="color: black;"></i></a>
+            <a href="#about"><i class="fa-solid fa-lock" style="color: black;"></i></a>
+
         </div>
+
         <div class="buttonss">
             <label for="#" style="font-size: small;">Active</label>
             <input type="checkbox" name="active" id="active" class="c1">
@@ -58,32 +65,36 @@
             <i class="fa-solid fa-note-sticky"></i>
         </aside>
         <div class="sidebar" style="width:10%">
-            <a>Dashboard</a><br>
-            <a>Demographics</a><br>
-            <a>Insurance</a><br>
-            <a>Case</a><br>
-            <a>Contacts</a><br>
-            <a>Employer</a><br>
-            <a>Appointments</a><br>
-            <a>Encounter</a><br>
-            <a>Documents</a><br>
-            <a>Notes & Alert</a><br>
-            <a>Forms</a><br>
-            <a>Consents</a><br>
-            <a>Reminder</a><br>
-            <a>Allergy</a><br>
-            <a>Diagnosis</a><br>
-            <a>Family History</a><br>
-            <a>Prescription</a><br>
-            <a>Lab</a><br>
-            <a>Immunization</a><br>
-            <a>Vitals</a><br>
-            <a>Authorization</a><br>
-            <a>Claims</a><br>
-            <a>Reciepts</a><br>
-            <a>Open Credits</a><br>
-            <a>Statement</a><br>
-            <a>Ledger</a><br>
+            <ul style="list-style: none;">
+                <li><a>Dashboard</a><br></li>
+                <li><a>Demographics</a><br></li>
+                <li><a>Insurance</a><br></li>
+                <li><a>Case</a><br></li>
+                <li><a>Contacts</a><br></li>
+                <li><a>Employer</a><br></li>
+                <li><a>Appointments</a><br></li>
+                <li><a>Encounter</a><br></li>
+                <li><a>Documents</a><br></li>
+                <li><a>Notes & Alert</a><br></li>
+                <li><a>Forms</a><br></li>
+                <li><a>Consents</a><br></li>
+                <li><a>Reminder Preference</a><br></li>
+                <hr>
+                <li><a>Allergy</a><br></li>
+                <li><a>Diagnosis</a><br></li>
+                <li><a>Family History</a><br></li>
+                <li><a>Prescription</a><br></li>
+                <li><a>Lab</a><br></li>
+                <li><a>Immunization</a><br></li>
+                <li><a>Vitals</a><br></li>
+                <hr>
+                <li><a>Authorization</a><br></li>
+                <li><a>Claims</a><br></li>
+                <li><a>Reciepts</a><br></li>
+                <li><a>Open Credits</a><br></li>
+                <li><a>Statement</a><br></li>
+                <li><a>Ledger</a><br></li>
+            </ul>
         </div>
         <div class="main">
             <!-- <h6 style="width: 10px;">Patient Bar</h6> -->
@@ -95,8 +106,8 @@
                     <div class="left">
                         <table>
                             <tr>
-                                <td><img src="blob:https://iemodemoindia.meditab.com/9b2412a2-e765-4cd5-a3db-d477aeb1bd4f"
-                                        alt="person" width="100" height="100" name="img"></td>
+                                <td><img src="blob:https://iemodemoindia.meditab.com/e9593c48-cb95-42c0-afa0-a366f7362a63"
+                                        alt="person" width="100" height="100" name="img" class="image"></td>
                             </tr>
                             <tr>
                                 <td><label>Prefix:</label></td>
@@ -104,7 +115,7 @@
                             </tr>
                             <tr>
                                 <td><label>First Name:</label></td>
-                                <td><input type="text" name="fname"></td>
+                                <td><input type="text" name="fname" required></td>
                             </tr>
                             <tr>
                                 <td><label>Middle Name:</label></td>
@@ -112,7 +123,7 @@
                             </tr>
                             <tr>
                                 <td><label>Last Name:</label></td>
-                                <td><input type="text" name="lname"></td>
+                                <td><input type="text" name="lname" required></td>
                             </tr>
                             <tr>
                                 <td><label>Suffix:</label></td>

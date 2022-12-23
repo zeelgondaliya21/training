@@ -19,7 +19,7 @@ function submitData(event) {
     window.alert(`Please add a contact for the Patient as ${pdata.Sex == "Male" ? "he" : "she"}, is a minor.`)
 
   }
-  
+  console.log([age])
 }
 
 document.getElementById("formfinal").reset();
