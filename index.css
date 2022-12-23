@@ -4,7 +4,20 @@
   box-sizing: border-box;
 }
 .body{
-  overflow: hidden;
+  scrollbar-width: thin;
+}
+body ::-webkit-scrollbar {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #909090;
+  opacity: .3;
+}
+body ::-webkit-scrollbar-thumb {
+  background-color: #d9e2ec;
+  border-radius: 2px;
+}
+body ::-webkit-scrollbar-track {
+  background-color: #f8f8f9;
 }
 
 .rightsidebar {
@@ -37,15 +50,17 @@
   flex-direction: row;
   font-size: 50px;
   overflow-y: scroll;
-  height: 100%;
+  height: 70%;
+  float: right;
+  margin-top: 200px;
 }
 
-.buttonss{
-  align-items: baseline;
+.buttonss {
   margin-top: 1px;
-  margin-bottom: 120px;
+  margin-bottom: 200px;
   margin-right: 2px;
-  justify-content: right;
+
+  position: fixed;
 }
 
 .patientinfo {  
@@ -55,7 +70,9 @@
   font-size: 15px;
   border-style: groove;
   width: 100%;
-
+  margin-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 
@@ -66,15 +83,15 @@
   font-size: 20px;
   padding-left: 5px;
   padding-top: 5px;
+  margin-top: 100px;
   padding-right: 5px;
   padding-bottom: 5px;
-  margin: auto;
   color: #818181;
   border-style: groove;
   height: 600px;
   overflow-y: scroll;
   overflow-x: hidden;
-  margin-top: 10%;
+  float: left;
 }
 
 .headerbar {
@@ -100,9 +117,6 @@
 
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  padding-top: 200px;
-  height: auto;
 }
 
 .contact {
@@ -110,7 +124,7 @@
   flex-direction: column;
   border-style: groove;
   /* overflow-y: scroll; */
-  height: 50%;
+  margin-bottom: 15px;
 }
 
 .contact-header {
@@ -122,7 +136,7 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  border-style: groove;
+  margin-bottom: 10px;
 }
 
 .section1 {
@@ -142,7 +156,6 @@
   padding-left: 10px;
   width: 50%;
 }
-
 .topnav-right {
   float: right;
   padding-top: 10px;
@@ -179,8 +192,8 @@ input[type=text]:focus {
 }
 
 .contactpref {
-  border: groove;
-  height: 90%;
+  border-style: groove;
+  margin-bottom: 15px;
 }
 
 .contactpreference{
@@ -224,3 +237,4 @@ input[type=text]:focus {
 .center1{
   padding-right: 70pt;
 }
+

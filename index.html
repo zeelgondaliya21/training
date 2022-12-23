@@ -40,18 +40,14 @@
             <i class="fa-solid fa-calendar-week"></i>
             <i class="fa-solid fa-circle-question"></i>
             <i class="fa-solid fa-lock"></i>
-
-            <!-- <aside class="topnav-right">
-            <form action="#">
-                <input type="text" class="searchpatientbox" name="searchbox" id="searchpatient"
-                    placeholder="Search Patient">
-            </form>
-            <i class="fa-solid fa-calendar-week"></i>
-            <i class="fa-solid fa-circle-question"></i>
-            <i class="fa-solid fa-lock"></i>
-        </aside> -->
-    </div>
-
+        </div>
+        <div class="buttonss">
+            <label for="#" style="font-size: small;">Active</label>
+            <input type="checkbox" name="active" id="active" class="c1">
+            <input type="button" id="reverify" value="Reverify" name="b1" class="b1" />
+            <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2" />
+            <input type="submit" id="save" value="Save Changes" name="b3" class="b3" />
+        </div>
         <aside class="rightsidebar" style="width:4%">
             <i class="fa-solid fa-fax"></i>
             <i class="fa-solid fa-comment-dots"></i>
@@ -61,56 +57,40 @@
             <i class="fa-solid fa-calendar-plus"></i>
             <i class="fa-solid fa-note-sticky"></i>
         </aside>
-        <!-- <h1>Right Side Icons</h1>
-            -->
-
-
-        <!-- <h1>Plus Icon</h1>
-            <i class="fa-solid fa-circle-plus"></i>
-            <i class="fa-solid fa-check"></i>
-            <i class="fa-solid fa-folder"></i>
-            <i class="fa-solid fa-location-dot"></i>
-            <i class="fa-solid fa-mars"></i> -->
+        <div class="sidebar" style="width:10%">
+            <a>Dashboard</a><br>
+            <a>Demographics</a><br>
+            <a>Insurance</a><br>
+            <a>Case</a><br>
+            <a>Contacts</a><br>
+            <a>Employer</a><br>
+            <a>Appointments</a><br>
+            <a>Encounter</a><br>
+            <a>Documents</a><br>
+            <a>Notes & Alert</a><br>
+            <a>Forms</a><br>
+            <a>Consents</a><br>
+            <a>Reminder</a><br>
+            <a>Allergy</a><br>
+            <a>Diagnosis</a><br>
+            <a>Family History</a><br>
+            <a>Prescription</a><br>
+            <a>Lab</a><br>
+            <a>Immunization</a><br>
+            <a>Vitals</a><br>
+            <a>Authorization</a><br>
+            <a>Claims</a><br>
+            <a>Reciepts</a><br>
+            <a>Open Credits</a><br>
+            <a>Statement</a><br>
+            <a>Ledger</a><br>
+        </div>
         <div class="main">
             <!-- <h6 style="width: 10px;">Patient Bar</h6> -->
-            <div class="sidebar" style="width:10%">
 
-                <a>Dashboard</a><br>
-                <a>Demographics</a><br>
-                <a>Insurance</a><br>
-                <a>Case</a><br>
-                <a>Contacts</a><br>
-                <a>Employer</a><br>
-                <a>Appointments</a><br>
-                <a>Encounter</a><br>
-                <a>Documents</a><br>
-                <a>Notes & Alert</a><br>
-                <a>Forms</a><br>
-                <a>Consents</a><br>
-                <a>Reminder</a><br>
-                <a>Allergy</a><br>
-                <a>Diagnosis</a><br>
-                <a>Family History</a><br>
-                <a>Prescription</a><br>
-                <a>Lab</a><br>
-                <a>Immunization</a><br>
-                <a>Vitals</a><br>
-                <a>Authorization</a><br>
-                <a>Claims</a><br>
-                <a>Reciepts</a><br>
-                <a>Open Credits</a><br>
-                <a>Statement</a><br>
-                <a>Ledger</a><br>
-            </div>
 
             <div class="patientinofmain">
-                <div class="buttonss">
-                    <label for="#" style="font-size: small;">Active</label>
-                    <input type="checkbox" name="active" id="active" class="c1">
-                    <input type="button" id="reverify" value="Reverify" name="b1" class="b1" />
-                    <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2" />
-                    <input type="submit" id="save" value="Save Changes" name="b3" class="b3" />
-                </div>
+
                 <div class="patientinfo">
                     <div class="left">
                         <table>
@@ -287,7 +267,8 @@
                     <div class="header-contact">
                         <div class="contact-header">
                             <h6 style="font-size: medium;">Contact Details <i class="fa-solid fa-circle-plus"></i></h6>
-                            <span style="font-size: small;">Please set the preferences after adding the contact information, the section to set
+                            <span style="font-size: small;">Please set the preferences after adding the contact
+                                information, the section to set
                                 preference can be found below the
                                 contact section of the page.</p>
                             </span>
@@ -413,214 +394,217 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="contactpref">
-                            <h6 style="font-size: medium;">Contact Preference</h6>
-                            
-                            <table class="contactpreference" name="conpre" border="1">
-                                <tr>
-                                    <td>Type</td>
-                                    <td>Address</td>
-                                    <td>Phone</td>
-                                    <td>Fax</td>
-                                    <td>Email</td>
-                                    <td>Website</td>
-                                </tr>
-                                <tr>
-                                    <td>Appointment Reminder</td>
-                                    <td><input type="text" name="e1" id=""></td>
-                                    <td><input type="text" name="e2" id=""></td>
-                                    <td><input type="text" name="e3" id=""></td>
-                                    <td><input type="text" name="e4" id=""></td>
-                                    <td><input type="text" name="e5" id=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Mailing</td>
-                                    <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
-                                    <td><input type="text" name="e6" id=""></td>
-                                    <td><input type="text" name="e7" id=""></td>
-                                    <td><input type="text" name="e8" id=""></td>
-                                    <td><input type="text" name="e9" id=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Primary</td>
-                                    <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
-                                    <td><input type="text" name="e10" id=""></td>
-                                    <td><input type="text" name="e11" id=""></td>
-                                    <td><input type="text" name="e12" id=""></td>
-                                    <td><input type="text" name="e13" id=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Statement</td>
-                                    <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
-                                    <td><input type="text" name="e14" id=""></td>
-                                    <td><input type="text" name="e15" id=""></td>
-                                    <td><input type="text" name="e16" id=""></td>
-                                    <td><input type="text" name="e17" id=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Preferred Comm.</td>
-                                    <td colspan="5">
-                                        <label for="type">Type:</label>
-                                        <select class="typeco" name="seltype">
-                                            <option>Email</option>
-                                            <option>Fax</option>
-                                            <option>Mail</option>
-                                            <option>Phone</option>
-                                            <option>Text</option>
-                                        </select>
-                                        <label>Value:</label>
-                                        <input class="valueco" type="text" name="valueco">
-                                    </td>
-                                </tr>
-                            </table>
 
-                        </div>
                         <!-- </div> -->
                     </div>
-                    <div class="otherinfo">
-                        <!-- <div class="contact-header">
-                            <h6>Contact Details <i class="fa-solid fa-circle-plus"></i></h6>
-                        </div> -->
-                        <div class="left1">
-                            <table>
-                                <tr>
-                                    <td><label for="">Employment:</label></td>
-                                    <td>
-                                        <select name="Employment" id="eid">
-                                            <option value="">Full Time</option>
-                                            <option value="">Part Time</option>
-                                            <option value="">Unemployed</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">First Called Date:</label>
-                                    </td>
-                                    <td>
-                                        <input type="date" name="First called date" id="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Deceased Time:</label>
-                                    </td>
-                                    <td>
-                                        <input type="date" name="death time" id="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Mother's Last Name:</label>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="mother's last name" id="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Birth Place:</label>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="birth place" id="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Citizenship</label>
-                                    </td>
-                                    <td>
-                                        <select name="citizden" id="">
-                                            <option value="">American</option>
-                                            <option value="">Indian</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Note:</label>
-                                    </td>
-                                    <td>
-                                        <textarea name="Note"></textarea>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="center1">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label for="">Gender Identity:</label>
-                                    </td>
-                                    <td>
-                                        <select name="Gender Identity" id="gid">
-                                            <option value="">Male</option>
-                                            <option value="">Female</option>
-                                            <option value="">Unknown</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Referral Resource:</label>
-                                    </td>
-                                    <td>
-                                        <select name="Referral Resource" id="Referral">
-                                            <option value="">Kaiser Hospital</option>
-                                            <option value="">Medilink Hospital</option>
-                                            <option value="">Civil Hospital</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Mother's Maiden:</label>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="Mother's Maiden" id="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Mother Identifier:</label>
 
-                                    </td>
-                                    <td>
-                                        <input type="text" name="Mother Indentifier">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Multiple Birth:</label>
+                </div>
+                <div class="contactpref">
+                    <h6 style="font-size: medium;">Contact Preference</h6>
 
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="Multiple Birth check" id="">
-                                        <input type="date" name="Multiple Birth">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="">Religion:</label>
-                                    </td>
-                                    <td>
-                                        <select name="Relegion" id="religion">
-                                            <option value="">Christian</option>
-                                            <option value="">Agnostic</option>
-                                            <option value="">Hindu</option>
-                                        </select>
-                                    </td>
-                                </tr>
+                    <table class="contactpreference" name="conpre" border="1">
+                        <tr>
+                            <td>Type</td>
+                            <td>Address</td>
+                            <td>Phone</td>
+                            <td>Fax</td>
+                            <td>Email</td>
+                            <td>Website</td>
+                        </tr>
+                        <tr>
+                            <td>Appointment Reminder</td>
+                            <td><input type="text" name="e1" id=""></td>
+                            <td><input type="text" name="e2" id=""></td>
+                            <td><input type="text" name="e3" id=""></td>
+                            <td><input type="text" name="e4" id=""></td>
+                            <td><input type="text" name="e5" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Mailing</td>
+                            <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                            <td><input type="text" name="e6" id=""></td>
+                            <td><input type="text" name="e7" id=""></td>
+                            <td><input type="text" name="e8" id=""></td>
+                            <td><input type="text" name="e9" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Primary</td>
+                            <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                            <td><input type="text" name="e10" id=""></td>
+                            <td><input type="text" name="e11" id=""></td>
+                            <td><input type="text" name="e12" id=""></td>
+                            <td><input type="text" name="e13" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Statement</td>
+                            <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                            <td><input type="text" name="e14" id=""></td>
+                            <td><input type="text" name="e15" id=""></td>
+                            <td><input type="text" name="e16" id=""></td>
+                            <td><input type="text" name="e17" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Preferred Comm.</td>
+                            <td colspan="5">
+                                <label for="type">Type:</label>
+                                <select class="typeco" name="seltype">
+                                    <option>Email</option>
+                                    <option>Fax</option>
+                                    <option>Mail</option>
+                                    <option>Phone</option>
+                                    <option>Text</option>
+                                </select>
+                                <label>Value:</label>
+                                <input class="valueco" type="text" name="valueco">
+                            </td>
+                        </tr>
+                    </table>
 
-                            </table>
-                        </div>
-                      
-                        <div class="right1">
-                              <table>
+                </div>
+                <div class="otherinfo">
+                    <!-- <div class="contact-header">
+                        <h6>Contact Details <i class="fa-solid fa-circle-plus"></i></h6>
+                    </div> -->
+                    <div class="left1">
+                        <table>
+                            <tr>
+                                <td><label for="">Employment:</label></td>
+                                <td>
+                                    <select name="Employment" id="eid">
+                                        <option value="">Full Time</option>
+                                        <option value="">Part Time</option>
+                                        <option value="">Unemployed</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">First Called Date:</label>
+                                </td>
+                                <td>
+                                    <input type="date" name="First called date" id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Deceased Time:</label>
+                                </td>
+                                <td>
+                                    <input type="date" name="death time" id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Mother's Last Name:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="mother's last name" id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Birth Place:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="birth place" id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Citizenship</label>
+                                </td>
+                                <td>
+                                    <select name="citizden" id="">
+                                        <option value="">American</option>
+                                        <option value="">Indian</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Note:</label>
+                                </td>
+                                <td>
+                                    <textarea name="Note"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="center1">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="">Gender Identity:</label>
+                                </td>
+                                <td>
+                                    <select name="Gender Identity" id="gid">
+                                        <option value="">Male</option>
+                                        <option value="">Female</option>
+                                        <option value="">Unknown</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Referral Resource:</label>
+                                </td>
+                                <td>
+                                    <select name="Referral Resource" id="Referral">
+                                        <option value="">Kaiser Hospital</option>
+                                        <option value="">Medilink Hospital</option>
+                                        <option value="">Civil Hospital</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Mother's Maiden:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="Mother's Maiden" id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Mother Identifier:</label>
+
+                                </td>
+                                <td>
+                                    <input type="text" name="Mother Indentifier">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Multiple Birth:</label>
+
+                                </td>
+                                <td>
+                                    <input type="checkbox" style="width: 10%;" name="Multiple Birth check" id="">
+                                    <input type="date" name="Multiple Birth">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Religion:</label>
+                                </td>
+                                <td>
+                                    <select name="Relegion" id="religion">
+                                        <option value="">Christian</option>
+                                        <option value="">Agnostic</option>
+                                        <option value="">Hindu</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                    <div class="right1">
+                        <table>
                             <tr>
                                 <td>
                                     <label for="">Sexual Orientation:</label>
-                                    
+
                                 </td>
                                 <td>
                                     <select name="Sexual Orientation" id="sexorient">
@@ -633,7 +617,7 @@
                             <tr>
                                 <td>
                                     <label for="">Deceased:</label>
-                                    
+
                                 </td>
                                 <td>
                                     <input type="checkbox" name="Deceased check" id="Deceasedcheck">
@@ -643,7 +627,7 @@
                             <tr>
                                 <td>
                                     <label for="">Veteran Military Status:</label>
-                                    
+
                                 </td>
                                 <td>
                                     <select name="Veteran Military Status" id="vms">
@@ -654,7 +638,7 @@
                             <tr>
                                 <td>
                                     <label for="">Mother's Middle Name:</label>
-                                    
+
                                 </td>
                                 <td>
                                     <input type="text" name="Mother's middle name" id="mothermidname">
@@ -663,7 +647,7 @@
                             <tr>
                                 <td>
                                     <label for="">Nationality:</label>
-                                    
+
                                 </td>
                                 <td>
                                     <select name="Nationality" id="Nationality">
@@ -675,16 +659,15 @@
                             <tr>
                                 <td>
                                     <label for="">Driving License:</label>
-                                    
+
                                 </td>
                                 <td>
                                     <input type="text" name="Driving License" id="">
                                 </td>
                             </tr>
                         </table>
-                        </div>
-
                     </div>
+
                 </div>
 
             </div>
