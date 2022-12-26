@@ -7,6 +7,7 @@
   scrollbar-width: thin;
   background-color: #f1f1f7;
   overflow: hidden;
+  width: 100%;
 }
 body ::-webkit-scrollbar {
   width: .50rem;
@@ -22,11 +23,13 @@ body ::-webkit-scrollbar-track {
   background-color: #f8f8f9;
 }
 
+
 .rightsidebar {
   background-color: white;
   float: right;
   font-size: 25pt;
   border-style: ridge;
+  border-radius: 5px;
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -41,6 +44,7 @@ body ::-webkit-scrollbar-track {
   z-index: 100;
   background-color: white;
   border-style: ridge;
+  border-radius: 5px;
   font-size: 25pt;
   padding-left: 4px;
   padding-top: 4px;
@@ -57,10 +61,11 @@ body ::-webkit-scrollbar-track {
   flex-direction: row;
   font-size: 50px;
   overflow-y: scroll;
-  height: 70%;
+  height: 73%;
+  /* width: 100%; */
   float: right;
   margin-top: 190px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 
 }
 
@@ -82,6 +87,7 @@ body ::-webkit-scrollbar-track {
   padding-left: 100px;
   font-size: 15px;
   border-style: ridge;
+  border-radius: 5px;
   width: 100%;
   margin-bottom: 15px;
   padding-top: 10px;
@@ -103,10 +109,13 @@ body ::-webkit-scrollbar-track {
   padding-bottom: 5px;
   color: #818181;
   border-style: ridge;
+  border-radius: 5px;
   height: 600px;
   overflow-y: scroll;
   overflow-x: ridge;
+  border-radius: 5px;
   float: left;
+  width:10%;
 
 }
 
@@ -121,6 +130,7 @@ li {
 .left {
   padding-right: 70pt;
   display: flex;
+  width: 1450px;
 }
 
 .center {
@@ -143,13 +153,15 @@ li {
   display: flex;
   flex-direction: column;
   border-style: ridge;
+  border-radius: 5px;
   /* overflow-y: scroll; */
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .contact-header {
   font-size: 25px;
   width: 100%;
+  padding: 10px 10px 10px 10px;
 }
 
 .section12 {
@@ -213,8 +225,10 @@ input[type=text]:focus {
 
 .contactpref {
   border-style: ridge;
+  border-radius: 5px;
   margin-bottom: 15px;
   background-color: white;
+  padding: 12px 12px 12px 12px;
 }
 
 .contactpreference{
@@ -244,11 +258,21 @@ input[type=text]:focus {
   padding-top: 2px;
   display: flex;
   border-style: ridge;
-  flex-direction: row;
+  border-radius: 5px;
+  flex-direction: column;
   font-size: 15px;
   width: 100%;
-  padding-left: 100px;
+  /* padding-left: 100px; */
   padding-right: 100px;
+}
+.other-header{
+  right: 0;
+  padding: 10px 10px 10px 10px;
+  font-size: 25px;
+}
+.otherinfosub{
+  display: flex;
+  flex-direction: row;
 }
 
 .left1{
@@ -259,7 +283,9 @@ input[type=text]:focus {
 .center1{
   padding-right: 70pt;
 }
-
+input[type=checkbox] {
+  zoom: 1.5;
+}
 
 i:hover{
   cursor: hand;
@@ -269,12 +295,35 @@ i {
   
 }
 .searchpatientbox{
-  width: 2%;
+  height: min-content;
+  width: min-content;
+  align-items: center;
+  margin-top: 9px;
+  margin-left: 400px;
 }
 .image{
-  height: 100%;
-  width: 100%;
-  border-radius: 2rem;
-  border: unset;
+  
+  border-radius: 1rem;
+  object-fit: fill;
   box-shadow: 0 2px 4px rgb(0 0 0 / 24%), 0 4px 8px rgb(0 0 0 / 12%);
+}
+
+.leftshow{
+  float: right;
+  right: 0;
+}
+
+.patientinfo > table> tr  > td  label{
+  text-align: right;
+}
+.hide-sidebar{
+  width: 2%;
+
+}
+.expand-main{
+  width: 90%;
+}
+
+.hide-otherinfo{
+  display: none;
 }
