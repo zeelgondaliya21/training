@@ -19,7 +19,6 @@ function submitData(event) {
     window.alert(`Please add a contact for the Patient as ${pdata.Sex == "Male" ? "he" : "she"}, is a minor.`)
 
   }
-  console.log([age])
 }
 
 document.getElementById("formfinal").reset();
@@ -29,17 +28,103 @@ document.getElementById("formfinal").reset();
 var leftshowcontent = document.getElementById("sideshow");
 var sidebarCollapse = document.getElementById("sidebar-collapse");
 var expand = document.getElementById("maindiv");
+// function sidebarShow(){
+//   // console.log(leftshowcontent);
+//   leftshowcontent.classList.toggle("hide-sidebar");
+//   expand.classList.toggle("expand-main");
+// }
+
 function sidebarShow(){
   // console.log(leftshowcontent);
   leftshowcontent.classList.toggle("hide-sidebar");
   expand.classList.toggle("expand-main");
 }
+function myFunction(x) {
+  x.classList.toggle("fa fa-chevron-right");
+}
+function multiFun(){
+  sidebarShow();
+  myFunction(temp);
+}
+
 
 var othershowcontent = document.getElementById("other-in");
 var otherCollapse = document.getElementById("othersection");
 function otherInfoShow(){
   // console.log(othershowcontent);
   othershowcontent.classList.toggle("hide-otherinfo");
+}
+
+var addbtn = document.getElementById("form1");
+function addSection() {
+  document.querySelector('#form1').insertAdjacentHTML(
+    'afterbegin',
+    `                                    <div id="form1">
+    <fieldset>
+        <legend>
+            <select name="home" id="add1">
+                <option>Home</option>
+                <option>Work</option>
+                <option>Other</option>
+            </select>
+            <span style="padding-bottom: 20px;">Adress</span>
+            <i class="gg-trash" onclick="removeSection" id="trashbin"></i>
+        </legend>
+        <label style="font-size: 20px;">Street</label><br><input type="text"
+            name="street1" id="">
+        <table>
+            <tr>
+                <td><label>Zip</label><br><input type="text" name="zip1" id=""></td>
+                <td><label>City</label><br><input type="text" name="city1" id="">
+                </td>
+                <td><label>State</label><br><select name="state1" id="state1">
+                        <option>California</option>
+                        <option>Pensilvenia</option>
+                        <option>Florida</option>
+                    </select>
+                <td><label>Coutnry</label><br><select name="country1" id="coutnry1">
+                        <option>India</option>
+                        <option>US</option>
+                        <option>Canada</option>
+                    </select></td>
+            </tr>
+        </table>
+        <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
+        <table>
+            <tr>
+                <td colspan="2"><label>Type</label>
+                    <hr><select name="type1" id="type">
+                        <option>Call</option>
+                        <option>Landline</option>
+                    </select>
+                </td>
+                <td colspan="2"><label>Code</label>
+                    <hr><select name="code1" id="code1">
+                        <option>+1(US)</option>
+                        <option>+91(Ind)</option>
+                        <option>+7(Rus)</option>
+                    </select>
+                </td>
+                <td colspan="2"><label>Number</label>
+                    <hr><input type="text" name="number1" id="">
+                </td>
+                <td colspan="2"><label>Ext</label>
+                    <hr><input type="text" name="ext1" id="">
+                </td>
+            </tr>
+        </table>
+        <h6>Fax<i class="fa-solid fa-circle-plus"></i></h6>
+        <h6>Email<i class="fa-solid fa-circle-plus"></i></h6>
+        <input type="text" name="email1" id="">
+        <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
+
+    </fieldset>
+</div>`)
+  addbtn.classList.toggle("add-section");
+}
+
+function removeSection(trashbin) {
+  trashbin.parentNode.remove()
 }
 // "1. Collapsible SIdebar: Good
 // 2. Respoinsive: Good
@@ -187,21 +272,3 @@ function otherInfoShow(){
 //   }
 
 // }
-
-
-  // // function otherInOut() {
-  // //   let patientOtherDetailView = document.getElementsByClassName("other-in")[0];
-  // //   let patientOtherDetailShowElement = document.getElementById("other-out");
-  
-  // //   if (patientOtherDetailShowElement.classList.contains("fa-solid fa-circle-plus")) {
-  // //       patientOtherDetailShowElement.classList.remove("fa-solid fa-circle-plus");
-  // //       patientOtherDetailShowElement.classList.add("fa-circle-chevron-down");
-  // //       patientOtherDetailView.style.display = "flex";
-  // //   } else {
-  // //       patientOtherDetailShowElement.classList.remove("fa-circle-chevron-down");
-  // //       patientOtherDetailShowElement.classList.add("fa-solid fa-circle-plus");
-  // //       patientOtherDetailView.style.display = "none";
-  // //   }
-  // // }
-  
-  

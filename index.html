@@ -43,20 +43,24 @@
             <input type="text" class="searchpatientbox" name="searchbox" id="searchpatient"
                 placeholder="Search Patient">
 
-            <a href="#about"><i class="fa-solid fa-calendar-week" style="color: black;"></i></a>
-            <a href="#about"><i class="fa-solid fa-circle-question" style="color: black;"></i></a>
-            <a href="#about"><i class="fa-solid fa-lock" style="color: black;"></i></a>
+            <a href="#about"><i class="fa-solid fa-calendar-week"></i></a>
+            <a href="#about"><i class="fa-solid fa-circle-question"></i></a>
+            <a href="#about"><i class="fa-solid fa-lock"></i></a>
 
         </div>
-
+        <div class="pbar">
+            <span class="pbarcontent"></span>
+                <!-- Patient Bar -->
+            </span>   
+        </div>
         <div class="buttonss">
-            <label for="#" style="font-size: small;">Active</label>
-            <input type="checkbox" name="active" id="active" class="c1">
+            <!-- <label for="#" style="font-size: medium;">Active</label> -->
+            <input type="checkbox" name="active" id="active" class="c1" style="margin-top: 10px;">
             <input type="button" id="reverify" value="Reverify" name="b1" class="b1" />
             <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2" />
             <input type="submit" id="save" value="Save Changes" name="b3" class="b3" />
         </div>
-        <aside class="rightsidebar" style="width:4%">
+        <aside class="rightsidebar">
             <i class="fa-solid fa-fax"></i>
             <i class="fa-solid fa-comment-dots"></i>
             <i class="fa-solid fa-envelope"></i>
@@ -66,14 +70,12 @@
             <i class="fa-solid fa-note-sticky"></i>
         </aside>
         <div class="super">
-
-            <div class="sidebar"  id="sideshow">
+            <div class="sidebar" id="sideshow">
                 <div class="leftshow">
-                    <i class="fa fa-chevron-left" id="sidebar-collapse" onclick="sidebarShow()"></i>
+                    <i class="fa fa-chevron-left" id="sidebar-collapse" onclick="sidebarShow()" style="position: fixed;"></i>
                 </div>
                 <div class="leftshowcontent" id="leftbarcontent">
                     <ul style="list-style: none;">
-
                         <li><a>Dashboard</a><br></li>
                         <li><a>Demographics</a><br></li>
                         <li><a>Insurance</a><br></li>
@@ -105,6 +107,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="buttonss">
+                <label for="#" style="font-size: small;">Active</label>
+                <input type="checkbox" name="active" id="active" class="c1" style="margin-top: 10px;">
+                <input type="button" id="reverify" value="Reverify" name="b1" class="b1" />
+                <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2" />
+                <input type="submit" id="save" value="Save Changes" name="b3" class="b3" />
+            </div>
             <div class="main" id="maindiv">
                 <!-- <h6 style="width: 10px;">Patient Bar</h6> -->
 
@@ -115,8 +124,14 @@
                         <div class="left">
                             <table>
                                 <tr>
-                                    <td><img src="./training photo.jfif"
-                                            alt="person" width="100" height="100" name="img" class="image"></td>
+                                    <td></td>
+                                    <td><img src="./training photo.jfif" alt="person" width="120" height="120"
+                                            name="img" class="image">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><span style="font-size:large">PT00000000025</span></td>
                                 </tr>
                                 <tr>
                                     <td><label>Prefix:</label></td>
@@ -124,7 +139,7 @@
                                 </tr>
                                 <tr>
                                     <td><label>First Name:</label></td>
-                                    <td><input type="text" name="fname" required></td>
+                                    <td><input type="text" name="fname" class="required" required></td>
                                 </tr>
                                 <tr>
                                     <td><label>Middle Name:</label></td>
@@ -132,11 +147,11 @@
                                 </tr>
                                 <tr>
                                     <td><label>Last Name 2:</label></td>
-                                    <td><input type="text" name="lastname2" ></td>
+                                    <td><input type="text" name="lastname2"></td>
                                 </tr>
                                 <tr>
                                     <td><label>Last Name:</label></td>
-                                    <td><input type="text" name="lname" required></td>
+                                    <td><input type="text" name="lname" class="required" required></td>
                                 </tr>
                                 <tr>
                                     <td><label>Suffix:</label></td>
@@ -172,7 +187,8 @@
                                     </tr>
                                     <tr>
                                         <td><label>interpreter:</label></td>
-                                        <td><input type="checkbox" name="interpret" style="margin: 10px 0px 10px 0px"></td>
+                                        <td><input type="checkbox" name="interpret" style="margin: 10px 0px 10px 0px">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label>Status:</label></td>
@@ -187,7 +203,8 @@
                                     </tr>
                                     <tr>
                                         <td><label>Risk:</label></td>
-                                        <td><input type="button" value="high" name="risk" style="margin: 10px 0px 10px 0px"></td>
+                                        <td><input type="button" value="high" name="risk"
+                                                style="margin: 10px 0px 10px 0px"></td>
                                     </tr>
                                     <tr>
                                         <td><label>Marital Status:</label></td>
@@ -225,7 +242,8 @@
                                 <table>
                                     <tr>
                                         <td><label>Self Pay:</label></td>
-                                        <td><input type="checkbox" name="selfpay" style="margin: 10px 0px 10px 0px"></td>
+                                        <td><input type="checkbox" name="selfpay" style="margin: 10px 0px 10px 0px">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label>Default Facility:</label></td>
@@ -265,7 +283,8 @@
                                     </tr>
                                     <tr>
                                         <td><label>PCP same as provider:</label></td>
-                                        <td><input type="checkbox" name="sameasrx" style="margin: 10px 0px 10px 0px"></td>
+                                        <td><input type="checkbox" name="sameasrx" style="margin: 10px 0px 10px 0px">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label>PCP:</label></td>
@@ -290,7 +309,7 @@
                     <div class="contact">
                         <div class="header-contact">
                             <div class="contact-header">
-                                <h6>Contact Details <i class="fa-solid fa-circle-plus"></i></h6>
+                                <h6>Contact Details <i class="fa-solid fa-circle-plus" onclick="addSection()"></i></h6>
                                 <span style="font-size: medium;">Please set the preferences after adding the contact
                                     information, the section to set
                                     preference can be found below the
@@ -308,10 +327,11 @@
                                                     <option>Work</option>
                                                     <option>Other</option>
                                                 </select>
-                                                <span style="padding-bottom: 10px;">Adress</span>
-                                                <i class="gg-trash"></i>
+                                                <span style="padding-bottom: 20px;">Adress</span>
+                                                <i class="gg-trash" onclick="removeSection" id="trashbin"></i>
                                             </legend>
-                                            <label style="font-size: 20px;">Street</label><br><input type="text" name="street1" id="">
+                                            <label style="font-size: 20px;">Street</label><br><input type="text"
+                                                name="street1" id="">
                                             <table>
                                                 <tr>
                                                     <td><label>Zip</label><br><input type="text" name="zip1" id=""></td>
@@ -359,10 +379,10 @@
                                             <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
 
                                         </fieldset>
-                                        </fieldset>
+
                                     </div>
                                 </div>
-                                <div class="section2">
+                                <!-- <div class="section2">
                                     <div id="form2">
                                         <fieldset>
                                             <legend>
@@ -373,7 +393,8 @@
                                                 </select>
                                                 <span style="padding: 10px;">Adress</span>
                                             </legend>
-                                            <label style="font-size: 20px;">Street</label><br><input type="text" name="street2" id="">
+                                            <label style="font-size: 20px;">Street</label><br><input type="text"
+                                                name="street2" id="">
                                             <table>
                                                 <tr>
                                                     <td><label>Zip</label><br><input type="text" name="zip2" id=""></td>
@@ -421,7 +442,7 @@
                                             <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
                                         </fieldset>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <!-- </div> -->
@@ -450,7 +471,7 @@
                             </tr>
                             <tr>
                                 <td>Mailing</td>
-                                <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                                <td><input type="text" name="e18" id=""></td>
                                 <td><input type="text" name="e6" id=""></td>
                                 <td><input type="text" name="e7" id=""></td>
                                 <td><input type="text" name="e8" id=""></td>
@@ -458,7 +479,7 @@
                             </tr>
                             <tr>
                                 <td>Primary</td>
-                                <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                                <td><input type="text" name="e19" id=""></td>
                                 <td><input type="text" name="e10" id=""></td>
                                 <td><input type="text" name="e11" id=""></td>
                                 <td><input type="text" name="e12" id=""></td>
@@ -466,7 +487,7 @@
                             </tr>
                             <tr>
                                 <td>Statement</td>
-                                <td>134, Street View, ERIE, PENNSYLVANIA 16544, US</td>
+                                <td><input type="text" name="e20" id=""></td>
                                 <td><input type="text" name="e14" id=""></td>
                                 <td><input type="text" name="e15" id=""></td>
                                 <td><input type="text" name="e16" id=""></td>
@@ -484,7 +505,7 @@
                                         <option>Text</option>
                                     </select>
                                     <label>Value:</label>
-                                    <input class="valueco" type="text" name="valueco">
+                                    <input class="valueco" type="text" name="valueco" style="width: min-content;">
                                 </td>
                             </tr>
                         </table>
@@ -492,7 +513,8 @@
                     </div>
                     <div class="otherinfo">
                         <div class="other-header" id="other-out">
-                            <h6>Other Details<i class="fa-solid fa-circle-chevron-down" id="othersection" onclick="otherInfoShow()"></i></h6>
+                            <h6>Other Details<i class="fa-solid fa-circle-chevron-down" id="othersection"
+                                    onclick="otherInfoShow()"></i></h6>
                         </div>
                         <div class="otherinfosub" id="other-in">
                             <div class="left1">

@@ -3,39 +3,49 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .body{
   scrollbar-width: thin;
   background-color: #f1f1f7;
   overflow: hidden;
-  width: 100%;
+  font-size: 1.3rem;
 }
 body ::-webkit-scrollbar {
-  width: .50rem;
-  height: 0.75rem;
+  
+
   background-color: #909090;
   opacity: .3;
+  width: .50rem;
 }
 body ::-webkit-scrollbar-thumb {
   background-color: #c3d6ec;
   border-radius: 4px;
+  border: solid 6px transparent;
 }
 body ::-webkit-scrollbar-track {
   background-color: #f8f8f9;
 }
-
+.super{
+  height: 100%;
+  width: 100%;
+}
 
 .rightsidebar {
   background-color: white;
   float: right;
+  top: 0;
+  height: 100%;
+  width: 3%;
   font-size: 25pt;
-  border-style: ridge;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
+  /* margin-top: 0px; */
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   justify-content: center;
-  height: 100%;
+  height: auto;
   z-index: 100;
 }
 
@@ -43,7 +53,7 @@ body ::-webkit-scrollbar-track {
   display: flex;
   z-index: 100;
   background-color: white;
-  border-style: ridge;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   font-size: 25pt;
   padding-left: 4px;
@@ -52,19 +62,25 @@ body ::-webkit-scrollbar-track {
   padding-bottom: 4px;
 }
 
+.headermain > i{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .topnav-right {
   padding-right: 0px;
 }
 
 .main {
   display: flex;
+  font-family: WebImsLato;
   flex-direction: row;
   font-size: 50px;
   overflow-y: scroll;
-  height: 73%;
-  /* width: 100%; */
+  width: 83%;
+  height: 79%;
   float: right;
-  margin-top: 190px;
+  margin-top: 120px;
   /* margin-left: 20px; */
 
 }
@@ -72,21 +88,36 @@ body ::-webkit-scrollbar-track {
 .buttonss {
   margin-top: 1px;
   right: 100;
-  top: 210;
-  margin-bottom: 200px;
-  margin-right: 2px;
+  top: 120;
+  width: 80%;
+  /* margin-bottom: 200px;
+  margin-right: 2px; */
   text-align: right;
   position: fixed;
 }
 
+.buttonss > input{
+  color: #fff;
+  line-height: 1.2rem;
+  height: auto;
+  background-color: #fff;
+  width: auto;
+  padding: 0.3rem 0.5rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  border: 1px solid #627d98;
+  color: #627d98;
+}
+
+
 .patientinfo {  
-  
+  justify-content: center;
   background-color: white;
   display: flex;
   flex-direction: row;
   padding-left: 100px;
   font-size: 15px;
-  border-style: ridge;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   width: 100%;
   margin-bottom: 15px;
@@ -94,31 +125,27 @@ body ::-webkit-scrollbar-track {
   padding-bottom: 10px;
 }
 
-.pbar{
-  left: 0;
+.required:after{
+  content: "*";
 }
 
 .sidebar {
   /* padding: 6px 8px 6px 8px; */
-  background-color: white;
-  font-size: 15px;
-  padding-left: 5px;
-  padding-top: 5px;
-  margin-top: 150px;
-  padding-right: 5px;
-  padding-bottom: 5px;
+  background-color: #f1f1f7;
+  font-family: WebImsLato;
+  margin-top: 60px;
+  margin-left: 10px;
   color: #818181;
-  border-style: ridge;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
-  height: 600px;
+  height: 88%;
   overflow-y: scroll;
-  overflow-x: ridge;
   border-radius: 5px;
   float: left;
-  width:10%;
-
+  width:12%;
+  padding: 10px 10px 10px 10px;
+  font-size: 1.2rem;
 }
-
 li {
   margin-bottom: 10px;
 }
@@ -128,7 +155,6 @@ li {
 }
 
 .left {
-  padding-right: 70pt;
   display: flex;
   width: 1450px;
 }
@@ -152,7 +178,7 @@ li {
   background-color: white;
   display: flex;
   flex-direction: column;
-  border-style: ridge;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   /* overflow-y: scroll; */
   margin-bottom: 10px;
@@ -165,29 +191,36 @@ li {
 }
 
 .section12 {
-  display: flex;
+  height: 10%;
   width: 100%;
-  flex-direction: row;
   margin-bottom: 10px;
+  
 }
 
 .section1 {
   font-size: 25px;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
-  width: 50%;
+  
+  
 }
-
-.section2 {
+#form1{
+  min-width: 40%;
+  width: 100%;
+}
+/* .section2 {
   font-size: 25px;
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
-  width: 50%;
-}
+  width: 100%;
+} */
 .topnav-right {
   float: right;
   padding-top: 10px;
@@ -224,7 +257,7 @@ input[type=text]:focus {
 }
 
 .contactpref {
-  border-style: ridge;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   margin-bottom: 15px;
   background-color: white;
@@ -257,7 +290,7 @@ input[type=text]:focus {
   background-color: white;
   padding-top: 2px;
   display: flex;
-  border-style: ridge;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   flex-direction: column;
   font-size: 15px;
@@ -283,8 +316,9 @@ input[type=text]:focus {
 .center1{
   padding-right: 70pt;
 }
+
 input[type=checkbox] {
-  zoom: 1.5;
+  zoom: 1;
 }
 
 i:hover{
@@ -292,14 +326,13 @@ i:hover{
 }
 i {
   padding: 5px;
-  
+  color: #627d98;
+  font-size: 80%;
 }
 .searchpatientbox{
-  height: min-content;
-  width: min-content;
-  align-items: center;
-  margin-top: 9px;
   margin-left: 400px;
+  border-radius: 6rem;
+  
 }
 .image{
   
@@ -307,7 +340,6 @@ i {
   object-fit: fill;
   box-shadow: 0 2px 4px rgb(0 0 0 / 24%), 0 4px 8px rgb(0 0 0 / 12%);
 }
-
 .leftshow{
   float: right;
   right: 0;
@@ -317,13 +349,46 @@ i {
   text-align: right;
 }
 .hide-sidebar{
-  width: 2%;
+  width: 0%;
 
 }
 .expand-main{
-  width: 90%;
+  width: 95%;
+  align-content: center;
+  display: block;
+  padding-left: 1%;
+  padding-right: 2%;
+  transition-duration: .5s;
 }
 
 .hide-otherinfo{
   display: none;
 }
+
+
+/* .add-section{
+  
+} */
+
+.fieldset{
+  border-color: #9fb3c8;
+}
+
+.required-fname:after{
+  content: "*";
+  color: red;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+
+.required-lname:after{
+  content: "*";
+  color: red;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+
+
+
