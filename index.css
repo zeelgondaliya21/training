@@ -16,6 +16,7 @@ body ::-webkit-scrollbar {
   background-color: #909090;
   opacity: .3;
   width: .50rem;
+  height: .50rem;
 }
 body ::-webkit-scrollbar-thumb {
   background-color: #c3d6ec;
@@ -109,6 +110,14 @@ body ::-webkit-scrollbar-track {
   color: #627d98;
 }
 
+button:hover{
+  transform: scale(1.05);
+  color: blue;
+}
+
+.fa-solid fa-trash-can:before {
+  content: "\f1f8";
+}
 
 .patientinfo {  
   justify-content: center;
@@ -125,7 +134,7 @@ body ::-webkit-scrollbar-track {
   padding-bottom: 10px;
 }
 
-.required:after{
+.required:before{
   content: "*";
 }
 
@@ -135,20 +144,27 @@ body ::-webkit-scrollbar-track {
   font-family: WebImsLato;
   margin-top: 60px;
   margin-left: 10px;
-  color: #818181;
+  color: black;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   height: 88%;
   overflow-y: scroll;
+  overflow-x: hidden;
   border-radius: 5px;
   float: left;
-  width:12%;
+  width:10%;
   padding: 10px 10px 10px 10px;
   font-size: 1.2rem;
 }
-li {
+.sidebar li {
   margin-bottom: 10px;
+  transition: transform .2s;
 }
+.sidebar li:hover{
+  transform: scale(1.05);
+  color: blue;
+}
+
 .headerbar {
   align-items: left;
   font-size: 25pt;
@@ -156,6 +172,7 @@ li {
 
 .left {
   display: flex;
+  padding-left: 70pt;
   width: 1450px;
 }
 
@@ -191,10 +208,16 @@ li {
 }
 
 .section12 {
-  height: 10%;
   width: 100%;
   margin-bottom: 10px;
   
+  font-size: 25px;
+  display: flex;
+  overflow-x: scroll;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 .section1 {
@@ -350,6 +373,8 @@ i {
 }
 .hide-sidebar{
   width: 0%;
+  /* content-visibility:hidden; */
+  /* overflow-y: hidden; */
 
 }
 .expand-main{
@@ -366,9 +391,10 @@ i {
 }
 
 
-/* .add-section{
-  
-} */
+.add-section{
+  display: flex;
+  overflow-x: scroll;
+}
 
 .fieldset{
   border-color: #9fb3c8;

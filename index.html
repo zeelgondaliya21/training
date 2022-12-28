@@ -56,9 +56,9 @@
         <div class="buttonss">
             <!-- <label for="#" style="font-size: medium;">Active</label> -->
             <input type="checkbox" name="active" id="active" class="c1" style="margin-top: 10px;">
-            <input type="button" id="reverify" value="Reverify" name="b1" class="b1" />
-            <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2" />
-            <input type="submit" id="save" value="Save Changes" name="b3" class="b3" />
+            <input type="button" id="reverify" value="Reverify" name="b1" class="b1">
+            <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2">
+            <input type="submit" id="save" value="Save Changes" name="b3" class="b3" style="background-color: blue;">
         </div>
         <aside class="rightsidebar">
             <i class="fa-solid fa-fax"></i>
@@ -296,7 +296,7 @@
                                     </tr>
                                     <tr>
                                         <td><label>Fees Schedule:</label></td>
-                                        <td><select name="FeesSchedule" id="FeesSchedule">
+                                        <td><select name="FeesSchedule" id="FeesSchedule" disabled>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -317,8 +317,8 @@
                                 </span>
                             </div>
                             <!-- <div class="contact12"> -->
-                            <div class="section12">
-                                <div class="section1">
+                            <div class="section12" id="sec12">
+                                <!-- <div class="section1"> -->
                                     <div id="form1">
                                         <fieldset>
                                             <legend>
@@ -327,12 +327,12 @@
                                                     <option>Work</option>
                                                     <option>Other</option>
                                                 </select>
-                                                <span style="padding-bottom: 20px;">Adress</span>
-                                                <i class="gg-trash" onclick="removeSection" id="trashbin"></i>
+                                                <span style="padding-bottom: 20px;">Adress<i class="fa-solid fa-trash-can" onclick="removeSection()" id="trashbin" style="align-items: right;"></i></span>
+                                                
                                             </legend>
                                             <label style="font-size: 20px;">Street</label><br><input type="text"
                                                 name="street1" id="">
-                                            <table>
+                                            <table style="width: 100%;">
                                                 <tr>
                                                     <td><label>Zip</label><br><input type="text" name="zip1" id=""></td>
                                                     <td><label>City</label><br><input type="text" name="city1" id="">
@@ -348,7 +348,7 @@
                                                             <option>Canada</option>
                                                         </select></td>
                                                 </tr>
-                                            </table>
+                                            <table style="width: 100%;">
                                             <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
                                             <table>
                                                 <tr>
@@ -381,9 +381,9 @@
                                         </fieldset>
 
                                     </div>
-                                </div>
-                                <!-- <div class="section2">
-                                    <div id="form2">
+                                <!-- </div> -->
+                                <!-- <!-- <div class="section2"> -->
+                                    <div id="form1">
                                         <fieldset>
                                             <legend>
                                                 <select name="work2" id="add2">
@@ -391,7 +391,7 @@
                                                     <option>Work</option>
                                                     <option>Other</option>
                                                 </select>
-                                                <span style="padding: 10px;">Adress</span>
+                                                <span style="padding-bottom: 20px;">Adress<i class="fa-solid fa-trash-can" onclick="removeSection()" id="trashbin" style="align-items: right;"></i></span>
                                             </legend>
                                             <label style="font-size: 20px;">Street</label><br><input type="text"
                                                 name="street2" id="">
@@ -442,7 +442,7 @@
                                             <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
                                         </fieldset>
                                     </div>
-                                </div> -->
+                                <!-- </div> --> -->
                             </div>
 
                             <!-- </div> -->
@@ -463,11 +463,11 @@
                             </tr>
                             <tr>
                                 <td>Appointment Reminder</td>
-                                <td><input type="text" name="e1" id=""></td>
+                                <td><input type="text" name="e1" id=""disabled></td>
                                 <td><input type="text" name="e2" id=""></td>
-                                <td><input type="text" name="e3" id=""></td>
+                                <td><input type="text" name="e3" id=""disabled></td>
                                 <td><input type="text" name="e4" id=""></td>
-                                <td><input type="text" name="e5" id=""></td>
+                                <td><input type="text" name="e5" id="" disabled></td>
                             </tr>
                             <tr>
                                 <td>Mailing</td>
@@ -505,7 +505,7 @@
                                         <option>Text</option>
                                     </select>
                                     <label>Value:</label>
-                                    <input class="valueco" type="text" name="valueco" style="width: min-content;">
+                                    <input class="valueco" type="text" name="valueco" style="width: min-content;" disabled>
                                 </td>
                             </tr>
                         </table>
@@ -514,7 +514,7 @@
                     <div class="otherinfo">
                         <div class="other-header" id="other-out">
                             <h6>Other Details<i class="fa-solid fa-circle-chevron-down" id="othersection"
-                                    onclick="otherInfoShow()"></i></h6>
+                                    onclick="otherInfoIconChange()"></i></h6>
                         </div>
                         <div class="otherinfosub" id="other-in">
                             <div class="left1">
