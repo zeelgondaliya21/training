@@ -1,0 +1,119 @@
+create table patient(
+	patient_id varchar(15) primary key,
+	firstName varchar(20) not null,
+	lastName varchar(20) not null,
+	middleName varchar(20),
+	dob date not null,
+	gender_id varchar(10) not null,
+	race_id varchar(10) not null,
+);
+
+create table chart(
+	patient_id varchar(15) not null,
+	chart_id serial primary key,
+	chart_no numeric not null,
+	chart_number numeric generated always as (chart_id+chart_no) stored,
+	constraint fk_chart
+    	foreign key (patient_id) 
+	  		references patient(patient_id)
+);
+
+create table gender(
+	gender_id varchar(10) primary key,
+	patient_id varchar(15) not null,
+	sex varchar(10) check(sex in ('Male','Female','Unknown')),
+	constraint fk_gender
+    	foreign key (patient_id) 
+	  		references patient(patient_id)
+);
+
+create table racePatient(
+	race_id  varchar(10) primary key,
+	patient_id varchar(15) not null,
+	race varchar(10) check(race in ('Asian','American','African')),
+	constraint fk_race
+    	foreign key(patient_id) 
+	  		references patient(patient_id)
+);
+
+create table address(
+	patient_id varchar(15) not null,
+	address_id varchar(10) primary key,
+	street varchar(15) not null,
+	city varchar(15) not null,
+	state varchar(15) not null,
+	country varchar(15) not null,
+	zip  numeric(8) not null,
+	address_type numeric(5) not null,
+	primary_address_status boolean default false,
+	constraint fk_address
+    	foreign key(patient_id) 
+	  		references patient(patient_id)
+);
+
+create table address_type(
+	address_type_id varchar(10) primary key,
+	address_id varchar(5),
+	address_type_desc varchar(10) not null,
+	constraint fk_address_id
+    	foreign key(address_id) 
+	  		references address(address_id)
+);
+
+create table address_type(
+	address_type_id varchar(10) primary key,
+	address_id varchar(5),
+	address_type_desc varchar(10) not null,
+	constraint fk_address_id
+    	foreign key(address_id) 
+	  		references address(address_id)
+);
+
+create table fax(
+	address_id varchar(5) not null,
+	fax_id varchar(5) primary key,
+	primary_fax_status boolean default false,
+	constraint fk_fax
+    	foreign key (address_id) 
+	  		references address(address_id)
+);
+
+create table phone(
+	phone_id numeric(5) primary key,
+	address_id varchar(5) not null,
+	phone_code numeric(5) not null,
+	phone_number numeric(10) not null,
+	constraint fk_phone
+    	foreign key(address_id) 
+	  		references address(address_id)
+);
+
+create table phone_type(
+	phone_id numeric(5) not null,
+	phone_type_id varchar(5) primary key,
+	phone_type_desc varchar(10) not null,
+	constraint fk_phone_type
+    	foreign key(phone_id) 
+	  		references phone(phone_id)
+);
+
+create table phone(
+	phone_id numeric(5) primary key,
+	address_id varchar(5) not null,
+	phone_code numeric(5) not null,
+	phone_number numeric(10) not null,
+	primary_phone_status boolean default false,
+	constraint fk_phone
+    	foreign key(address_id) 
+	  		references address(address_id)
+);
+
+create table phone_type(
+	phone_id numeric(5) not null,
+	phone_type_id varchar(5) primary key,
+	phone_type_desc varchar(10) not null,
+	constraint fk_phone_type
+    	foreign key(phone_id) 
+	  		references phone(phone_id)
+);
+
