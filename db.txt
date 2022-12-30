@@ -117,3 +117,22 @@ create table phone_type(
 	  		references phone(phone_id)
 );
 
+create view demographics as(
+	select p.firstname,p.lastname,p.middlename,p.dob,g.sex,r.race,c.chart_number
+	from patient p
+	inner join gender g 
+	on p.patient_id =g.patient_id 
+	inner join race_patient r
+	on g.patient_id =r.patient_id 
+	inner join chart c 	
+	on r.patient_id = c.patient_id 
+	inner join address a2(
+	select a.street,a.city,a.state,a.country,a.zip,ph.phone_number,f.fax_id
+	from address as a
+	inner join phone as ph
+	on a.address_id = ph.address_id
+	inner join fax  as f
+	on ph.address_id =f.address_id
+	) as sub 
+	on a2.address_id = a.address_id
+)
