@@ -136,3 +136,129 @@ create view demographics as(
 	) as sub 
 	on a2.address_id = a.address_id
 )
+
+create or replace function search(
+    name varchar(100),
+    number numeric default '{1}',
+    dateofbirth date default '{01-01-2001}'
+)
+returns table(phone_number numeric)
+begin
+  for zeelg,patient,firstname in
+      select p.patient_name,p.patient_id,ph.phone_number
+      from  patient
+        join information_schema.tables t on
+          (t.table_name=c.table_name andtable_schema=c.table_schema)
+        join information_schema.table_privileges p on
+          (t.table_name=p.table_name and t.table_schema=p.table_schema
+             and rivilege_type='SELECT')
+        join information_schema.schemata s on
+          (s.schema_name=t.table_schema)
+      	where (c.table_name=any(haystack_tables) or haystack_tables='{}')
+        and (c.table_schema=any(haystack_schema) or haystack_schema='{}')
+        and t.table_type='BASE TABLE'
+  loop
+    for     s  in
+      execute('SELECT ctid FROM %I.%I WHERE cast(%I as text)=%L',
+       schemaname,
+       tablename,
+       columnname,
+       needle
+      )
+   loop
+      -- uncomment next line to get some progress report
+      -- RAISE NOTICE 'hit in %.%', schemaname, tablename;
+      return next;
+    end loop;
+ end loop;
+end;
+
+
+--1.0 Create View to fetch the result of FirstName, LastName, MiddleName, DOB, Chart Number, Sex , Race , Primary Address, Primary Phone, Primary Fax.
+create or replace view patient_info_view as 
+select firstname, middlename, lastname, dob, chartnumber, gender, race_type, street, city, state, country, phone_number, fax_number 
+from patient_demographics pd
+left join race r on pd.patient_id  = r.patient_id 
+left join preference p on pd.patient_id = p.patient_id  and p.preference_type = 1
+left join address a on p.address_id  = a.address_id 
+left join phone ph on p.phone_id = ph.phone_id
+left join fax f on p.fax_id = f.fax_id 
+
+select * from patient_info_view;
+
+
+--2.0 Write Query to fetch unique record from the Patient table based on Firstname, LastName, DOB and Sex with number of occurance(count) of same data.
+select firstname, lastname, dob, gender, count(concat(firstname,lastname,dob,gender)) as "Occurance" from patient_demographics group by firstname,lastname, dob, gender;
+
+
+--3.0 Create Function to stored the data into patient table. Pass all the value in the function parameter and function should return the created new primary key value of the table.
+create or replace function insert_patient_info(fname varchar(100), mname varchar(100), lname varchar(100), dob date, gen int)
+returns int
+language plpgsql
+as
+$$
+declare
+	pk_record integer;
+begin 
+	insert into patient_demographics(firstname, middlename, lastname, dob, gender) values(fname, mname, lname, dob, gen);
+	select patient_id into pk_record from patient_demographics order by patient_id desc limit 1;
+	return pk_record;
+end;
+$$;
+
+select insert_patient_info('Dhruvil','R','Chaudhary','2001-09-10',1);
+
+
+--4.0 Create Function to get the result of patient’s data by using patientId, lastname, firstname, sex, dob. Need to implement the pagination and 
+--sorting(LastName, Firstname, Sex, DOB) in this function.
+create or replace function get_patient_data(search_value varchar(100), pagenumber integer default 1, pagesize integer default 10)
+returns table (firstname varchar, middlename varchar, lastname varchar, dob date, gender varchar, race varchar, street varchar, city varchar, state varchar, country varchar, phone_number varchar, fax_number varchar)
+language plpgsql
+as
+$$
+declare
+begin
+	return query select pd.firstname, pd.middlename, pd.lastname, pd.dob, g.gender_value as gender, rt.race_value as race, a.street, a.city, a.state, a.country, ph.phone_number, f.fax_number
+		from
+		patient_demographics pd
+		left join gender g on g.gender_id = pd.gender 
+		left join race r on pd.patient_id  = r.patient_id
+		left join race_type rt on rt.race_type_id = r.race_type 
+		left join address a on pd.patient_id  = a.patient_id  
+		left join phone ph on a.address_id = ph.address_id 
+		left join fax f on pd.patient_id = f.fax_id
+		where pd.firstname = search_value or pd.lastname = search_value or g.gender_value = search_value
+		order by pd.firstname asc, pd.lastname asc, g.gender_value asc, pd.dob asc 
+		limit pagesize
+		offset ((pagenumber-1)*pagesize);
+end;
+$$;
+
+select get_patient_data('Meet',1,10);
+select get_patient_data('shah',1,10);
+select get_patient_data('Female');
+
+
+--5.0 Write Query to search the patient by patient’s phone no
+create or replace function get_patient_info_using_phone(phone_no varchar)
+returns table (firstname varchar, middlename varchar, lastname varchar, dob date, gender varchar, race varchar, street varchar, city varchar, state varchar, country varchar, phone_number varchar, fax_number varchar)
+language plpgsql
+as
+$$
+declare
+begin
+	return query select pd.firstname, pd.middlename, pd.lastname, pd.dob, g.gender_value as gender, rt.race_value as race, a.street, a.city, a.state, a.country, ph.phone_number, f.fax_number
+		from
+		patient_demographics pd
+		left join gender g on g.gender_id = pd.gender 
+		left join race r on pd.patient_id  = r.patient_id
+		left join race_type rt on rt.race_type_id = r.race_type 
+		left join address a on pd.patient_id  = a.patient_id  
+		left join phone ph on a.address_id = ph.address_id 
+		left join fax f on pd.patient_id = f.fax_id
+		where ph.phone_number = phone_no;
+end;
+$$;
+
+select get_patient_info_using_phone('9879906894');
+select get_patient_info_using_phone('1234567890');
