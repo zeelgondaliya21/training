@@ -367,19 +367,31 @@ insert into chart (patient_id,chart_no) values(1,4);
 insert into chart (patient_id,chart_no) values(1,8);
 insert into chart (patient_id,chart_no) values(1,1);
 
-select * from race_patient;
+select * from patient;
 insert into chart (race_id,patient_id,race) values(1,1);
 insert into chart (race_id,patient_id,race) values(1,4);
 insert into chart (race_id,patient_id,race) values(1,8);
 insert into chart (race_id,patient_id,race) values(1,1);
 
+select * from gender;
 select * from address;
 select * from address_type;
 select * from fax;
 select * from phone;
 select * from phone_type;
-select * from preference;
-insert into preference values (1,1,1,1,1,36720);
+select * from preference_type;
+insert into preference values (1,1,1,1,14,36720);
+insert into preference_type  values (1,'Primary');
+insert into preference_type values (2,'Secondary');
+
+
+insert into preference values(1,1)
+
+delete from phone where phone_id=3; 
+
+select * from demographics2;
+
+
 
 
 CREATE OR REPLACE FUNCTION public.get_patient_data(id integer DEFAULT NULL::integer, fname character varying DEFAULT NULL::character varying, lname character varying DEFAULT NULL::character varying, gen character varying DEFAULT NULL::character varying, dob character varying DEFAULT NULL::character varying, pagenumber integer DEFAULT 1, pagesize integer DEFAULT 50)
