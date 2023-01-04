@@ -380,3 +380,68 @@ select * from phone;
 select * from phone_type;
 select * from preference;
 insert into preference values (1,1,1,1,1,36720);
+
+
+CREATE OR REPLACE FUNCTION public.get_patient_data(id integer DEFAULT NULL::integer, fname character varying DEFAULT NULL::character varying, lname character varying DEFAULT NULL::character varying, gen character varying DEFAULT NULL::character varying, dob character varying DEFAULT NULL::character varying, pagenumber integer DEFAULT 1, pagesize integer DEFAULT 50)
+ RETURNS TABLE(first_name character varying, middle_name character varying, last_name character varying, chart character varying, date_of_birth date, gender character varying)
+ LANGUAGE plpgsql
+AS $function$
+declare 
+		declare F integer := 0;
+		declare Q varchar;
+		declare dt date;
+begin
+	Q := 'select p.first_name, p.middle_name, p.last_name, p.chart, p.date_of_birth, g.sex_type  from patient as p left join gender as  g on  p.sex_id = g.sex_id ';
+	
+	if id > 0 then
+		Q := Q || ' where p.patient_id  ='||id||' ';
+		F := 1;
+	end if;
+	
+
+	if fname <> '' then
+		if F then
+			Q := Q || ' and p.first_name = '''|| fname ||'''';
+		else
+			Q := Q || 'where p.first_name = '''|| fname ||'''';
+			F := 1;
+		end if;
+	end if;
+
+
+	if  lname <> '' then
+		if F then
+			Q := Q || ' and p.last_name = '''|| lname ||'''';
+		else
+			Q := Q || 'where p.last_name = '''|| lname ||'''';
+			F := 1;
+		end if;
+	end if;
+
+	if  gen <> '' then
+		if F then
+			Q := Q || ' and g.sex_type = '''|| gen ||'''';
+		else
+			Q := Q || 'where g.sex_type = '''|| gen ||'''';
+			F := 1;
+		end if;
+	end if;
+
+	if  dob <> '' then
+		dt := TO_DATE(dob,'YYYY-MM-DD');
+		if F then
+			Q := Q || ' and p.date_of_birth = '''|| dt ||'''';
+		else
+			Q := Q || 'where p.date_of_birth = '''|| dt ||'''';
+			F := 1;
+		end if;
+	end if;
+
+	Q := Q || ' order by  p.patient_id, p.first_name, p.last_name, p.date_of_birth ';
+	Q := Q || ' LIMIT '||PageSize||' OFFSET (('||PageNumber||'-1) * '||PageSize||');';
+	return QUERY execute Q;
+	
+end;
+$function$
+;
+
