@@ -8,15 +8,18 @@ create table patient(
 	race_id varchar(10) not null,
 );
 
+
+
 create table chart(
 	patient_id varchar(15) not null,
 	chart_id serial primary key,
 	chart_no numeric not null,
-	chart_number numeric generated always as (chart_id+chart_no) stored,
+	chart_number text generated always as (((chart_id::text || chart_no::text))) stored,
 	constraint fk_chart
     	foreign key (patient_id) 
 	  		references patient(patient_id)
 );
+
 
 create table gender(
 	gender_id varchar(10) primary key,
@@ -27,6 +30,8 @@ create table gender(
 	  		references patient(patient_id)
 );
 
+
+
 create table racePatient(
 	race_id  varchar(10) primary key,
 	patient_id varchar(15) not null,
@@ -35,6 +40,8 @@ create table racePatient(
     	foreign key(patient_id) 
 	  		references patient(patient_id)
 );
+
+
 
 create table address(
 	patient_id varchar(15) not null,
@@ -51,14 +58,7 @@ create table address(
 	  		references patient(patient_id)
 );
 
-create table address_type(
-	address_type_id varchar(10) primary key,
-	address_id varchar(5),
-	address_type_desc varchar(10) not null,
-	constraint fk_address_id
-    	foreign key(address_id) 
-	  		references address(address_id)
-);
+
 
 create table address_type(
 	address_type_id varchar(10) primary key,
@@ -68,6 +68,19 @@ create table address_type(
     	foreign key(address_id) 
 	  		references address(address_id)
 );
+
+
+
+create table address_type(
+	address_type_id varchar(10) primary key,
+	address_id varchar(5),
+	address_type_desc varchar(10) not null,
+	constraint fk_address_id
+    	foreign key(address_id) 
+	  		references address(address_id)
+);
+
+
 
 create table fax(
 	address_id varchar(5) not null,
@@ -77,6 +90,8 @@ create table fax(
     	foreign key (address_id) 
 	  		references address(address_id)
 );
+
+
 
 create table phone(
 	phone_id numeric(5) primary key,
@@ -88,6 +103,8 @@ create table phone(
 	  		references address(address_id)
 );
 
+
+
 create table phone_type(
 	phone_id numeric(5) not null,
 	phone_type_id varchar(5) primary key,
@@ -96,6 +113,8 @@ create table phone_type(
     	foreign key(phone_id) 
 	  		references phone(phone_id)
 );
+
+
 
 create table phone(
 	phone_id numeric(5) primary key,
@@ -108,6 +127,8 @@ create table phone(
 	  		references address(address_id)
 );
 
+
+
 create table phone_type(
 	phone_id numeric(5) not null,
 	phone_type_id varchar(5) primary key,
@@ -117,151 +138,173 @@ create table phone_type(
 	  		references phone(phone_id)
 );
 
+CREATE TABLE preference_type(
+	pref_type_id serial primary key,
+	pref_type varchar(30) NOT NULL
+);
+drop table preference;
+
+
+CREATE TABLE preference(
+	pref_id serial primary key,
+	pref_type_id serial,
+	patient_id varchar(10),
+	address_id varchar(10),
+	phone_id numeric(5),
+	fax_id varchar(10),
+	constraint fk_address_id
+    	foreign key(address_id) 
+	  		references address(address_id),
+	constraint fk_fax_id
+    	foreign key(fax_id) 
+	  		references fax(fax_id),
+	constraint fk_patient_id
+    	foreign key(patient_id) 
+	  		references patient(patient_id),
+	constraint fk_phone_id
+    	foreign key(phone_id) 
+	  		references phone(phone_id),
+	constraint fk_pref_type_id
+    	foreign key(pref_type_id) 
+	  		references preference_type(pref_type_id)
+);
+
+
+
+
+insert into patient values (1,'channing','martin','b','02-10-2001');
+insert into race_patient values (11,1,'American');
+insert into gender values (12,1,'Male');
+insert into chart (chart_id,patient_id,chart_no) values (13,1,101);
+insert into address values (1,1,'heaven','surat','gujarat','india','395004',True);
+insert into address_type values (1,1,'Home');
+insert into phone values (14,1,91,9978901114,true);
+insert into phone_type values (14,1,'Landline');
+insert into fax values (1,3672,true);
+
+insert into patient values (2,'zeel','gondaliya','b','01-10-2001');
+insert into race_patient values (2,2,'Asian');
+insert into gender values (17,2,'Male');
+insert into chart (chart_id,patient_id,chart_no) values (18,2,101);
+insert into address values (2,2,'hell','ahmedabad','gujarat','india','395004',True);
+insert into address_type values (2,2,'Home');
+insert into phone values (19,2,91,9978901167,true);
+insert into phone_type values (19,2,'Landline');
+insert into fax values (2,3435,true);
+
+insert into patient values (3,'zeel','gondaliya','b','01-10-2001');
+insert into race_patient values (3,3,'African');
+insert into gender values (21,3,'Male');
+insert into chart (chart_id,patient_id,chart_no) values (22,3,105);
+insert into address values (3,3,'sola','rajkot','gujarat','india','395456',True);
+insert into address_type values (3,3,'Home');
+insert into phone values (23,3,91,9976781167,true);
+insert into phone_type values (23,3,'Cell');
+insert into fax values (3,3935,true);
+update patient set lastname='musk' where patient_id = '3';
+update patient set dob='03-04-1989' where patient_id = '3';
+
+
+select * from gender;
+
+
+insert into gender values ('1','1','Male');
+insert into gender values ('1','1','Male');
+
+
+
+
+
+--Assignment2
+--1---
 create view demographics as(
-	select p.firstname,p.lastname,p.middlename,p.dob,g.sex,r.race,c.chart_number
+	select p.firstname,p.lastname,p.middlename,p.dob,g.sex,r.race,c.chart_number,a.street,a.city,a.state,a.country,a.zip,ph.phone_number ,f.fax_id 
 	from patient p
 	inner join gender g 
 	on p.patient_id =g.patient_id 
 	inner join race_patient r
-	on g.patient_id =r.patient_id 
+	on p.patient_id =r.patient_id 
 	inner join chart c 	
-	on r.patient_id = c.patient_id 
-	inner join address a2(
-	select a.street,a.city,a.state,a.country,a.zip,ph.phone_number,f.fax_id
-	from address as a
+	on p.patient_id = c.patient_id 
+	inner join
+    address a on p.patient_id =a.patient_id 
 	inner join phone as ph
-	on a.address_id = ph.address_id
+	on p.patient_id  = a.patient_id 
+	and a.address_id = ph.address_id 
 	inner join fax  as f
-	on ph.address_id =f.address_id
-	) as sub 
-	on a2.address_id = a.address_id
-)
-
-create or replace function search(
-    name varchar(100),
-    number numeric default '{1}',
-    dateofbirth date default '{01-01-2001}'
-)
-returns table(phone_number numeric)
-begin
-  for zeelg,patient,firstname in
-      select p.patient_name,p.patient_id,ph.phone_number
-      from  patient
-        join information_schema.tables t on
-          (t.table_name=c.table_name andtable_schema=c.table_schema)
-        join information_schema.table_privileges p on
-          (t.table_name=p.table_name and t.table_schema=p.table_schema
-             and rivilege_type='SELECT')
-        join information_schema.schemata s on
-          (s.schema_name=t.table_schema)
-      	where (c.table_name=any(haystack_tables) or haystack_tables='{}')
-        and (c.table_schema=any(haystack_schema) or haystack_schema='{}')
-        and t.table_type='BASE TABLE'
-  loop
-    for     s  in
-      execute('SELECT ctid FROM %I.%I WHERE cast(%I as text)=%L',
-       schemaname,
-       tablename,
-       columnname,
-       needle
-      )
-   loop
-      -- uncomment next line to get some progress report
-      -- RAISE NOTICE 'hit in %.%', schemaname, tablename;
-      return next;
-    end loop;
- end loop;
-end;
+	on p.patient_id  = a.patient_id 
+	and a.address_id = f.address_id
+);
 
 
---1.0 Create View to fetch the result of FirstName, LastName, MiddleName, DOB, Chart Number, Sex , Race , Primary Address, Primary Phone, Primary Fax.
-create or replace view patient_info_view as 
-select firstname, middlename, lastname, dob, chartnumber, gender, race_type, street, city, state, country, phone_number, fax_number 
-from patient_demographics pd
-left join race r on pd.patient_id  = r.patient_id 
-left join preference p on pd.patient_id = p.patient_id  and p.preference_type = 1
-left join address a on p.address_id  = a.address_id 
-left join phone ph on p.phone_id = ph.phone_id
-left join fax f on p.fax_id = f.fax_id 
-
-select * from patient_info_view;
+select * from demographics;
+select * from patient ;
 
 
---2.0 Write Query to fetch unique record from the Patient table based on Firstname, LastName, DOB and Sex with number of occurance(count) of same data.
-select firstname, lastname, dob, gender, count(concat(firstname,lastname,dob,gender)) as "Occurance" from patient_demographics group by firstname,lastname, dob, gender;
 
 
---3.0 Create Function to stored the data into patient table. Pass all the value in the function parameter and function should return the created new primary key value of the table.
-create or replace function insert_patient_info(fname varchar(100), mname varchar(100), lname varchar(100), dob date, gen int)
-returns int
-language plpgsql
-as
-$$
-declare
-	pk_record integer;
-begin 
-	insert into patient_demographics(firstname, middlename, lastname, dob, gender) values(fname, mname, lname, dob, gen);
-	select patient_id into pk_record from patient_demographics order by patient_id desc limit 1;
-	return pk_record;
-end;
-$$;
-
-select insert_patient_info('Dhruvil','R','Chaudhary','2001-09-10',1);
+--2---
+select firstname, lastname, dob, sex, count((firstname)) as "Count" from demographics group by firstname,lastname, dob, sex;
+select firstname, lastname, dob, sex, count((lastname)) as "Count" from demographics group by firstname,lastname, dob, sex;
+select firstname, lastname, dob, sex, count((dob)) as "Count" from demographics group by firstname,lastname, dob, sex;
+select firstname, lastname, dob, sex, count((sex)) as "Count" from demographics group by firstname,lastname, dob, sex;
+select firstname, lastname, dob, sex, count(concat(firstname ,lastname,dob,sex)) from demographics group by firstname,lastname, dob, sex;
 
 
---4.0 Create Function to get the result of patient’s data by using patientId, lastname, firstname, sex, dob. Need to implement the pagination and 
---sorting(LastName, Firstname, Sex, DOB) in this function.
-create or replace function get_patient_data(search_value varchar(100), pagenumber integer default 1, pagesize integer default 10)
-returns table (firstname varchar, middlename varchar, lastname varchar, dob date, gender varchar, race varchar, street varchar, city varchar, state varchar, country varchar, phone_number varchar, fax_number varchar)
+
+
+--5---
+create view demographics2 as(
+	select p.firstname,p.lastname,p.middlename,p.dob,p.patient_id,g.sex,g.gender_id,r.race,r.race_id ,c.chart_number,c.chart_id ,a.street,a.city,a.state,a.country,a.zip,a.address_id ,ph.phone_number,ph.phone_id ,f.fax_id
+	from patient p
+	inner join gender g 
+	on p.patient_id = g.patient_id 
+	inner join race_patient r
+	on p.patient_id = r.patient_id 
+	inner join chart c 	
+	on p.patient_id = c.patient_id 
+	inner join address a 
+    on p.patient_id = a.patient_id 
+	inner join phone ph 
+	on p.patient_id  = a.patient_id 
+	and a.address_id = ph.address_id 
+	inner join fax f
+	on p.patient_id  = a.patient_id 
+	and a.address_id = f.address_id
+);
+select * from demographics2;
+
+create or replace function get_patient_info(phonenumber varchar)
+returns table (firstname varchar, middlename varchar, lastname varchar, dob date, sex varchar, race varchar, street varchar, city varchar, state varchar, country varchar, phone_number varchar, fax_id varchar)
 language plpgsql
 as
 $$
 declare
 begin
-	return query select pd.firstname, pd.middlename, pd.lastname, pd.dob, g.gender_value as gender, rt.race_value as race, a.street, a.city, a.state, a.country, ph.phone_number, f.fax_number
+	return query select d.firstname, d.middlename, d.lastname, d.dob, g.sex, r.race, a.street, a.city, a.state, a.country, ph.phone_number, f.fax_id
 		from
-		patient_demographics pd
-		left join gender g on g.gender_id = pd.gender 
-		left join race r on pd.patient_id  = r.patient_id
-		left join race_type rt on rt.race_type_id = r.race_type 
-		left join address a on pd.patient_id  = a.patient_id  
-		left join phone ph on a.address_id = ph.address_id 
-		left join fax f on pd.patient_id = f.fax_id
-		where pd.firstname = search_value or pd.lastname = search_value or g.gender_value = search_value
-		order by pd.firstname asc, pd.lastname asc, g.gender_value asc, pd.dob asc 
-		limit pagesize
-		offset ((pagenumber-1)*pagesize);
+		demographics2 d
+		left join gender g 
+		on d.patient_id= g.patient_id 
+		left join race_patient r 
+		on d.patient_id  = r.patient_id
+		left join address a 
+		on d.patient_id  = a.patient_id  
+		left join phone ph 
+		on d.patient_id = a.patient_id 
+		and a.address_id = ph.address_id 
+		left join fax f 
+		on d.patient_id = a.patient_id
+		and a.address_id = f.address_id 
+		where ph.phone_number = phonenumber;
 end;
 $$;
+drop function get_patient_info;
 
-select get_patient_data('Meet',1,10);
-select get_patient_data('shah',1,10);
-select get_patient_data('Female');
+select get_patient_info('9978901114');
 
 
---5.0 Write Query to search the patient by patient’s phone no
-create or replace function get_patient_info_using_phone(phone_no varchar)
-returns table (firstname varchar, middlename varchar, lastname varchar, dob date, gender varchar, race varchar, street varchar, city varchar, state varchar, country varchar, phone_number varchar, fax_number varchar)
-language plpgsql
-as
-$$
-declare
-begin
-	return query select pd.firstname, pd.middlename, pd.lastname, pd.dob, g.gender_value as gender, rt.race_value as race, a.street, a.city, a.state, a.country, ph.phone_number, f.fax_number
-		from
-		patient_demographics pd
-		left join gender g on g.gender_id = pd.gender 
-		left join race r on pd.patient_id  = r.patient_id
-		left join race_type rt on rt.race_type_id = r.race_type 
-		left join address a on pd.patient_id  = a.patient_id  
-		left join phone ph on a.address_id = ph.address_id 
-		left join fax f on pd.patient_id = f.fax_id
-		where ph.phone_number = phone_no;
-end;
-$$;
 
-select get_patient_info_using_phone('9879906894');
-select get_patient_info_using_phone('1234567890');
 
 --3---
 create or replace function insert_info(pid varchar(15), fn varchar(50), mn varchar(50), ln varchar(50), db date )
@@ -279,4 +322,61 @@ end;
 $$;
 drop function insert_info;
 
-select insert_info(4,priyank,m,donda,10-2-2001);
+select insert_info(4::varchar,'priyank'::varchar,'m'::varchar,'donda'::varchar,'10-2-2001'::date);
+select * from patient;
+
+
+
+
+--4--
+create or replace function get_patient_info2(search varchar(50),page integer, size integer)
+returns table (firstname varchar, middlename varchar, lastname varchar, dob date, sex varchar, race varchar, street varchar, city varchar, state varchar, country varchar, phone_number varchar, fax_id varchar)
+language plpgsql
+as
+$$
+declare
+begin
+	return query select d.firstname, d.middlename, d.lastname, d.dob, g.sex, r.race, a.street, a.city, a.state, a.country, ph.phone_number, f.fax_id
+		from
+		demographics2 d
+		left join gender g 
+		on d.patient_id = g.patient_id  
+		left join race_patient r 
+		on d.patient_id  = r.patient_id 
+		left join address a 
+		on d.patient_id  = a.patient_id  
+		left join phone ph 
+		on d.patient_id = a.patient_id 
+		and a.address_id = ph.address_id 
+		left join fax f 
+		on d.patient_id = a.patient_id 
+		and a.address_id  = f.address_id 
+		where d.firstname = search 
+		or d.lastname = search 
+		or g.sex = search
+		order by d.firstname,d.lastname,d.sex,d.dob
+		limit size
+		offset ((page-1)*size);
+end;
+$$;
+
+select get_patient_info2('Male'::varchar,1,4);
+select * from chart;
+insert into chart (patient_id,chart_no) values(1,1);
+insert into chart (patient_id,chart_no) values(1,4);
+insert into chart (patient_id,chart_no) values(1,8);
+insert into chart (patient_id,chart_no) values(1,1);
+
+select * from race_patient;
+insert into chart (race_id,patient_id,race) values(1,1);
+insert into chart (race_id,patient_id,race) values(1,4);
+insert into chart (race_id,patient_id,race) values(1,8);
+insert into chart (race_id,patient_id,race) values(1,1);
+
+select * from address;
+select * from address_type;
+select * from fax;
+select * from phone;
+select * from phone_type;
+select * from preference;
+insert into preference values (1,1,1,1,1,36720);
