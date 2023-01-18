@@ -498,3 +498,18 @@ select * from get_patient_data();
 select * from get_patient_data(pid => 1);
 select * from get_patient_data(lname => 'shah');
 select * from get_patient_data(pagenumber => 1, pagesize => 2);
+
+-- unique record based on first_name, last_name, dob, sex_id 
+select first_name, last_name, dob, sex_id, count(patient_id) from patient group by first_name, last_name, dob, sex_id;
+
+-- unique record based on first name
+select first_name, count(*) as patient_first_name_count from patient p group by first_name;
+
+-- unique record based on last name
+select last_name, count(*) as patient_last_name_count from patient p group by last_name;
+
+-- unique record based on dob
+select dob, count(*) as pateinet_dob_count from patient p group by dob;
+
+-- unique record based on sex
+--select s.sex , count(*) as patient_sex_value_count from patient p inner join sex s on s.sex_id = sex_id group by s.sex ; 

@@ -1,0 +1,420 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body{
+  scrollbar-width: thin;
+  background-color: #f1f1f7;
+  overflow: hidden;
+  font-size: 1.3rem;
+}
+body ::-webkit-scrollbar {
+  
+
+  background-color: #909090;
+  opacity: .3;
+  width: .50rem;
+  height: .50rem;
+}
+body ::-webkit-scrollbar-thumb {
+  background-color: #c3d6ec;
+  border-radius: 4px;
+  border: solid 6px transparent;
+}
+body ::-webkit-scrollbar-track {
+  background-color: #f8f8f9;
+}
+.super{
+  height: 100%;
+  width: 100%;
+}
+
+.rightsidebar {
+  background-color: white;
+  float: right;
+  top: 0;
+  height: 100%;
+  width: 3%;
+  font-size: 25pt;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  /* margin-top: 0px; */
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  justify-content: center;
+  height: auto;
+  z-index: 100;
+}
+
+.headermain {
+  display: flex;
+  z-index: 100;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 25pt;
+  padding-left: 4px;
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+.headermain > i{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.topnav-right {
+  padding-right: 0px;
+}
+
+.main {
+  display: flex;
+  font-family: WebImsLato;
+  flex-direction: row;
+  font-size: 50px;
+  overflow-y: scroll;
+  width: 83%;
+  height: 79%;
+  float: right;
+  margin-top: 120px;
+  /* margin-left: 20px; */
+
+}
+
+.buttonss {
+  margin-top: 1px;
+  right: 100;
+  top: 120;
+  width: 80%;
+  /* margin-bottom: 200px;
+  margin-right: 2px; */
+  text-align: right;
+  position: fixed;
+}
+
+.buttonss > input{
+  color: #fff;
+  line-height: 1.2rem;
+  height: auto;
+  background-color: #fff;
+  width: auto;
+  padding: 0.3rem 0.5rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  border: 1px solid #627d98;
+  color: #627d98;
+}
+
+button:hover{
+  transform: scale(1.05);
+  color: blue;
+}
+
+.fa-solid fa-trash-can:before {
+  content: "\f1f8";
+}
+
+.patientinfo {  
+  justify-content: center;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  font-size: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.required:before{
+  content: "*";
+}
+
+.sidebar {
+  /* padding: 6px 8px 6px 8px; */
+  background-color: #f1f1f7;
+  font-family: WebImsLato;
+  margin-top: 60px;
+  margin-left: 10px;
+  color: black;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  height: 88%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 5px;
+  float: left;
+  width:10%;
+  padding: 10px 10px 10px 10px;
+  font-size: 1.2rem;
+}
+.sidebar li {
+  margin-bottom: 10px;
+  transition: transform .2s;
+}
+.sidebar li:hover{
+  transform: scale(1.05);
+  color: blue;
+}
+
+.headerbar {
+  align-items: left;
+  font-size: 25pt;
+}
+
+.left {
+  display: flex;
+  padding-left: 70pt;
+  width: 1450px;
+}
+
+.center {
+  padding-left: 70pt;
+  padding-right: 70pt;
+}
+
+/* .right {
+  
+} */
+
+.patientinfomain {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.contact {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  /* overflow-y: scroll; */
+  margin-bottom: 10px;
+}
+
+.contact-header {
+  font-size: 25px;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+}
+
+.section12 {
+  width: 100%;
+  margin-bottom: 10px;
+  
+  font-size: 25px;
+  display: flex;
+  overflow-x: scroll;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.section1 {
+  font-size: 25px;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  
+  
+}
+#form1{
+  min-width: 40%;
+  width: 100%;
+}
+/* .section2 {
+  font-size: 25px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 100%;
+} */
+.topnav-right {
+  float: right;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.nav {
+  width: 100%;
+}
+
+input[type=text],
+input[type=date],
+select,
+textarea {
+  padding: .3rem.2rem;
+  color: #627d98;
+  border: 2px solid transparent;
+  border-radius: .2rem;
+  outline: 1px solid #dadada;
+  width: 100%;
+}
+
+select:disabled,
+input[type=date]:disabled,
+input[type=text]:disabled {
+  background-color: #b6b6b66c;
+}
+
+input[type=text]:focus {
+  border: 2px solid #5a5fe2;
+  background-color: rgba(238, 238, 238, 0.301)
+}
+
+.contactpref {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 12px 12px 12px 12px;
+}
+
+.contactpreference{
+  border-collapse: collapse;
+  width: 100%;
+  font-size: small;
+  
+}
+.table tr td{
+  padding: 0px;
+}
+
+.typeco{
+  width: 100px;
+}
+
+.valueco{
+  width: 100px;
+}
+
+.b1{
+  justify-items: right;
+}
+
+.otherinfo{
+  background-color: white;
+  padding-top: 2px;
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  flex-direction: column;
+  font-size: 15px;
+  width: 100%;
+  /* padding-left: 100px; */
+  padding-right: 100px;
+}
+.other-header{
+  right: 0;
+  padding: 10px 10px 10px 10px;
+  font-size: 25px;
+}
+.otherinfosub{
+  display: flex;
+  flex-direction: row;
+}
+
+.left1{
+  padding-right: 70pt;
+  padding-left: 70pt;
+}
+
+.center1{
+  padding-right: 70pt;
+}
+
+input[type=checkbox] {
+  zoom: 1;
+}
+
+i:hover{
+  cursor: hand;
+}
+i {
+  padding: 5px;
+  color: #627d98;
+  font-size: 80%;
+}
+.searchpatientbox{
+  margin-left: 400px;
+  border-radius: 6rem;
+  
+}
+.image{
+  
+  border-radius: 1rem;
+  object-fit: fill;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 24%), 0 4px 8px rgb(0 0 0 / 12%);
+}
+.leftshow{
+  float: right;
+  right: 0;
+}
+
+.patientinfo > table> tr  > td  label{
+  text-align: right;
+}
+.hide-sidebar{
+  width: 0%;
+  /* content-visibility:hidden; */
+  /* overflow-y: hidden; */
+
+}
+.expand-main{
+  width: 95%;
+  align-content: center;
+  display: block;
+  padding-left: 1%;
+  padding-right: 2%;
+  transition-duration: .5s;
+}
+
+.hide-otherinfo{
+  display: none;
+}
+
+
+.add-section{
+  display: flex;
+  overflow-x: scroll;
+}
+
+.fieldset{
+  border-color: #9fb3c8;
+}
+
+.required-fname:after{
+  content: "*";
+  color: red;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+
+.required-lname:after{
+  content: "*";
+  color: red;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+
+
+

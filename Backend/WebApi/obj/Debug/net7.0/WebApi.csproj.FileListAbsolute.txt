@@ -277,3 +277,6 @@ C:\Users\zeelg\Files21\training\Backend\WebApi\obj\Debug\net7.0\refint\WebApi.dl
 C:\Users\zeelg\Files21\training\Backend\WebApi\obj\Debug\net7.0\WebApi.pdb
 C:\Users\zeelg\Files21\training\Backend\WebApi\obj\Debug\net7.0\WebApi.genruntimeconfig.cache
 C:\Users\zeelg\Files21\training\Backend\WebApi\obj\Debug\net7.0\ref\WebApi.dll
+C:\Users\zeelg\Files21\training\Backend\WebApi\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\zeelg\Files21\training\Backend\WebApi\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\zeelg\Files21\training\Backend\WebApi\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
