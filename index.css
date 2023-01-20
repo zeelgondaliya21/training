@@ -4,28 +4,37 @@
   box-sizing: border-box;
 }
 
-.body{
-  scrollbar-width: thin;
-  background-color: #f1f1f7;
-  overflow: hidden;
-  font-size: 1.3rem;
+.body {
+    scrollbar-width: thin;
+    background-color: #f1f1f7;
+    overflow: hidden;
+    font-family: WebImsLato,sans-serif;
+    font-size: 1.3rem;
 }
-body ::-webkit-scrollbar {
-  
+.h6 {
+    color: #627D98;
+    font-size: 13px;
+}
 
+body ::-webkit-scrollbar {
   background-color: #909090;
   opacity: .3;
   width: .50rem;
-  height: .50rem;
+  height: .5rem;
 }
+
 body ::-webkit-scrollbar-thumb {
-  background-color: #c3d6ec;
-  border-radius: 4px;
-  border: solid 6px transparent;
+    background-color: #c3d6ec;
+    border-radius: 4px;
+    height:min-content;
+    border: solid 6px transparent;
 }
+
 body ::-webkit-scrollbar-track {
   background-color: #f8f8f9;
+  height:min-content;
 }
+
 .super{
   height: 100%;
   width: 100%;
@@ -74,9 +83,11 @@ body ::-webkit-scrollbar-track {
 
 .main {
   display: flex;
-  font-family: WebImsLato;
+  font-family: WebImsLato,sans-serif;
+  font-size:13px;
+  color:#627D98;
   flex-direction: row;
-  font-size: 50px;
+  font-size: 1.3rem;
   overflow-y: scroll;
   width: 83%;
   height: 79%;
@@ -88,8 +99,8 @@ body ::-webkit-scrollbar-track {
 
 .buttonss {
   margin-top: 1px;
-  right: 100;
-  top: 120;
+  right:100px;
+  top: 120px;
   width: 80%;
   /* margin-bottom: 200px;
   margin-right: 2px; */
@@ -107,16 +118,13 @@ body ::-webkit-scrollbar-track {
   margin-left: 0.3rem;
   margin-right: 0.3rem;
   border: 1px solid #627d98;
-  color: #627d98;
+  color: #627D98;
 }
 
-button:hover{
-  transform: scale(1.05);
-  color: blue;
-}
 
-.fa-solid fa-trash-can:before {
+.fa-solid fa-trash-can {
   content: "\f1f8";
+  align-items:end;
 }
 
 .patientinfo {  
@@ -134,39 +142,34 @@ button:hover{
   padding-bottom: 10px;
 }
 
-.required:before{
-  content: "*";
-}
-
 .sidebar {
   /* padding: 6px 8px 6px 8px; */
   background-color: #f1f1f7;
-  font-family: WebImsLato;
+  font-family: WebImsLato,sans-serif;
   margin-top: 60px;
   margin-left: 10px;
-  color: black;
+  color: #0A2644;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
-  height: 88%;
   overflow-y: scroll;
   overflow-x: hidden;
   border-radius: 5px;
   float: left;
-  width:10%;
-  padding: 10px 10px 10px 10px;
-  font-size: 1.2rem;
+  width:11%;
+  height:82%;
+  padding: 0.4rem;
+  font-size: 16px;
 }
 .sidebar li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   transition: transform .2s;
 }
 .sidebar li:hover{
   transform: scale(1.05);
-  color: blue;
+  color: #5A5FE2;
 }
 
 .headerbar {
-  align-items: left;
   font-size: 25pt;
 }
 
@@ -197,7 +200,6 @@ button:hover{
   flex-direction: column;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
-  /* overflow-y: scroll; */
   margin-bottom: 10px;
 }
 
@@ -210,7 +212,7 @@ button:hover{
 .section12 {
   width: 100%;
   margin-bottom: 10px;
-  
+
   font-size: 25px;
   display: flex;
   overflow-x: scroll;
@@ -224,7 +226,6 @@ button:hover{
   font-size: 25px;
   display: flex;
   width: 100%;
-  overflow-x: scroll;
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -285,13 +286,14 @@ input[type=text]:focus {
   margin-bottom: 15px;
   background-color: white;
   padding: 12px 12px 12px 12px;
+  height: fit-content;
 }
 
-.contactpreference{
-  border-collapse: collapse;
-  width: 100%;
-  font-size: small;
-  
+.contactpreference {
+    border-collapse: collapse;
+    font-family: WebImsLato,sans-serif;
+    width: 100%;
+    font-size: 13px;
 }
 .table tr td{
   padding: 0px;
@@ -345,7 +347,7 @@ input[type=checkbox] {
 }
 
 i:hover{
-  cursor: hand;
+  cursor:pointer;
 }
 i {
   padding: 5px;
@@ -373,6 +375,7 @@ i {
 }
 .hide-sidebar{
   width: 0%;
+
   /* content-visibility:hidden; */
   /* overflow-y: hidden; */
 
@@ -390,31 +393,53 @@ i {
   display: none;
 }
 
-
-.add-section{
-  display: flex;
-  overflow-x: scroll;
-}
-
-.fieldset{
-  border-color: #9fb3c8;
-}
-
-.required-fname:after{
-  content: "*";
-  color: red;
-  font-size: 1.8rem;
-  font-weight: 500;
+.fieldset-contact{
+    border-radius: 3px;
+    border-color: #9fb3c8;
+    width: 100%;
+    border-top-color: rgb(213, 220, 230);
+    border-right-color: rgb(213, 220, 230);
+    border-bottom-color: rgb(213, 220, 230);
+    border-left-color: rgb(213, 220, 230);
 }
 
 
-.required-lname:after{
-  content: "*";
-  color: red;
-  font-size: 1.8rem;
-  font-weight: 500;
+.requiredfield:after {
+    content : "*";
+    color : red;
 }
 
 
 
+.b3{
+    caret-color:#FFFFFF;
+}
 
+
+.change-icon-180 {
+    -ms-transform: rotate(180deg);
+    -ms-transform-origin: 50% 50%; 
+    transform: rotate(180deg);
+    transform-origin: 50% 50%;
+    display: inline-block;
+}
+
+
+.change-icon-90 {
+    -ms-transform: rotate(270deg);
+    -ms-transform-origin: 50% 50%;
+    transform: rotate(270deg);
+    transform-origin: 50% 50%;
+    display: inline-block;
+}
+
+
+.multibirth-check{
+    display:flex;
+    flex-direction:row;
+}
+
+.deceased-check{
+    display:flex;
+    flex-direction:row;
+}

@@ -88,7 +88,7 @@
                         <li><a>Forms</a><br></li>
                         <li><a>Consents</a><br></li>
                         <li><a>Reminder Preference</a><br></li>
-                        <hr>
+                        <hr/>
                         <li><a>Allergy</a><br></li>
                         <li><a>Diagnosis</a><br></li>
                         <li><a>Family History</a><br></li>
@@ -96,7 +96,7 @@
                         <li><a>Lab</a><br></li>
                         <li><a>Immunization</a><br></li>
                         <li><a>Vitals</a><br></li>
-                        <hr>
+                        <hr/>
                         <li><a>Authorization</a><br></li>
                         <li><a>Claims</a><br></li>
                         <li><a>Reciepts</a><br></li>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="buttonss">
-                <label for="#" style="font-size: small;">Active</label>
+                <label style="font-size: medium;">Active <i class="fa fa-ellipsis-v"></i></label>
                 <input type="checkbox" name="active" id="active" class="c1" style="margin-top: 10px;">
                 <input type="button" id="reverify" value="Reverify" name="b1" class="b1" />
                 <input type="reset" id="reset-button" value="Cancel Changes" name="b2" class="b2" />
@@ -137,8 +137,8 @@
                                     <td><input name="prefix" type="text"></td>
                                 </tr>
                                 <tr>
-                                    <td><label>First Name:</label></td>
-                                    <td><input type="text" name="fname" class="required" id="fname" required></td>
+                                    <td><label class="requiredfield">First Name:</label></td>
+                                    <td><input type="text" name="fname"  id="fname" required></td>
                                 </tr>
                                 <tr>
                                     <td><label>Middle Name:</label></td>
@@ -149,8 +149,8 @@
                                     <td><input type="text" name="lastname2" id="lname2"></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Last Name:</label></td>
-                                    <td><input type="text" name="lname" class="required" id="lname" required></td>
+                                    <td><label class="requiredfield">Last Name:</label></td>
+                                    <td><input type="text" name="lname" id="lname" required></td>
                                 </tr>
                                 <tr>
                                     <td><label>Suffix:</label></td>
@@ -165,8 +165,8 @@
                             <div class="center">
                                 <table>
                                     <tr>
-                                        <td><label>Sex:</label></td>
-                                        <td><select name="Sex" id="sex">
+                                        <td><label class="requiredfield">Sex:</label></td>
+                                        <td><select name="Sex" id="sex" required>
                                                 <option>Male</option>
                                                 <option>Female</option>
                                                 <option>Unknown</option>
@@ -309,148 +309,89 @@
                         <div class="header-contact">
                             <div class="contact-header">
                                 <h6>Contact Details <i class="fa-solid fa-circle-plus" onclick="addSection()"></i></h6>
-                                <span style="font-size: medium;">Please set the preferences after adding the contact
+                                <span style="font-size: 13px;">Please set the preferences after adding the contact
                                     information, the section to set
                                     preference can be found below the
                                     contact section of the page.
                                 </span>
                             </div>
-                            <!-- <div class="contact12"> -->
                             <div class="section12" id="sec12">
-                                <!-- <div class="section1"> -->
-                                    <div id="form1">
-                                        <fieldset>
-                                            <legend>
-                                                <select name="home" id="add1">
-                                                    <option>Home</option>
-                                                    <option>Work</option>
-                                                    <option>Other</option>
-                                                </select>
-                                                <span style="padding-bottom: 20px;">Adress<i class="fa-solid fa-trash-can" onclick="removeSection()" id="trashbin" style="align-items: right;"></i></span>
-                                                
-                                            </legend>
-                                            <label style="font-size: 20px;">Street</label><br><input type="text"
-                                                name="street1" id="">
-                                            <table style="width: 100%;">
-                                                <tr>
-                                                    <td><label>Zip</label><br><input type="text" name="zip1" id=""></td>
-                                                    <td><label>City</label><br><input type="text" name="city1" id="">
-                                                    </td>
-                                                    <td><label>State</label><br><select name="state1" id="state1">
-                                                            <option>California</option>
-                                                            <option>Pensilvenia</option>
-                                                            <option>Florida</option>
-                                                        </select>
-                                                    <td><label>Coutnry</label><br><select name="country1" id="coutnry1">
-                                                            <option>India</option>
-                                                            <option>US</option>
-                                                            <option>Canada</option>
-                                                        </select></td>
-                                                </tr>
-                                            </table>
-                                            <table style="width: 100%;">
-                                            <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6></table>
-                                            <table>
-                                                <tr>
-                                                    <td colspan="2"><label>Type</label>
-                                                        <hr><select name="type1" id="type">
-                                                            <option>Call</option>
-                                                            <option>Landline</option>
-                                                        </select>
-                                                    </td>
-                                                    <td colspan="2"><label>Code</label>
-                                                        <hr><select name="code1" id="code1">
-                                                            <option>+1(US)</option>
-                                                            <option>+91(Ind)</option>
-                                                            <option>+7(Rus)</option>
-                                                        </select>
-                                                    </td>
-                                                    <td colspan="2"><label>Number</label>
-                                                        <hr><input type="text" name="number1" id="">
-                                                    </td>
-                                                    <td colspan="2"><label>Ext</label>
-                                                        <hr><input type="text" name="ext1" id="">
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <h6>Fax<i class="fa-solid fa-circle-plus"></i></h6>
-                                            <h6>Email<i class="fa-solid fa-circle-plus"></i></h6>
-                                            <input type="text" name="email1" id="">
-                                            <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
+                                <div id="form1">
+                                    <fieldset style="padding: 10px 10px 10px 10px;" class="fieldset-contact">
+                                        <legend style="padding-top:20px;">
+                                            <select name="home" id="add1">
+                                                <option>Home</option>
+                                                <option>Work</option>
+                                                <option>Other</option>
+                                            </select>
+                                            <span style="font-size:20px;">Adress<i class="fa-solid fa-trash-can" onclick="removeSection()" id="trashbin"></i></span>
 
-                                        </fieldset>
+                                        </legend>
+                                        <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
+                                        <table style="width: 100%; font-size:13px">
+                                            <tr>
+                                                <td style="padding-right:10px;"><label>Zip</label><br><input type="text" name="zip1" id=""></td>
+                                                <td style="padding-right:10px;">
+                                                    <label>City</label><br><input type="text" name="city1" id="">
+                                                </td>
+                                                <td style="padding-right:10px;">
+                                                    <label>State</label><br><select name="state1" id="state1">
+                                                        <option>California</option>
+                                                        <option>Pensilvenia</option>
+                                                        <option>Florida</option>
+                                                    </select>
+                                                <td>
+                                                    <label>Coutnry</label><br><select name="country1" id="coutnry1">
+                                                        <option>India</option>
+                                                        <option>US</option>
+                                                        <option>Canada</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                                    </div>
-                                <!-- </div> -->
-                                <!-- <!-- <div class="section2"> -->
-                                    <div id="form1">
-                                        <fieldset>
-                                            <legend>
-                                                <select name="work2" id="add2">
-                                                    <option>Home</option>
-                                                    <option>Work</option>
-                                                    <option>Other</option>
-                                                </select>
-                                                <span style="padding-bottom: 20px;">Adress<i class="fa-solid fa-trash-can" onclick="removeSection()" id="trashbin" style="align-items: right;"></i></span>
-                                            </legend>
-                                            <label style="font-size: 20px;">Street</label><br><input type="text"
-                                                name="street2" id="">
-                                            <table>
-                                                <tr>
-                                                    <td><label>Zip</label><br><input type="text" name="zip2" id=""></td>
-                                                    <td><label>City</label><br><input type="text" name="city2" id="">
-                                                    </td>
-                                                    <td><label>State</label><br><select name="state2" id="state2">
-                                                            <option>California</option>
-                                                            <option>Pensilvenia</option>
-                                                            <option>Florida</option>
-                                                        </select>
-                                                    <td><label>Coutnry</label><br><select name="country2" id="coutnry2">
-                                                            <option>India</option>
-                                                            <option>US</option>
-                                                            <option>Canada</option>
-                                                        </select></td>
-                                                </tr>
-                                            </table>
-                                            <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
-                                            <table>
-                                                <tr>
-                                                    <td colspan="2"><label>Type</label>
-                                                        <hr><select name="type2" id="type2">
-                                                            <option>Call</option>
-                                                            <option>Landline</option>
-                                                        </select>
-                                                    </td>
-                                                    <td colspan="2"><label>Code</label>
-                                                        <hr><select name="code2" id="code2">
-                                                            <option>+1(US)</option>
-                                                            <option>+91(Ind)</option>
-                                                            <option>+7(Rus)</option>
-                                                        </select>
-                                                    </td>
-                                                    <td colspan="2"><label>Number</label>
-                                                        <hr><input type="text" name="number2" id="">
-                                                    </td>
-                                                    <td colspan="2"><label>Ext</label>
-                                                        <hr><input type="text" name="ext2" id="">
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <h6>Fax<i class="fa-solid fa-circle-plus"></i></h6>
-                                            <h6>Email<i class="fa-solid fa-circle-plus"></i></h6>
-                                            <input type="text" name="email2" id="">
-                                            <h6>Website<i class="fa-solid fa-circle-plus"></i></h6>
-                                        </fieldset>
-                                    </div>
-                                <!-- </div> --> -->
+                                        <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
+                                        <table>
+                                            <tr style="font-size:13px; margin:100%; padding-right:10px;">
+                                                <td colspan="2">
+                                                    <label>Type</label>
+                                                    <hr><select name="type1" id="type">
+                                                        <option>Call</option>
+                                                        <option>Landline</option>
+                                                    </select>
+                                                </td>
+                                                <td colspan="2">
+                                                    <label>Code</label>
+                                                    <hr><select name="code1" id="code1">
+                                                        <option>+1(US)</option>
+                                                        <option>+91(Ind)</option>
+                                                        <option>+7(Rus)</option>
+                                                    </select>
+                                                </td>
+                                                <td colspan="2">
+                                                    <label>Number</label>
+                                                    <hr><input type="text" name="number1" id="">
+                                                </td>
+                                                <td colspan="2">
+                                                    <label>Ext</label>
+                                                    <hr><input type="text" name="ext1" id="">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <h6>Fax<i class="fa-solid fa-circle-plus" onclick()="addFax()"></i></h6>
+                                        <div id="add-fax"><input type="text" name="fax1"></div>
+                                        <h6>Email<i class="fa-solid fa-circle-plus" id="add-email" onclick()="addEmail()"></i></h6>
+                                        <div id="add-email"><input type="text" name="email1"></div>
+                                        <h6>Website<i class="fa-solid fa-circle-plus" id="add-website" onclick()="addWebsite()"></i></h6>
+                                        <div id="add-website"><input type="text" name="web1"></div>
+                                    </fieldset>
+                                </div>
                             </div>
-
-                            <!-- </div> -->
                         </div>
 
                     </div>
                     <div class="contactpref">
-                        <h6 style="font-size: medium;">Contact Preference</h6>
+                        <h6 style="font-size: medium; padding-bottom:10px;">Contact Preference</h6>
 
                         <table class="contactpreference" name="conpre" border="1">
                             <tr>
@@ -513,8 +454,8 @@
                     </div>
                     <div class="otherinfo">
                         <div class="other-header" id="other-out">
-                            <h6>Other Details<i class="fa-solid fa-circle-chevron-down" id="othersection"
-                                    onclick="otherInfoIconChange()"></i></h6>
+                            <h6><i class="fas fa-chevron-circle-down" id="othersection"
+   onclick="otherInfoShow()"></i>Other Details</h6>
                         </div>
                         <div class="otherinfosub" id="other-in">
                             <div class="left1">
@@ -631,9 +572,11 @@
 
                                         </td>
                                         <td>
-                                            <input type="checkbox" style="width: 10%;" name="Multiple Birth check"
-                                                id="">
-                                            <input type="date" name="Multiple Birth">
+                                            <div class="multibirth-check" style="width:100%">
+                                                <div><input type="checkbox" style="margin: 10px 35px 10px 10px;" name="Multiple Birth check" id=""></div>
+                                                <div><input type="date" name="Multiple Birth"></div>
+                                            </div>
+
                                         </td>
                                     </tr>
                                     <tr>
@@ -673,8 +616,12 @@
 
                                         </td>
                                         <td>
-                                            <input type="checkbox" name="Deceased check" id="Deceasedcheck">
-                                            <input type="date" name="Deceased">
+                                            <div class="deceased-check">
+                                                <div><input type="checkbox" name="Deceased check" id="Deceasedcheck" style="margin:10px 35px 10px 10px;"></div>
+                                                <div><input type="date" name="Deceased"></div>
+                                            </div>
+                                            
+                                            
                                         </td>
                                     </tr>
                                     <tr>

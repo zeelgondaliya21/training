@@ -1,12 +1,6 @@
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.csproj.AssemblyReference.cache
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.AssemblyInfoInputs.cache
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.AssemblyInfo.cs
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.csproj.CoreCompileInputs.cache
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\appsettings.json
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\CrudApplication.staticwebassets.runtime.json
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\CrudApplication.exe
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\CrudApplication.deps.json
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\CrudApplication.runtimeconfig.json
@@ -22,6 +16,13 @@ C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\Npgsql.
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.csproj.AssemblyReference.cache
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.AssemblyInfoInputs.cache
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.AssemblyInfo.cs
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.csproj.CoreCompileInputs.cache
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\staticwebassets\msbuild.CrudApplication.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\staticwebassets\msbuild.build.CrudApplication.props
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.CrudApplication.props
@@ -36,4 +37,3 @@ C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\refint\
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.pdb
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\CrudApplication.genruntimeconfig.cache
 C:\Users\zeelg\Files21\training\Backend\CrudApplication\obj\Debug\net7.0\ref\CrudApplication.dll
-C:\Users\zeelg\Files21\training\Backend\CrudApplication\bin\Debug\net7.0\CrudApplication.staticwebassets.runtime.json
