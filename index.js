@@ -140,10 +140,14 @@ function otherInfoShow() {
 
 //adding and deleting address panel
 var addbtn = document.getElementById("sec12");
-function addSection() {
-    document.querySelector('#sec12').insertAdjacentHTML(
-        'afterbegin',
-        `                                                     <div id="form1">
+var faxRemove = document.getElementById("add-fax");
+var emailRemove = document.getElementById("add-email");
+var webRemove = document.getElementById("add-website");
+function addSection(contact) {
+    contact.parentElement.parentElement.nextElementSibling.insertAdjacentHTML(
+        'beforeend',
+        `
+                                <div id="form1">
                                     <fieldset style="padding: 10px 10px 10px 10px;" class="fieldset-contact">
                                         <legend style="padding-top:20px;">
                                             <select name="home" id="add1">
@@ -151,90 +155,158 @@ function addSection() {
                                                 <option>Work</option>
                                                 <option>Other</option>
                                             </select>
-                                            <span style="font-size:20px;">Adress<i class="fa-solid fa-trash-can" onclick="removeSection()" id="trashbin"></i></span>
+                                            <span style="font-size:20px;">Address<i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="trashbin"></i></span>
 
                                         </legend>
                                         <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
-                                        <table style="width: 100%; font-size:13px">
-                                            <tr>
-                                                <td style="padding-right:10px;"><label>Zip</label><br><input type="text" name="zip1" id=""></td>
-                                                <td style="padding-right:10px;">
-                                                    <label>City</label><br><input type="text" name="city1" id="">
-                                                </td>
-                                                <td style="padding-right:10px;">
-                                                    <label>State</label><br><select name="state1" id="state1">
-                                                        <option>California</option>
-                                                        <option>Pensilvenia</option>
-                                                        <option>Florida</option>
-                                                    </select>
-                                                <td>
-                                                    <label>Coutnry</label><br><select name="country1" id="coutnry1">
-                                                        <option>India</option>
-                                                        <option>US</option>
-                                                        <option>Canada</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                      
-                                                <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
-                                                <table>
-                                                    <tr style="font-size:13px; margin:100%; padding-right:10px;">
-                                                        <td colspan="2">
-                                                            <label>Type</label>
-                                                            <hr><select name="type1" id="type">
-                                                                <option>Call</option>
-                                                                <option>Landline</option>
-                                                            </select>
-                                                        </td>
-                                                        <td colspan="2">
-                                                            <label>Code</label>
-                                                            <hr><select name="code1" id="code1">
-                                                                <option>+1(US)</option>
-                                                                <option>+91(Ind)</option>
-                                                                <option>+7(Rus)</option>
-                                                            </select>
-                                                        </td>
-                                                        <td colspan="2">
-                                                            <label>Number</label>
-                                                            <hr><input type="text" name="number1" id="">
-                                                        </td>
-                                                        <td colspan="2">
-                                                            <label>Ext</label>
-                                                            <hr><input type="text" name="ext1" id="">
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <h6>Fax<i class="fa-solid fa-circle-plus" onclick()="addFax()"></i></h6>
-                                                <div id="add-fax"><input type="text" name="fax1"></div>
-                                                <h6>Email<i class="fa-solid fa-circle-plus" id="add-email" onclick()="addEmail()"></i></h6>
-                                                <div id="add-email"><input type="text" name="email1"></div>
-                                                <h6>Website<i class="fa-solid fa-circle-plus" id="add-website" onclick()="addWebsite()"></i></h6>
-                                                <div id="add-website"><input type="text" name="web1"></div>
-                                    </fieldset>
+                                        <div style="display:flex; font-size:13px; margin-top:10px;">
+                                            <div style="width:25%;">Zip</div>
+                                            <div style="width:25%;">City</div>
+                                            <div style="width:25%;">State</div>
+                                            <div style="width:25%;">Country</div>
+                                        </div>
+                                    
+                                        <div style="display:flex;">
+                                            <div style="width:25%; margin-right:10px;">
+                                                <input type="text" />
+                                            </div>
+                                            <div style="width:25%; margin-right:10px;">
+                                                <input type="text" />
+                                            </div>
+                                            <div style="width: 25%; margin-right: 10px;">
+                                                <select name="code1" id="code1">
+                                                    <option>California</option>
+                                                    <option>Pensilvenia</option>
+                                                    <option>Florida</option>
+                                                </select>
+                                            </div>
+                                            <div style="width: 25%;">
+                                                <select name="code1" id="code1">
+                                                    <option>India</option>
+                                                    <option>US</option>
+                                                    <option>Canada</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
 
-                                </div>`
+
+                                        <div class="phone-header">
+                                            <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
+                                            <div style="display:flex; font-size:13px;">
+                                                <div style="width:25%;">Type</div>
+                                                <div style="width:25%;">Code</div>
+                                                <div style="width:25%;">Number</div>
+                                                <div style="width:25%;">Ext.</div>
+                                            </div>
+                                            <hr />
+                                            <div style="display:flex; margin-top:10px;">
+                                                <div style="width:25%; margin-right:10px;">
+                                                    <select name="type1" id="type">
+                                                        <option>Call</option>
+                                                        <option>Landline</option>
+                                                    </select>
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px;">
+                                                    <select name="code1" id="code1">
+                                                        <option>+1(US)</option>
+                                                        <option>+91(Ind)</option>
+                                                        <option>+7(Rus)</option>
+                                                    </select>
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px;">
+                                                    <input type="text" name="number1" id="">
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px; display:flex;">
+                                                    <input type="text" name="ext1" id="" />
+                                                </div>
+                                                <div>
+                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
+                                        <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
+                                        <div>
+                                            <div style="display:flex;"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
+                                        </div>
+                                        
+                                        <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
+                                        
+                                    </fieldset>
+                                </div>
+        `
     );
 }
-function addFax() {
-    document.getElementById('add-fax').insertAdjacentHTML(
-        "afterbegin",
-        `<input type="text">`);
+
+function addPhone(phone) {
+    phone.parentElement.parentElement.parentElement.insertAdjacentHTML(
+        'beforeend',`
+<div style="display:flex; margin-top:10px;">
+                                                <div style="width:25%; margin-right:10px;">
+                                                    <select name="type1" id="type">
+                                                        <option>Call</option>
+                                                        <option>Landline</option>
+                                                    </select>
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px;">
+                                                    <select name="code1" id="code1">
+                                                        <option>+1(US)</option>
+                                                        <option>+91(Ind)</option>
+                                                        <option>+7(Rus)</option>
+                                                    </select>
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px;">
+                                                    <input type="text" name="number1" id="">
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px; display:flex;">
+                                                    <input type="text" name="ext1" id="" />
+                                                </div>
+                                                <div>
+                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
+                                                </div>
+                                                
+                                            </div>
+    `);
 }
-function addEmail() {
-    document.getElementById('add-email').insertAdjacentHTML(
-        'afterbegin',
-        `<input type="text">`);
+
+function addFax(fax) {
+    fax.parentElement.insertAdjacentHTML(
+        "beforeend",
+        `<div style="display:flex;"><input type="text"><i style="font-size:20px;" class="fa-solid fa-trash-can" onclick="removeSectionFax(this)"></i></div>`);
 }
-function addWebsite() {
-    document.getElementById('add-website').insertAdjacentHTML(
-        'afterbegin',
-        `<input type="text">`);
+function addEmail(email) {
+    email.parentElement.nextElementSibling.insertAdjacentHTML(
+        'beforeend',
+        `<div style="display:flex;"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>`);
+}
+function addWebsite(web) {
+    web.parentElement.insertAdjacentHTML(
+        'beforeend',
+        `<div style="display:flex;"><input type="text"><i style="font-size:20px;" class="fa-solid fa-trash-can" onclick="removeSectionWeb(this)"></i></div>`);
+}
+
+function removeSection(contactdelete) {
+    contactdelete.parentElement.parentElement.parentElement.parentElement.remove();
+}
+console.log('hi');
+function removeSectionPhone(phonedelete) {
+    phonedelete.parentElement.parentElement.remove();
+}
+
+function removeSectionFax(faxdelete) {
+    faxdelete.parentElement.remove();
 }
 
 
-function removeSection() {
-    addbtn.lastChild.remove();
+function removeSectionEmail(emaildelete) {
+    emaildelete.parentElement.remove();
+}
+
+function removeSectionWeb(webdelete) {
+    webdelete.parentElement.remove();
 }
 
 

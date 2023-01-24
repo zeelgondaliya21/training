@@ -128,9 +128,9 @@ body ::-webkit-scrollbar-track {
 }
 
 .patientinfo {  
-  justify-content: center;
   background-color: white;
   display: flex;
+  color:#627D98;
   flex-direction: row;
   padding-left: 100px;
   font-size: 15px;
@@ -155,15 +155,17 @@ body ::-webkit-scrollbar-track {
   overflow-x: hidden;
   border-radius: 5px;
   float: left;
-  width:11%;
+  width:10%;
   height:82%;
   padding: 0.4rem;
   font-size: 16px;
 }
+
 .sidebar li {
   margin-bottom: 12px;
   transition: transform .2s;
 }
+
 .sidebar li:hover{
   transform: scale(1.05);
   color: #5A5FE2;
@@ -192,6 +194,7 @@ body ::-webkit-scrollbar-track {
 
   display: flex;
   flex-direction: column;
+  color: #627D98;
 }
 
 .contact {
@@ -208,7 +211,6 @@ body ::-webkit-scrollbar-track {
   width: 100%;
   padding: 10px 10px 10px 10px;
 }
-
 .section12 {
   width: 100%;
   margin-bottom: 10px;
@@ -401,6 +403,7 @@ i {
     border-right-color: rgb(213, 220, 230);
     border-bottom-color: rgb(213, 220, 230);
     border-left-color: rgb(213, 220, 230);
+    min-height: calc(100%);
 }
 
 
@@ -442,4 +445,9 @@ i {
 .deceased-check{
     display:flex;
     flex-direction:row;
+}
+
+.aligntext{
+    text-align : right;
+    padding-right: 5px;
 }

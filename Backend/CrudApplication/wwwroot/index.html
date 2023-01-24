@@ -5,7 +5,7 @@
 
     </tite>
     <link rel="stylesheet" href="index.css">
-    <script src="Index.js" defer></script>
+    <script src=".\Index.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -133,31 +133,31 @@
                                     <td><span style="font-size:large" id="chartid">PT00000000025</span></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Prefix:</label></td>
+                                    <td class="aligntext"><label>Prefix:</label></td>
                                     <td><input name="prefix" type="text"></td>
                                 </tr>
                                 <tr>
-                                    <td><label class="requiredfield">First Name:</label></td>
+                                    <td class="aligntext"><label class="requiredfield">First Name:</label></td>
                                     <td><input type="text" name="fname"  id="fname" required></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Middle Name:</label></td>
+                                    <td class="aligntext"><label>Middle Name:</label></td>
                                     <td><input type="text" name="mname" id="mname"></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Last Name 2:</label></td>
+                                    <td class="aligntext"><label>Last Name 2:</label></td>
                                     <td><input type="text" name="lastname2" id="lname2"></td>
                                 </tr>
                                 <tr>
-                                    <td><label class="requiredfield">Last Name:</label></td>
+                                    <td class="aligntext"><label class="requiredfield">Last Name:</label></td>
                                     <td><input type="text" name="lname" id="lname" required></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Suffix:</label></td>
+                                    <td class="aligntext"><label>Suffix:</label></td>
                                     <td><input type="text" name="suffix"></td>
                                 </tr>
                                 <tr>
-                                    <td><label>AKA:</label></td>
+                                    <td class="aligntext"><label>AKA:</label></td>
                                     <td><input type="text" name="aka"></td>
                                 </tr>
                             </table>
@@ -165,7 +165,7 @@
                             <div class="center">
                                 <table>
                                     <tr>
-                                        <td><label class="requiredfield">Sex:</label></td>
+                                        <td class="aligntext"><label class="requiredfield">Sex:</label></td>
                                         <td><select name="Sex" id="sex" required>
                                                 <option>Male</option>
                                                 <option>Female</option>
@@ -173,11 +173,11 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>DOB:</label></td>
+                                        <td class="aligntext"><label>DOB:</label></td>
                                         <td><input type="date" name="dob" id="dateofbirth"></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Pref Language:</label></td>
+                                        <td class="aligntext"><label>Pref Language:</label></td>
                                         <td><select name="SelectLang" id="Lang">
                                                 <option>English</option>
                                                 <option>Hindi</option>
@@ -185,12 +185,12 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>interpreter:</label></td>
+                                        <td class="aligntext"><label>interpreter:</label></td>
                                         <td><input type="checkbox" name="interpret" style="margin: 10px 0px 10px 0px">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label>Status:</label></td>
+                                        <td class="aligntext"><label>Status:</label></td>
                                         <td><select name="Status" id="Status">
                                                 <option>First Appointment Pending</option>
                                                 <option>Regestration Pending</option>
@@ -201,12 +201,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label>Risk:</label></td>
+                                        <td class="aligntext"><label>Risk:</label></td>
                                         <td><input type="button" value="high" name="risk"
                                                 style="margin: 10px 0px 10px 0px"></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Marital Status:</label></td>
+                                        <td class="aligntext"><label>Marital Status:</label></td>
                                         <td><select name="MaritalStatus" id="MaritalStatus">
                                                 <option>Married</option>
                                                 <option>Unmarried</option>
@@ -214,11 +214,11 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>SSN:</label></td>
+                                        <td class="aligntext"><label>SSN:</label></td>
                                         <td><input type="text" name="ssn"><br></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Race:</label></td>
+                                        <td class="aligntext"><label>Race:</label></td>
                                         <td><select name="Race" id="Race">
                                                 <option>White</option>
                                                 <option>American Indian or Alaskan Native</option>
@@ -228,7 +228,7 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Ethnicity:</label></td>
+                                        <td class="aligntext"><label>Ethnicity:</label></td>
                                         <td><select name="Ethnicity" id="Ethnicity">
                                                 <option>Unreported/Refused</option>
                                                 <option>Hispanic/Latino</option>
@@ -240,12 +240,12 @@
                             <div class="right">
                                 <table>
                                     <tr>
-                                        <td><label>Self Pay:</label></td>
+                                        <td class="aligntext"><label>Self Pay:</label></td>
                                         <td><input type="checkbox" name="selfpay" style="margin: 10px 0px 10px 0px">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label>Default Facility:</label></td>
+                                        <td class="aligntext"><label>Default Facility:</label></td>
                                         <td><select name="DefaultFacility" id="Default Facility">
                                                 <option>(FAC8)Aviral</option>
                                                 <option>(FAC13)Facility</option>
@@ -253,7 +253,7 @@
                                             </select><br></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Default Provider:</label></td>
+                                        <td class="aligntext"><label>Default Provider:</label></td>
                                         <td><select name="DefaultProvider" id="DefaultProvider">
                                                 <option>Agrawal,Sumit</option>
                                                 <option>Jones,Charlie</option>
@@ -261,7 +261,7 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Time Zone:</label></td>
+                                        <td class="aligntext"><label>Time Zone:</label></td>
                                         <td><select name="TimeZone" id="TimeZone">
                                                 <option>UTC</option>
                                                 <option>GMT</option>
@@ -269,7 +269,7 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Default Pharmacy</label></td>
+                                        <td class="aligntext"><label>Default Pharmacy</label></td>
                                         <td><select name="DefPharm" id="DefPharm">
                                                 <option>Pharmacy1</option>
                                                 <option>Pharmacy2</option>
@@ -277,16 +277,16 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Use current Pharmacy for all Rx:</label></td>
+                                        <td class="aligntext"><label>Use current Pharmacy for all Rx:</label></td>
                                         <td><input type="checkbox" name="rx" style="margin: 10px 0px 10px 0px"></td>
                                     </tr>
                                     <tr>
-                                        <td><label>PCP same as provider:</label></td>
+                                        <td class="aligntext"><label>PCP same as provider:</label></td>
                                         <td><input type="checkbox" name="sameasrx" style="margin: 10px 0px 10px 0px">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label>PCP:</label></td>
+                                        <td class="aligntext"><label>PCP:</label></td>
                                         <td><select name="Pcp" id="Pcp">
                                                 <option>Agrawal,Sumit</option>
                                                 <option>Jones,Charlie</option>
@@ -294,7 +294,7 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Fees Schedule:</label></td>
+                                        <td class="aligntext"><label>Fees Schedule:</label></td>
                                         <td><select name="FeesSchedule" id="FeesSchedule" disabled>
                                                 <option>1</option>
                                                 <option>2</option>
@@ -308,7 +308,7 @@
                     <div class="contact">
                         <div class="header-contact">
                             <div class="contact-header">
-                                <h6>Contact Details <i class="fa-solid fa-circle-plus" onclick="addSection()"></i></h6>
+                                <h6>Contact Details <i class="fa-solid fa-circle-plus" onclick="addSection(this)"></i></h6>
                                 <span style="font-size: 13px;">Please set the preferences after adding the contact
                                     information, the section to set
                                     preference can be found below the
@@ -324,66 +324,86 @@
                                                 <option>Work</option>
                                                 <option>Other</option>
                                             </select>
-                                            <span style="font-size:20px;">Adress<i class="fa-solid fa-trash-can" onclick="removeSection()" id="trashbin"></i></span>
+                                            <span style="font-size:20px;">Address<i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="trashbin"></i></span>
 
                                         </legend>
                                         <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
-                                        <table style="width: 100%; font-size:13px">
-                                            <tr>
-                                                <td style="padding-right:10px;"><label>Zip</label><br><input type="text" name="zip1" id=""></td>
-                                                <td style="padding-right:10px;">
-                                                    <label>City</label><br><input type="text" name="city1" id="">
-                                                </td>
-                                                <td style="padding-right:10px;">
-                                                    <label>State</label><br><select name="state1" id="state1">
-                                                        <option>California</option>
-                                                        <option>Pensilvenia</option>
-                                                        <option>Florida</option>
-                                                    </select>
-                                                <td>
-                                                    <label>Coutnry</label><br><select name="country1" id="coutnry1">
-                                                        <option>India</option>
-                                                        <option>US</option>
-                                                        <option>Canada</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div style="display:flex; font-size:13px; margin-top:10px;">
+                                            <div style="width:25%;">Zip</div>
+                                            <div style="width:25%;">City</div>
+                                            <div style="width:25%;">State</div>
+                                            <div style="width:25%;">Country</div>
+                                        </div>
+                                    
+                                        <div style="display:flex;">
+                                            <div style="width:25%; margin-right:10px;">
+                                                <input type="text" />
+                                            </div>
+                                            <div style="width:25%; margin-right:10px;">
+                                                <input type="text" />
+                                            </div>
+                                            <div style="width: 25%; margin-right: 10px;">
+                                                <select name="code1" id="code1">
+                                                    <option>California</option>
+                                                    <option>Pensilvenia</option>
+                                                    <option>Florida</option>
+                                                </select>
+                                            </div>
+                                            <div style="width: 25%;">
+                                                <select name="code1" id="code1">
+                                                    <option>India</option>
+                                                    <option>US</option>
+                                                    <option>Canada</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
 
-                                        <h6>Phone<i class="fa-solid fa-circle-plus"></i></h6>
-                                        <table>
-                                            <tr style="font-size:13px; margin:100%; padding-right:10px;">
-                                                <td colspan="2">
-                                                    <label>Type</label>
-                                                    <hr><select name="type1" id="type">
+
+                                        <div class="phone-header">
+                                            <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
+                                            <div style="display:flex; font-size:13px;">
+                                                <div style="width:25%;">Type</div>
+                                                <div style="width:25%;">Code</div>
+                                                <div style="width:25%;">Number</div>
+                                                <div style="width:25%;">Ext.</div>
+                                            </div>
+                                            <hr />
+                                            <div style="display:flex; margin-top:10px;">
+                                                <div style="width:25%; margin-right:10px;">
+                                                    <select name="type1" id="type">
                                                         <option>Call</option>
                                                         <option>Landline</option>
                                                     </select>
-                                                </td>
-                                                <td colspan="2">
-                                                    <label>Code</label>
-                                                    <hr><select name="code1" id="code1">
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px;">
+                                                    <select name="code1" id="code1">
                                                         <option>+1(US)</option>
                                                         <option>+91(Ind)</option>
                                                         <option>+7(Rus)</option>
                                                     </select>
-                                                </td>
-                                                <td colspan="2">
-                                                    <label>Number</label>
-                                                    <hr><input type="text" name="number1" id="">
-                                                </td>
-                                                <td colspan="2">
-                                                    <label>Ext</label>
-                                                    <hr><input type="text" name="ext1" id="">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <h6>Fax<i class="fa-solid fa-circle-plus" onclick()="addFax()"></i></h6>
-                                        <div id="add-fax"><input type="text" name="fax1"></div>
-                                        <h6>Email<i class="fa-solid fa-circle-plus" id="add-email" onclick()="addEmail()"></i></h6>
-                                        <div id="add-email"><input type="text" name="email1"></div>
-                                        <h6>Website<i class="fa-solid fa-circle-plus" id="add-website" onclick()="addWebsite()"></i></h6>
-                                        <div id="add-website"><input type="text" name="web1"></div>
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px;">
+                                                    <input type="text" name="number1" id="">
+                                                </div>
+                                                <div style="width: 25%; margin-right: 10px; display:flex;">
+                                                    <input type="text" name="ext1" id="" />
+                                                </div>
+                                                <div>
+                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
+                                        <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
+                                        <div>
+                                            <div style="display:flex;"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
+                                        </div>
+                                        
+                                        <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
+                                        
                                     </fieldset>
                                 </div>
                             </div>
@@ -461,7 +481,7 @@
                             <div class="left1">
                                 <table>
                                     <tr>
-                                        <td><label for="">Employment:</label></td>
+                                        <td class="aligntext"><label for="">Employment:</label></td>
                                         <td>
                                             <select name="Employment" id="eid">
                                                 <option value="">Full Time</option>
@@ -471,7 +491,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">First Called Date:</label>
                                         </td>
                                         <td>
@@ -479,7 +499,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Deceased Time:</label>
                                         </td>
                                         <td>
@@ -487,7 +507,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td  class="aligntext">
                                             <label for="">Mother's Last Name:</label>
                                         </td>
                                         <td>
@@ -495,7 +515,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td  class="aligntext">
                                             <label for="">Birth Place:</label>
                                         </td>
                                         <td>
@@ -503,7 +523,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td  class="aligntext">
                                             <label for="">Citizenship</label>
                                         </td>
                                         <td>
@@ -514,7 +534,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td  class="aligntext">
                                             <label for="">Note:</label>
                                         </td>
                                         <td>
@@ -526,7 +546,7 @@
                             <div class="center1">
                                 <table>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Gender Identity:</label>
                                         </td>
                                         <td>
@@ -538,7 +558,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Referral Resource:</label>
                                         </td>
                                         <td>
@@ -550,7 +570,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Mother's Maiden:</label>
                                         </td>
                                         <td>
@@ -558,7 +578,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Mother Identifier:</label>
 
                                         </td>
@@ -567,7 +587,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Multiple Birth:</label>
 
                                         </td>
@@ -580,7 +600,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Religion:</label>
                                         </td>
                                         <td>
@@ -598,7 +618,7 @@
                             <div class="right1">
                                 <table>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Sexual Orientation:</label>
 
                                         </td>
@@ -611,7 +631,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Deceased:</label>
 
                                         </td>
@@ -625,7 +645,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Veteran Military Status:</label>
 
                                         </td>
@@ -636,7 +656,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Mother's Middle Name:</label>
 
                                         </td>
@@ -645,7 +665,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Nationality:</label>
 
                                         </td>
@@ -657,7 +677,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="aligntext">
                                             <label for="">Driving License:</label>
 
                                         </td>
