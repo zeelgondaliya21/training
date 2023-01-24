@@ -10,6 +10,8 @@
     overflow: hidden;
     font-family: WebImsLato,sans-serif;
     font-size: 1.3rem;
+    color: #243B53;
+    background-color:#f8f8f9;
 }
 .h6 {
     color: #627D98;
@@ -55,8 +57,7 @@ body ::-webkit-scrollbar-track {
   padding-bottom: 10px;
   padding-left: 10px;
   justify-content: center;
-  height: auto;
-  z-index: 100;
+  z-index:100
 }
 
 .headermain {
@@ -97,10 +98,11 @@ body ::-webkit-scrollbar-track {
 
 }
 
+
 .buttonss {
   margin-top: 1px;
-  right:100px;
-  top: 120px;
+  right:110px;
+  top: 150px;
   width: 80%;
   /* margin-bottom: 200px;
   margin-right: 2px; */
@@ -132,8 +134,6 @@ body ::-webkit-scrollbar-track {
   display: flex;
   color:#627D98;
   flex-direction: row;
-  padding-left: 100px;
-  font-size: 15px;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   width: 100%;
@@ -143,22 +143,23 @@ body ::-webkit-scrollbar-track {
 }
 
 .sidebar {
-  /* padding: 6px 8px 6px 8px; */
-  background-color: #f1f1f7;
-  font-family: WebImsLato,sans-serif;
-  margin-top: 60px;
-  margin-left: 10px;
-  color: #0A2644;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border-radius: 5px;
-  float: left;
-  width:10%;
-  height:82%;
-  padding: 0.4rem;
-  font-size: 16px;
+    /* padding: 6px 8px 6px 8px; */
+    background-color: #f1f1f7;
+    font-family: WebImsLato,sans-serif;
+    margin-top: 60px;
+    margin-left: 10px;
+    color: #0A2644;
+    background-color: #f8f8f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 5px;
+    float: left;
+    width: 10%;
+    height: 82%;
+    padding: 0.4rem;
+    font-size: 16px;
 }
 
 .sidebar li {
@@ -175,27 +176,17 @@ body ::-webkit-scrollbar-track {
   font-size: 25pt;
 }
 
-.left {
-  display: flex;
-  padding-left: 70pt;
-  width: 1450px;
-}
 
 .center {
+  display:flex;
+  height:calc(100%);
   padding-left: 70pt;
   padding-right: 70pt;
+
 }
 
-/* .right {
-  
-} */
 
-.patientinfomain {
 
-  display: flex;
-  flex-direction: column;
-  color: #627D98;
-}
 
 .contact {
   background-color: white;
@@ -309,9 +300,6 @@ input[type=text]:focus {
   width: 100px;
 }
 
-.b1{
-  justify-items: right;
-}
 
 .otherinfo{
   background-color: white;
@@ -358,8 +346,8 @@ i {
 }
 .searchpatientbox{
   margin-left: 400px;
-  border-radius: 6rem;
-  
+  padding-top:10px;
+  padding-bottom:10px;
 }
 .image{
   
@@ -371,9 +359,9 @@ i {
   float: right;
   right: 0;
 }
-
-.patientinfo > table> tr  > td  label{
-  text-align: right;
+div.otherinfo td,
+div.patientinfo td{
+    padding-bottom:5px;
 }
 .hide-sidebar{
   width: 0%;
@@ -450,4 +438,6 @@ i {
 .aligntext{
     text-align : right;
     padding-right: 5px;
+    color: #486581;
+    font-size:13px;
 }

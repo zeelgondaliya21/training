@@ -217,7 +217,7 @@ function addSection(contact) {
                                                 <div style="width: 25%; margin-right: 10px;">
                                                     <input type="text" name="number1" id="">
                                                 </div>
-                                                <div style="width: 25%; margin-right: 10px; display:flex;">
+                                                <div style="width: 25%; display:flex;">
                                                     <input type="text" name="ext1" id="" />
                                                 </div>
                                                 <div>
@@ -244,14 +244,14 @@ function addSection(contact) {
 function addPhone(phone) {
     phone.parentElement.parentElement.parentElement.insertAdjacentHTML(
         'beforeend',`
-<div style="display:flex; margin-top:10px;">
+                                            <div style="display:flex; margin-top:10px;">
                                                 <div style="width:25%; margin-right:10px;">
                                                     <select name="type1" id="type">
                                                         <option>Call</option>
                                                         <option>Landline</option>
                                                     </select>
                                                 </div>
-                                                <div style="width: 25%; margin-right: 10px;">
+                                                <div style="width: 25%; margin-right: 10px">
                                                     <select name="code1" id="code1">
                                                         <option>+1(US)</option>
                                                         <option>+91(Ind)</option>
@@ -261,7 +261,7 @@ function addPhone(phone) {
                                                 <div style="width: 25%; margin-right: 10px;">
                                                     <input type="text" name="number1" id="">
                                                 </div>
-                                                <div style="width: 25%; margin-right: 10px; display:flex;">
+                                                <div style="width: 25%; display:flex;">
                                                     <input type="text" name="ext1" id="" />
                                                 </div>
                                                 <div>
@@ -291,10 +291,13 @@ function addWebsite(web) {
 function removeSection(contactdelete) {
     contactdelete.parentElement.parentElement.parentElement.parentElement.remove();
 }
-console.log('hi');
 function removeSectionPhone(phonedelete) {
     phonedelete.parentElement.parentElement.remove();
+    if (phonedelete.parentElement.parentElement == null) {
+        phonedelete.parentElement.parentElement.children[1].remove();
+    }
 }
+
 
 function removeSectionFax(faxdelete) {
     faxdelete.parentElement.remove();
@@ -309,5 +312,13 @@ function removeSectionWeb(webdelete) {
     webdelete.parentElement.remove();
 }
 
-
+function enableFeeSchedule() {
+    if (document.getElementById('selfpaycheck').checked) {
+        console.log("inside if");
+        document.getElementById('FeesSchedule').setAttribute("disabled", false);
+    }
+    else {
+        document.getElementById('FessSchedule').setAttribute("disabled", true);
+    }
+}
 
