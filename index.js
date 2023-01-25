@@ -6,6 +6,7 @@ let middlenameValue = document.getElementById("mname");
 let lastnameValue = document.getElementById("lname");
 let genderValue = document.getElementById("sex");
 let dobValue = document.getElementById("dateofbirth");
+
 let homeurl = `https://localhost:7162/api/Patient`;
 let pid = document.location.href.split('?')[1];
 let queryString = new URLSearchParams(pid);
@@ -19,7 +20,7 @@ const url = `https://localhost:7162/api/Patient/${pid}`;
 console.log(url);
 if (id != "") {
     const res = fetch(`https://localhost:7162/api/Patient/${id}`);
-
+    
 
     const data = res.then(async (r) => {
         console.log(r);
@@ -70,6 +71,7 @@ function submitData(event) {
         console.log(postPatientData);
         fetch('https://localhost:7162/api/Patient', {
             method: "POST",
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -93,6 +95,7 @@ function submitData(event) {
         fetch(`https://localhost:7162/api/Patient/${id}`, {
             method: "PUT",
             body: JSON.stringify(putPatientData),
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -147,97 +150,151 @@ function addSection(contact) {
     contact.parentElement.parentElement.nextElementSibling.insertAdjacentHTML(
         'beforeend',
         `
-                                <div id="form1">
-                                    <fieldset style="padding: 10px 10px 10px 10px;" class="fieldset-contact">
-                                        <legend style="padding-top:20px;">
-                                            <select name="home" id="add1">
-                                                <option>Home</option>
-                                                <option>Work</option>
-                                                <option>Other</option>
-                                            </select>
-                                            <span style="font-size:20px;">Address<i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="trashbin"></i></span>
-
-                                        </legend>
-                                        <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
-                                        <div style="display:flex; font-size:13px; margin-top:10px;">
-                                            <div style="width:25%;">Zip</div>
-                                            <div style="width:25%;">City</div>
-                                            <div style="width:25%;">State</div>
-                                            <div style="width:25%;">Country</div>
-                                        </div>
-                                    
-                                        <div style="display:flex;">
-                                            <div style="width:25%; margin-right:10px;">
-                                                <input type="text" />
-                                            </div>
-                                            <div style="width:25%; margin-right:10px;">
-                                                <input type="text" />
-                                            </div>
-                                            <div style="width: 25%; margin-right: 10px;">
-                                                <select name="code1" id="code1">
-                                                    <option>California</option>
-                                                    <option>Pensilvenia</option>
-                                                    <option>Florida</option>
+                                     <div id="form1">
+                                        <fieldset class="fieldset-contact">
+                                            <legend class="contact-legend">
+                                                <select name="home" id="add1">
+                                                    <option>Home</option>
+                                                    <option>Work</option>
+                                                    <option>Other</option>
                                                 </select>
-                                            </div>
-                                            <div style="width: 25%;">
-                                                <select name="code1" id="code1">
-                                                    <option>India</option>
-                                                    <option>US</option>
-                                                    <option>Canada</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        
+                                                <div style="display:flex; padding-top:10px;">
+                                                    <div style="font-size:16px;">Address</div>
+                                                    <div style="font-size:16px;"><i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="trashbin"></i></div>
+                                                </div>
 
 
-                                        <div class="phone-header">
-                                            <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
-                                            <div style="display:flex; font-size:13px;">
-                                                <div style="width:25%;">Type</div>
-                                                <div style="width:25%;">Code</div>
-                                                <div style="width:25%;">Number</div>
-                                                <div style="width:25%;">Ext.</div>
+                                            </legend>
+                                            <div>
+                                                <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
+
+                                                <div style="display:flex; font-size:13px; margin-top:10px;">
+                                                    <div style="width:24.7%;">Zip</div>
+                                                    <div style="width:25%;">City</div>
+                                                    <div style="width:24.5%;">State</div>
+                                                    <div style="width:24.5%;">Country</div>
+
+                                                </div>
+
+                                                <div style="display:flex;">
+                                                    <div style="width:24%; margin-right:10px;">
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div style="width:24%; margin-right:10px;">
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div style="width: 24%; margin-right: 10px;">
+                                                        <select name="code1" id="code1">
+                                                            <option>California</option>
+                                                            <option>Pensilvenia</option>
+                                                            <option>Florida</option>
+                                                        </select>
+                                                    </div>
+                                                    <div style="width: 24%;">
+                                                        <select name="code1" id="code1">
+                                                            <option>India</option>
+                                                            <option>US</option>
+                                                            <option>Canada</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)"></i>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <hr />
-                                            <div style="display:flex; margin-top:10px;">
-                                                <div style="width:25%; margin-right:10px;">
-                                                    <select name="type1" id="type">
-                                                        <option>Call</option>
-                                                        <option>Landline</option>
-                                                    </select>
+
+
+                                                <div class="phone-header">
+                                                    <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
+                                                    <div style="display:flex; font-size:13px;">
+                                                        <div style="width:25%;">Type</div>
+                                                        <div style="width:25%;">Code</div>
+                                                        <div style="width:25%;">Number</div>
+                                                        <div style="width:25%;">Ext.</div>
+                                                    </div>
+                                                    <hr />
+                                                    <div style="display:flex; margin-top:10px;">
+                                                        <div style="width:25%; margin-right:10px;">
+                                                            <select name="type1" id="type">
+                                                                <option>Call</option>
+                                                                <option>Landline</option>
+                                                            </select>
+                                                        </div>
+                                                        <div style="width: 25%; margin-right: 10px;">
+                                                            <select name="code1" id="code1">
+                                                                <option>+1(US)</option>
+                                                                <option>+91(Ind)</option>
+                                                                <option>+7(Rus)</option>
+                                                            </select>
+                                                        </div>
+                                                        <div style="width: 25%; margin-right: 10px;">
+                                                            <input type="text" name="number1" id="">
+                                                        </div>
+                                                        <div style="width: 25%; display:flex;">
+                                                            <input type="text" name="ext1" id="" />
+                                                        </div>
+                                                        <div>
+                                                            <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
-                                                <div style="width: 25%; margin-right: 10px;">
-                                                    <select name="code1" id="code1">
-                                                        <option>+1(US)</option>
-                                                        <option>+91(Ind)</option>
-                                                        <option>+7(Rus)</option>
-                                                    </select>
-                                                </div>
-                                                <div style="width: 25%; margin-right: 10px;">
-                                                    <input type="text" name="number1" id="">
-                                                </div>
-                                                <div style="width: 25%; display:flex;">
-                                                    <input type="text" name="ext1" id="" />
-                                                </div>
+
+                                                <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
+                                                <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
                                                 <div>
-                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
+                                                    <div style="display:flex;"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
                                                 </div>
-                                                
-                                            </div>
-                                        </div>
 
-                                        <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
-                                        <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
-                                        <div>
-                                            <div style="display:flex;"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
-                                        </div>
-                                        
-                                        <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
-                                        
-                                    </fieldset>
-                                </div>
+                                                <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
+
+                                        </fieldset>
+                                    </div>
         `
+    );
+}
+
+function addSectionLocation(location) {
+    location.parentElement.parentElement.nextElementSibling.insertAdjacentHTML(
+        'beforeend', `
+        <div>
+                                                <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
+
+                                                <div style="display:flex; font-size:13px; margin-top:10px;">
+                                                    <div style="width:24.7%;">Zip</div>
+                                                    <div style="width:25%;">City</div>
+                                                    <div style="width:24.5%;">State</div>
+                                                    <div style="width:24.5%;">Country</div>
+
+                                                </div>
+
+                                                <div style="display:flex;">
+                                                    <div style="width:24%; margin-right:10px;">
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div style="width:24%; margin-right:10px;">
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div style="width: 24%; margin-right: 10px;">
+                                                        <select name="code1" id="code1">
+                                                            <option>California</option>
+                                                            <option>Pensilvenia</option>
+                                                            <option>Florida</option>
+                                                        </select>
+                                                    </div>
+                                                    <div style="width: 24%;">
+                                                        <select name="code1" id="code1">
+                                                            <option>India</option>
+                                                            <option>US</option>
+                                                            <option>Canada</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+`
     );
 }
 
@@ -289,7 +346,7 @@ function addWebsite(web) {
 }
 
 function removeSection(contactdelete) {
-    contactdelete.parentElement.parentElement.parentElement.parentElement.remove();
+    contactdelete.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 }
 function removeSectionPhone(phonedelete) {
     phonedelete.parentElement.parentElement.remove();
@@ -312,13 +369,11 @@ function removeSectionWeb(webdelete) {
     webdelete.parentElement.remove();
 }
 
-function enableFeeSchedule() {
-    if (document.getElementById('selfpaycheck').checked) {
-        console.log("inside if");
-        document.getElementById('FeesSchedule').setAttribute("disabled", false);
-    }
-    else {
-        document.getElementById('FessSchedule').setAttribute("disabled", true);
-    }
+function removeSectionLocation(locationdelete) {
+    console.log(locationdelete.parentElement.parentElement.parentElement.parentElement.children[0].children[1]);    
+    locationdelete.parentElement.parentElement.parentElement.remove();
+    locationdelete.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[0].insertAdjacentHTML('beforeend', `<i class="fa-solid fa-circle-plus" onclick="addSectionLocation(this)"></i>`);
+
 }
+
 

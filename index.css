@@ -102,7 +102,7 @@ body ::-webkit-scrollbar-track {
 .buttonss {
   margin-top: 1px;
   right:110px;
-  top: 150px;
+  top: 120px;
   width: 80%;
   /* margin-bottom: 200px;
   margin-right: 2px; */
@@ -110,19 +110,22 @@ body ::-webkit-scrollbar-track {
   position: fixed;
 }
 
-.buttonss > input{
-  color: #fff;
-  line-height: 1.2rem;
-  height: auto;
-  background-color: #fff;
-  width: auto;
-  padding: 0.3rem 0.5rem;
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
-  border: 1px solid #627d98;
-  color: #627D98;
+.buttonss > input {
+    color: #fff;
+    line-height: 1.2rem;
+    height: auto;
+    background-color: #fff;
+    width: auto;
+    padding: 0.3rem 0.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    border: 1px solid #627d98;
+    color: #627D98;
+    border-radius: .2rem;
 }
-
+.buttonss>input:hover{
+    cursor:pointer;
+}
 
 .fa-solid fa-trash-can {
   content: "\f1f8";
@@ -170,6 +173,7 @@ body ::-webkit-scrollbar-track {
 .sidebar li:hover{
   transform: scale(1.05);
   color: #5A5FE2;
+  cursor:pointer;
 }
 
 .headerbar {
@@ -205,30 +209,20 @@ body ::-webkit-scrollbar-track {
 .section12 {
   width: 100%;
   margin-bottom: 10px;
-
   font-size: 25px;
   display: flex;
   overflow-x: scroll;
-  padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+}
+.fa-solid fa-trash-can{
+    font-size:16px;
 }
 
-.section1 {
-  font-size: 25px;
-  display: flex;
-  width: 100%;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  
-  
-}
-#form1{
-  min-width: 40%;
-  width: 100%;
+#form1 {
+    min-width: calc(40%);
+    width: 100%;
 }
 /* .section2 {
   font-size: 25px;
@@ -336,8 +330,13 @@ input[type=checkbox] {
   zoom: 1;
 }
 
+
+
 i:hover{
   cursor:pointer;
+}
+button:hover{
+    cursor:pointer;
 }
 i {
   padding: 5px;
@@ -386,6 +385,7 @@ div.patientinfo td{
 .fieldset-contact{
     border-radius: 3px;
     border-color: #9fb3c8;
+    padding: 10px;
     width: 100%;
     border-top-color: rgb(213, 220, 230);
     border-right-color: rgb(213, 220, 230);
@@ -393,7 +393,10 @@ div.patientinfo td{
     border-left-color: rgb(213, 220, 230);
     min-height: calc(100%);
 }
-
+.contact-legend{
+    padding-top:25px;
+    width:20%;
+}
 
 .requiredfield:after {
     content : "*";
