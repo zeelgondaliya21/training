@@ -11,10 +11,6 @@
 </head>
 
 <body class="body">
-
-
-
-
         <div class="headermain" ondrag="cursor">
             <i class="fa-solid fa-gear"></i>
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -38,12 +34,8 @@
             <i class="fa-solid fa-receipt"></i>
             <i class="fa-solid fa-book"></i>
             <i class="fa-solid fa-envelope-open-text"></i>
-            <i class="fa-solid fa-chart-line"></i>
-
-            <div></div>
-            <input type="text" class="searchpatientbox" name="searchbox" id="searchpatient"
-                placeholder="Search Patient" style="border-radius:6rem;">
-
+            <i class="fa-solid fa-chart-line"></i>   
+            <input type="text" class="searchpatientbox" name="searchbox" id="searchpatient" placeholder="Search Patient" style="border-radius:6rem;">
             <a href="#about"><i class="fa-solid fa-calendar-week"></i></a>
             <a href="#about"><i class="fa-solid fa-circle-question"></i></a>
             <a href="#about"><i class="fa-solid fa-lock"></i></a>
@@ -66,50 +58,52 @@
         </div>
 
         <div class="super">
-            <form name="formfin" id="formfinal" class="form-fi" onsubmit="submitData(event)" action="#">
+            <form name="formfin" id="formfinal" class="form-fi" onsubmit="submitData(event)" action="#" method="POST">
                 <div class="sidebar" id="sideshow">
                     <div class="leftshow">
-                        <i class="fa fa-chevron-left" id="sidebar-collapse" onclick="sidebarShow()" style="position: fixed;"></i>
+                        <i class="fa fa-chevron-left" id="sidebar-collapse" onclick="sidebarShow()"></i>
                     </div>
                     <div class="leftshowcontent" id="leftbarcontent">
-                        <ol style="list-style: none;">
-                            <li><a>Dashboard</a><br></li>
-                            <li><a>Demographics</a><br></li>
-                            <li><a>Insurance</a><br></li>
-                            <li><a>Case</a><br></li>
-                            <li><a>Contacts</a><br></li>
-                            <li><a>Employer</a><br></li>
-                            <li><a>Appointments</a><br></li>
-                            <li><a>Encounter</a><br></li>
-                            <li><a>Documents</a><br></li>
-                            <li><a>Notes & Alert</a><br></li>
-                            <li><a>Forms</a><br></li>
-                            <li><a>Consents</a><br></li>
-                            <li><a>Reminder Preference</a><br></li>
+                            <div><a>Dashboard</a><br></div>
+                            <div><a>Demographics</a><br></div>
+                            <div><a>Insurance</a><br></div>
+                            <div><a>Case</a><br></div>
+                            <div><a>Contacts</a><br></div>
+                            <div><a>Employer</a><br></div>
+                            <div><a>Appointments</a><br></div>
+                            <div><a>Encounter</a><br></div>
+                            <div><a>Documents</a><br></div>
+                            <div><a>Notes & Alert</a><br></div>
+                            <div><a>Forms</a><br></div>
+                            <div><a>Consents</a><br></div>
+                            <div><a>Reminder Preference</a><br></div>
                             <hr style="margin-bottom:10px;">
-                            <li><a>Allergy</a><br></li>
-                            <li><a>Diagnosis</a><br></li>
-                            <li><a>Family History</a><br></li>
-                            <li><a>Prescription</a><br></li>
-                            <li><a>Lab</a><br></li>
-                            <li><a>Immunization</a><br></li>
-                            <li><a>Vitals</a><br></li>
+                            <div><a>Allergy</a><br></div>
+                            <div><a>Diagnosis</a><br></div>
+                            <div><a>Family History</a><br></div>
+                            <div><a>Prescription</a><br></div>
+                            <div><a>Lab</a><br></div>
+                            <div><a>Immunization</a><br></div>
+                            <div><a>Vitals</a><br></div>
                             <hr style="margin-bottom:10px;">
-                            <li><a>Authorization</a><br></li>
-                            <li><a>Claims</a><br></li>
-                            <li><a>Reciepts</a><br></li>
-                            <li><a>Open Credits</a><br></li>
-                            <li><a>Statement</a><br></li>
-                            <li><a>Ledger</a><br></li>
-                        </ol>
+                            <div><a>Authorization</a><br></div>
+                            <div><a>Claims</a><br></div>
+                            <div><a>Reciepts</a><br></div>
+                            <div><a>Open Credits</a><br></div>
+                            <div><a>Statement</a><br></div>
+                            <div><a>Ledger</a><br></div>
                     </div>
                 </div>
                 <div class="buttonss">
                     <input type="checkbox" name="active" id="active" class="c1" style="margin-top: 10px;">
                     <label style="font-size: medium;">Active <i class="fa fa-ellipsis-v"></i></label>
-                    <input type="button" id="reverify" value="Re-Verify" name="b1" class="b1" style="width:7%; height:2%;"/>
-                    <input type="reset" id="reset-button" value="Cancel Change" name="b2" class="b2" style="width:7%; height:2%; text-align:center;"/>
-                    <input type="submit" id="save" value="Save" name="b3" class="b3" style="background-color:#5a5fe2; color:white; width:7%; height:2%;" />
+                    <input type="button" id="reverify" value="Re-Verify" name="b1" class="b1" style="width:7%; height:2%;" />
+                    <input type="button" id="reset-button" value="Cancel Change" name="b2" class="b2" style="width:7%; height:2%; text-align:center;" onclick="cancelChanges()" />
+                    <input type="submit" id="save" value="Save" name="b3" class="b3" style="background-color:#5a5fe2; color:white; width:7%; height:2%;" onclick="submitMessage()" />
+                    <!--<div class="snackbar-saved" id="snackbar-saved">Patient Saved Successfully</div>
+                        <div class="snackbar-not-found" id="snackbar-not-found">Patient Not Found</div>-->
+                    <div class="snackbar-updated" id="snackbar-updated">Patient Updated Successfully</div>
+
                 </div>
 
                 <div class="main" id="maindiv">
@@ -178,7 +172,8 @@
                                         </tr>
                                         <tr>
                                             <td class="aligntext"><label>DOB:</label></td>
-                                            <td><input type="date" name="dob" id="dateofbirth"></td>
+
+                                            <td><input type="date" name="dob" id="dateofbirth" /></td>
                                         </tr>
                                         <tr>
                                             <td class="aligntext"><label>Pref Language:</label></td>
@@ -356,25 +351,26 @@
                                                     <option>Work</option>
                                                     <option>Other</option>
                                                 </select>
-                                                <div style="display:flex; padding-top:10px;">
-                                                    <div style="font-size:16px;">Address</div>
-                                                    <div style="font-size:16px;"><i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="trashbin"></i></div>
-                                                </div>
+                                                <span style="display:flex; padding-top:10px;">
+                                                    <span style="font-size:16px;">Address</span>
+                                                    <span style="font-size:16px;"><i class="fa-solid fa-trash-can" onclick="removeSection(this)"></i></span>
+                                                </span>
                                             </legend>
                                             <div>
-                                                <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
+                                                <span><label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1"></span>
 
                                                 <div style="display:flex; font-size:13px; margin-top:10px;">
-                                                    <div style="width:24.7%;">Zip</div>
-                                                    <div style="width:25%;">City</div>
-                                                    <div style="width:24.5%;">State</div>
-                                                    <div style="width:24.5%;">Country</div>
+                                                    <span style="width:24.7%;">Zip</span>
+                                                    <span style="width:25%;">City</span>
+                                                    <span style="width:24.5%;">State</span>
+                                                    <span style="width:24.5%;">Country</span>
 
                                                 </div>
 
                                                 <div style="display:flex;">
                                                     <div style="width:24%; margin-right:10px;">
                                                         <input type="text" />
+
                                                     </div>
                                                     <div style="width:24%; margin-right:10px;">
                                                         <input type="text" />
@@ -455,10 +451,10 @@
                                                     <option>Work</option>
                                                     <option>Other</option>
                                                 </select>
-                                                <div style="display:flex; padding-top:10px;">
-                                                    <div style="font-size:16px;">Address</div>
-                                                    <div style="font-size:16px;"><i class="fa-solid fa-trash-can" onclick="removeSection(this)"></i></div>
-                                                </div>
+                                                <span style="display:flex; padding-top:10px;">
+                                                    <span style="font-size:16px;">Address</span>
+                                                    <span style="font-size:16px;"><i class="fa-solid fa-trash-can" onclick="removeSection(this)"></i></span>
+                                                </span>
 
 
                                             </legend>

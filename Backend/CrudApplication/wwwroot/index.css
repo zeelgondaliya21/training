@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .body {
     scrollbar-width: thin;
     background-color: #f1f1f7;
@@ -11,7 +12,8 @@
     font-family: WebImsLato,sans-serif;
     font-size: 1.3rem;
     color: #243B53;
-    background-color:#f8f8f9;
+    background-color: #f8f8f9;
+    -webkit-font-smoothing: antialiased;
 }
 .h6 {
     color: #627D98;
@@ -21,20 +23,18 @@
 body ::-webkit-scrollbar {
   background-color: #909090;
   opacity: .3;
-  width: .50rem;
+  width: .5rem;
   height: .5rem;
 }
 
 body ::-webkit-scrollbar-thumb {
     background-color: #c3d6ec;
-    border-radius: 4px;
-    height:min-content;
+    border-radius: 3px;
     border: solid 6px transparent;
 }
 
 body ::-webkit-scrollbar-track {
-  background-color: #f8f8f9;
-  height:min-content;
+    background-color: #f8f8f9;
 }
 
 .super{
@@ -56,8 +56,6 @@ body ::-webkit-scrollbar-track {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
-  justify-content: center;
-  z-index:100
 }
 
 .headermain {
@@ -83,19 +81,20 @@ body ::-webkit-scrollbar-track {
 }
 
 .main {
-  display: flex;
-  font-family: WebImsLato,sans-serif;
-  font-size:13px;
-  color:#627D98;
-  flex-direction: row;
-  font-size: 1.3rem;
-  overflow-y: scroll;
-  width: 83%;
-  height: 79%;
-  float: right;
-  margin-top: 120px;
-  /* margin-left: 20px; */
-
+    display: block;
+    font-family: WebImsLato,sans-serif;
+    font-size: 13px;
+    color: #627D98;
+    flex-direction: row;
+    font-size: 1.3rem;
+    overflow-y: scroll;
+    width: 83%;
+    height: 79%;
+    float: right;
+    margin-top: 120px;
+    margin-right: 1%;
+    margin-left: 1%;
+    align-content: center;
 }
 
 
@@ -148,33 +147,38 @@ body ::-webkit-scrollbar-track {
 .sidebar {
     /* padding: 6px 8px 6px 8px; */
     background-color: #f1f1f7;
-    font-family: WebImsLato,sans-serif;
     margin-top: 60px;
-    margin-left: 10px;
     color: #0A2644;
     background-color: #f8f8f9;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    border-radius: 5px;
     float: left;
-    width: 10%;
-    height: 82%;
+    width: 11%;
+    margin-left:10px;
     padding: 0.4rem;
     font-size: 16px;
 }
-
-.sidebar li {
-  margin-bottom: 12px;
-  transition: transform .2s;
+.leftshowcontent{
+    overflow-y:scroll;
+    overflow-x:hidden;
+    height:82%;
+    margin-top:12px;
+    padding-left:10px;
 }
 
-.sidebar li:hover{
+
+.sidebar div {
+    margin-bottom: 12px;
+    margin-top: 12px;
+    /*  transition: transform .2s;*/
+}
+
+.leftshowcontent div:hover{
   transform: scale(1.05);
   color: #5A5FE2;
   cursor:pointer;
 }
+
 
 .headerbar {
   font-size: 25pt;
@@ -244,16 +248,18 @@ body ::-webkit-scrollbar-track {
   width: 100%;
 }
 
+
+
 input[type=text],
 input[type=date],
 select,
 textarea {
-  padding: .3rem.2rem;
-  color: #627d98;
-  border: 2px solid transparent;
-  border-radius: .2rem;
-  outline: 1px solid #dadada;
-  width: 100%;
+    padding: .3rem.2rem;
+    color: #627d98;
+    border: 2px solid transparent;
+    border-radius: .2rem;
+    outline: 1px solid #dadada;
+    width: 100%;
 }
 
 select:disabled,
@@ -268,23 +274,26 @@ input[type=text]:focus {
 }
 
 .contactpref {
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  background-color: white;
-  padding: 12px 12px 12px 12px;
-  height: fit-content;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: white;
+    padding: 12px 12px 12px 12px;
+    height: fit-content;
 }
-
 .contactpreference {
     border-collapse: collapse;
-    font-family: WebImsLato,sans-serif;
+
     width: 100%;
     font-size: 13px;
 }
-.table tr td{
-  padding: 0px;
-}
+    .contactpreference input[type=text]{
+        border-radius:0rem;
+    }
+
+    .table tr td {
+        padding: 0px;
+    }
 
 .typeco{
   width: 100px;
@@ -330,10 +339,15 @@ input[type=checkbox] {
   zoom: 1;
 }
 
-
-
+.leftshow:hover{
+    transform: scale(1.05);
+}
+.contact>i:hover{
+    transform: scale(1.05);
+}
 i:hover{
   cursor:pointer;
+  color:blue;
 }
 button:hover{
     cursor:pointer;
@@ -343,6 +357,8 @@ i {
   color: #627d98;
   font-size: 80%;
 }
+
+
 .searchpatientbox{
   margin-left: 400px;
   padding-top:10px;
@@ -355,28 +371,36 @@ i {
   box-shadow: 0 2px 4px rgb(0 0 0 / 24%), 0 4px 8px rgb(0 0 0 / 12%);
 }
 .leftshow{
-  float: right;
-  right: 0;
+    float:right;
+    position:relative;
+    right:12px;
 }
+#sidebar-collapse{
+    position:fixed;
+
+}
+
 div.otherinfo td,
 div.patientinfo td{
     padding-bottom:5px;
 }
 .hide-sidebar{
-  width: 0%;
-
+  width: 1.2%;
   /* content-visibility:hidden; */
   /* overflow-y: hidden; */
 
 }
 .expand-main{
-  width: 95%;
+  width: 93%;
+  margin-right:1%;
+  margin-left:1%;
   align-content: center;
   display: block;
-  padding-left: 1%;
-  padding-right: 2%;
   transition-duration: .5s;
+  transition-delay: 0s;
+  transition-property:all;
 }
+
 
 .hide-otherinfo{
   display: none;
@@ -386,6 +410,7 @@ div.patientinfo td{
     border-radius: 3px;
     border-color: #9fb3c8;
     padding: 10px;
+    min-width:calc(100%);
     width: 100%;
     border-top-color: rgb(213, 220, 230);
     border-right-color: rgb(213, 220, 230);
@@ -443,4 +468,74 @@ div.patientinfo td{
     padding-right: 5px;
     color: #486581;
     font-size:13px;
+}
+
+#snackbar-updated {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: forestgreen;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    right: 110px;
+    top: 70px;
+    font-size: 17px;
+}
+
+    #snackbar-updated.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+@-webkit-keyframes fadein {
+    from {
+        top: 70px;
+        opacity: 0;
+    }
+
+    to {
+        top: 70px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        top:70px;
+        opacity: 0;
+    }
+
+    to {
+        top: 70px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        top: 70px;
+        opacity: 1;
+    }
+
+    to {
+        top: 70px;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 70px;
+        opacity: 1;
+    }
+
+    to {
+        top: 70px;
+        opacity: 0;
+    }
 }

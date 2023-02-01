@@ -1,4 +1,6 @@
-
+let localStore;
+let data;
+let d;
 //GetByID 
 let chartnumberValue = document.getElementById("chartid");
 let firstnameValue = document.getElementById("fname");
@@ -17,24 +19,37 @@ for (let pair of queryString.entries()) {
     id = pair[1];
 }
 const url = `https://localhost:7162/api/Patient/${pid}`;
-console.log(url);
+//console.log(url);
 if (id != "") {
     const res = fetch(`https://localhost:7162/api/Patient/${id}`);
+    
 
-
-    const data = res.then(async (r) => {
+     data = res.then(async (r) => {
         console.log(r);
         return r.json();
     }).then((d) => {
         console.log(d);
         const t = d[0];
+        localStore = d[0];
         chartnumberValue.innerHTML = t.chart_number;
         firstnameValue.value = t.firstname;
         lastnameValue.value = t.lastname;
         middlenameValue.value = t.middlename;
         genderValue.value = t.sex;
-        dobValue.value = new Date(t.dob);
-        //console.log(typeof (t.dob));
+        console.log(d[0]);      
+        let newdate = new Date(t.dob).toISOString().split('T')[0];
+        var td = new Date(newdate).getDate() +1;
+        var m = new Date(newdate).getMonth() + 1;
+        var y = new Date(newdate).getFullYear();
+        dobValue.value = y + '-' + (m <= 9 ? '0' + m : m) + '-' + (td <= 9 ? '0' + td : td);
+        //let day = new Date(newdate).getDate()+1;
+        //console.log(day);
+        //newdate.setDate(day);
+        //console.log(newdate);
+        //console.log(d);
+        //console.log(m);
+        //console.log(y);
+
     })
 
 }
@@ -48,6 +63,7 @@ function submitData(event) {
     for (let [k, v] of data.entries()) {
         pdata[k] = v;
     }
+
     //calculate age from date of birth
     let dob = new Date(pdata.dob);
     let month_diff = Date.now() - dob.getTime();
@@ -55,9 +71,13 @@ function submitData(event) {
     let year = age_dt.getUTCFullYear();
     let age = year - 1970;
 
+
     if (age < 18) {
         window.alert(`Please add a contact for the Patient as ${pdata.Sex == "Male" ? "he" : "she"}, is a minor.`)
     }
+
+
+    
     //post data if id isn't found in url
     if (!id) {
         
@@ -78,9 +98,14 @@ function submitData(event) {
             body: JSON.stringify(postPatientData)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                window.open(`https://localhost:7162/?id=${data[0].patientcreate}`, '_self')
+            })
+
         .catch(err => console.log(err));
     }
+
     //put data if id found in url
     if (id) {
         //console.log(id);
@@ -106,17 +131,59 @@ function submitData(event) {
     }
 
 }
+
+function submitMessage() {
+    console.log("inside submit");
+
+    let form = document.getElementsByTagName('form')[0];
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        var snackup = document.getElementById('snackbar-updated');
+        //var snacksave = document.getElementById('snackbar-saved');
+        snackup.className = "show";
+        //snacksave.className = "showsaved";
+        
+            setTimeout(function () {
+                snackup.className = snackup.className.replace("show", "");
+            }, 3000);
+        
+        //else{
+          //  console.log('inside else');
+            //setTimeout(function (){
+              //  snacksave.className = snacksave.className.replace("showsaved", "");
+            //}, 5000);
+        //}
+    });
+}
+
 //reset form data
-document.getElementById("formfinal").reset();
+function cancelChanges() {
+    document.getElementById('formfinal').reset();
+    console.log(localStore);
+    if (localStore != undefined) {
+        chartnumberValue.innerHTML = localStore.chart_number;
+        firstnameValue.value = localStore.firstname;
+        lastnameValue.value = localStore.lastname;
+        middlenameValue.value = localStore.middlename;
+        genderValue.value = localStore.sex;
+        let cachedate = new Date(localStore.dob).toISOString().split('T')[0];
+        var td = new Date(cachedate).getDate() + 1;
+        var m = new Date(cachedate).getMonth() + 1;
+        var y = new Date(cachedate).getFullYear();
+        dobValue.value = y + '-' + (m <= 9 ? '0' + m : m) + '-' + (td <= 9 ? '0' + td : td);
+    }
+}
 
 
 
-var leftshowcontent = document.getElementById("sideshow");
-var sidebarCollapse = document.getElementById("sidebar-collapse").classList;
-var expand = document.getElementById("maindiv");
+
 
 //sidebar hide and show
 function sidebarShow() {
+    var leftshowcontent = document.getElementById("sideshow");
+    var sidebarCollapse = document.getElementById("sidebar-collapse").classList;
+    var expand = document.getElementById("maindiv");
     // console.log(leftshowcontent);
     leftshowcontent.classList.toggle("hide-sidebar");
     expand.classList.toggle("expand-main");
@@ -125,152 +192,148 @@ function sidebarShow() {
 
 
 //other info hide and show
-var othershowcontent = document.getElementById("other-in");
-var otherCollapse = document.getElementById("othersection").classList;
+
 function otherInfoShow() {
+    var othershowcontent = document.getElementById("other-in");
+    var otherCollapse = document.getElementById("othersection").classList;
     // console.log(othershowcontent);
     othershowcontent.classList.toggle("hide-otherinfo");
     otherCollapse.toggle("change-icon-90");
-/*    if (othershowcontent.classList.contains("fa-solid fa-circle-chevron-down")) {
-       othershowcontent.classList.remove("fa-solid fa-circle-chevron-down");
-        othershowcontent.classList.add("fa-solid fa-circle-chevron-up")
-    }
-    else {
-        othershowcontent.classList.remove("fa-solid fa-circle-chevron-up");
-        othershowcontent.classList.add("fa-solid fa-circle-chevron-down");
-    }*/
 }
 
 //adding and deleting address panel
-var addbtn = document.getElementById("sec12");
-var faxRemove = document.getElementById("add-fax");
-var emailRemove = document.getElementById("add-email");
-var webRemove = document.getElementById("add-website");
+
 function addSection(contact) {
+    var addbtn = document.getElementById("sec12");
+    var faxRemove = document.getElementById("add-fax");
+    var emailRemove = document.getElementById("add-email");
+    var webRemove = document.getElementById("add-website");
     contact.parentElement.parentElement.nextElementSibling.insertAdjacentHTML(
         'beforeend',
         `
-                                     <div id="form1">
-                                        <fieldset class="fieldset-contact">
-                                            <legend class="contact-legend">
-                                                <select name="home" id="add1">
-                                                    <option>Home</option>
-                                                    <option>Work</option>
-                                                    <option>Other</option>
-                                                </select>
-                                                <div style="display:flex; padding-top:10px;">
-                                                    <div style="font-size:16px;">Address</div>
-                                                    <div style="font-size:16px;"><i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="trashbin"></i></div>
-                                                </div>
+            <div id="form1">
+                <fieldset class="fieldset-contact">
+                    <legend class="contact-legend">
+                        <select name="home" id="add1">
+                            <option>Home</option>
+                            <option>Work</option>
+                            <option>Other</option>
+                        </select>
+                        <span style="display:flex; padding-top:10px;">
+                            <span style="font-size:16px;">Address</span>
+                            <span style="font-size:16px;"><i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="trashbin"></i></span>
+                        </span>
 
 
-                                            </legend>
-                                            <div>
-                                                <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
+                    </legend>
+                    <div>
+                        <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
 
-                                                <div style="display:flex; font-size:13px; margin-top:10px;">
-                                                    <div style="width:24.7%;">Zip</div>
-                                                    <div style="width:25%;">City</div>
-                                                    <div style="width:24.5%;">State</div>
-                                                    <div style="width:24.5%;">Country</div>
+                        <span style="display:flex; font-size:13px; margin-top:10px;">
+                            <span style="width:24.7%;">Zip</span>
+                            <span style="width:25%;">City</span>
+                            <span style="width:24.5%;">State</span>
+                            <span style="width:24.5%;">Country</span>
 
-                                                </div>
+                        </span>
 
-                                                <div style="display:flex;">
-                                                    <div style="width:24%; margin-right:10px;">
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div style="width:24%; margin-right:10px;">
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div style="width: 24%; margin-right: 10px;">
-                                                        <select name="code1" id="code1">
-                                                            <option>California</option>
-                                                            <option>Pensilvenia</option>
-                                                            <option>Florida</option>
-                                                        </select>
-                                                    </div>
-                                                    <div style="width: 24%;">
-                                                        <select name="code1" id="code1">
-                                                            <option>India</option>
-                                                            <option>US</option>
-                                                            <option>Canada</option>
-                                                        </select>
-                                                    </div>
-                                                    <div>
-                                                        <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                        <div style="display:flex;">
+                            <div style="width:24%; margin-right:10px;">
+                                <input type="text" />
+                            </div>
+                            <div style="width:24%; margin-right:10px;">
+                                <input type="text" />
+                            </div>
+                            <div style="width: 24%; margin-right: 10px;">
+                                <select name="code1" id="code1">
+                                    <option>California</option>
+                                    <option>Pensilvenia</option>
+                                    <option>Florida</option>
+                                </select>
+                            </div>
+                            <div style="width: 24%;">
+                                <select name="code1" id="code1">
+                                    <option>India</option>
+                                    <option>US</option>
+                                    <option>Canada</option>
+                                </select>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)"></i>
+                            </div>
+                        </div>
+                    </div>
 
 
-                                                <div class="phone-header">
-                                                    <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
-                                                    <div style="display:flex; font-size:13px;">
-                                                        <div style="width:25%;">Type</div>
-                                                        <div style="width:25%;">Code</div>
-                                                        <div style="width:25%;">Number</div>
-                                                        <div style="width:25%;">Ext.</div>
-                                                    </div>
-                                                    <hr />
-                                                    <div style="display:flex; margin-top:10px;">
-                                                        <div style="width:25%; margin-right:10px;">
-                                                            <select name="type1" id="type">
-                                                                <option>Call</option>
-                                                                <option>Landline</option>
-                                                            </select>
-                                                        </div>
-                                                        <div style="width: 25%; margin-right: 10px;">
-                                                            <select name="code1" id="code1">
-                                                                <option>+1(US)</option>
-                                                                <option>+91(Ind)</option>
-                                                                <option>+7(Rus)</option>
-                                                            </select>
-                                                        </div>
-                                                        <div style="width: 25%; margin-right: 10px;">
-                                                            <input type="text" name="number1" id="">
-                                                        </div>
-                                                        <div style="width: 25%; display:flex;">
-                                                            <input type="text" name="ext1" id="" />
-                                                        </div>
-                                                        <div>
-                                                            <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
-                                                        </div>
+                    <div class="phone-header">
+                        <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
+                        <div style="display:flex; font-size:13px;">
+                            <div style="width:25%;">Type</div>
+                            <div style="width:25%;">Code</div>
+                            <div style="width:25%;">Number</div>
+                            <div style="width:25%;">Ext.</div>
+                        </div>
+                        <hr />
+                        <div style="display:flex; margin-top:10px;">
+                            <div style="width:25%; margin-right:10px;">
+                                <select name="type1" id="type">
+                                    <option>Call</option>
+                                    <option>Landline</option>
+                                </select>
+                            </div>
+                            <div style="width: 25%; margin-right: 10px;">
+                                <select name="code1" id="code1">
+                                    <option>+1(US)</option>
+                                    <option>+91(Ind)</option>
+                                    <option>+7(Rus)</option>
+                                </select>
+                            </div>
+                            <div style="width: 25%; margin-right: 10px;">
+                                <input type="text" name="number1" id="">
+                            </div>
+                            <div style="width: 25%; display:flex;">
+                                <input type="text" name="ext1" id="" />
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
+                            </div>
 
-                                                    </div>
-                                                </div>
+                        </div>
+                    </div>
 
-                                                <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
-                                                <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
-                                                <div>
-                                                    <div style="display:flex;"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
-                                                </div>
+                    <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
+                    <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
+                    <div>
+                        <div style="display:flex;"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
+                    </div>
 
-                                                <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
+                    <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
 
-                                        </fieldset>
-                                    </div>
+                </fieldset>
+            </div>
         `
     );
 }
 
 function addSectionLocation(location) {
-    location.parentElement.parentElement.nextElementSibling.insertAdjacentHTML(
+    console.log(location.parentElement.parentElement.parentElement);
+    location.parentElement.parentElement.parentElement.insertAdjacentHTML(
         'beforeend', `
-        <div>
-                                                <label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1" id="">
+                                            <div>
+                                                <span><label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1"></span>
 
                                                 <div style="display:flex; font-size:13px; margin-top:10px;">
-                                                    <div style="width:24.7%;">Zip</div>
-                                                    <div style="width:25%;">City</div>
-                                                    <div style="width:24.5%;">State</div>
-                                                    <div style="width:24.5%;">Country</div>
+                                                    <span style="width:24.7%;">Zip</span>
+                                                    <span style="width:25%;">City</span>
+                                                    <span style="width:24.5%;">State</span>
+                                                    <span style="width:24.5%;">Country</span>
 
                                                 </div>
 
                                                 <div style="display:flex;">
                                                     <div style="width:24%; margin-right:10px;">
                                                         <input type="text" />
+
                                                     </div>
                                                     <div style="width:24%; margin-right:10px;">
                                                         <input type="text" />
@@ -350,8 +413,8 @@ function removeSection(contactdelete) {
 }
 function removeSectionPhone(phonedelete) {
     phonedelete.parentElement.parentElement.remove();
-    if (phonedelete.parentElement.parentElement == null) {
-        phonedelete.parentElement.parentElement.children[1].remove();
+    if (phonedelete.parentElement.parentElement.parentElement.children[1].children[0] == null) {
+        phonedelete.parentElement.parentElement.parentElement.children[1].remove();
     }
 }
 
@@ -370,19 +433,10 @@ function removeSectionWeb(webdelete) {
 }
 
 function removeSectionLocation(locationdelete) {
-    console.log(locationdelete.parentElement.parentElement.parentElement.parentElement.children[0].children[1]);    
-    locationdelete.parentElement.parentElement.parentElement.remove();
+    console.log(locationdelete.parentElement.parentElement.parentElement);
     locationdelete.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[0].insertAdjacentHTML('beforeend', `<i class="fa-solid fa-circle-plus" onclick="addSectionLocation(this)"></i>`);
+    locationdelete.parentElement.parentElement.parentElement.remove();
 
 }
 
-function enableFeeSchedule() {
-    if (document.getElementById('selfpaycheck').checked) {
-        console.log("inside if");
-        document.getElementById('FeesSchedule').setAttribute("disabled", false);
-    }
-    else {
-        document.getElementById('FessSchedule').setAttribute("disabled", true);
-    }
-}
 
