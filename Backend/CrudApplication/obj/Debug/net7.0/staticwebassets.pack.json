@@ -1,20 +1,28 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\Index.js",
-      "PackagePath": "staticwebassets\\Index.js"
-    },
-    {
       "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\demo.jfif",
       "PackagePath": "staticwebassets\\demo.jfif"
     },
     {
-      "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\index.css",
-      "PackagePath": "staticwebassets\\index.css"
+      "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\demo2.jfif",
+      "PackagePath": "staticwebassets\\demo2.jfif"
+    },
+    {
+      "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\empty.jfif",
+      "PackagePath": "staticwebassets\\empty.jfif"
     },
     {
       "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\main.js",
+      "PackagePath": "staticwebassets\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CrudApplication.Microsoft.AspNetCore.StaticWebAssets.props",

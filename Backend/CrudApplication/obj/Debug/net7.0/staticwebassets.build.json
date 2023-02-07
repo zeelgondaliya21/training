@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jroD6IcoA8T2ZkGF+VQKSPspl45N1se9/L9Q1HH6Vsg=",
+  "Hash": "R535JgHah1gEeEFkYr/l/ZDbez8lnzpmgmWYePCqJ5g=",
   "Source": "CrudApplication",
   "BasePath": "_content/CrudApplication",
   "Mode": "Default",
@@ -34,12 +34,12 @@
       "OriginalItemSpec": "wwwroot\\demo.jfif"
     },
     {
-      "Identity": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\index.css",
+      "Identity": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\demo2.jfif",
       "SourceId": "CrudApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\",
       "BasePath": "_content/CrudApplication",
-      "RelativePath": "index.css",
+      "RelativePath": "demo2.jfif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,7 +48,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\index.css"
+      "OriginalItemSpec": "wwwroot\\demo2.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\empty.jfif",
+      "SourceId": "CrudApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\",
+      "BasePath": "_content/CrudApplication",
+      "RelativePath": "empty.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\empty.jfif"
     },
     {
       "Identity": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\index.html",
@@ -68,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\Index.js",
+      "Identity": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\main.js",
       "SourceId": "CrudApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\",
       "BasePath": "_content/CrudApplication",
-      "RelativePath": "Index.js",
+      "RelativePath": "main.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,7 +99,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Index.js"
+      "OriginalItemSpec": "wwwroot\\main.js"
+    },
+    {
+      "Identity": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\style.css",
+      "SourceId": "CrudApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\zeelg\\Files21\\training\\Backend\\CrudApplication\\wwwroot\\",
+      "BasePath": "_content/CrudApplication",
+      "RelativePath": "style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\style.css"
     }
   ]
 }
