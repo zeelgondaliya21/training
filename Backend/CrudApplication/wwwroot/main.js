@@ -61,6 +61,7 @@ if (id != "") {
                 console.log('inside not found timeout');
                 snacknotfound.className = snacknotfound.className.replace("shownotfound", "");
             }, 3000);
+            window.open(`https://localhost:7162/api/Patient`);
         }
 
     });
