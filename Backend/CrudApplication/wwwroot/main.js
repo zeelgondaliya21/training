@@ -61,11 +61,9 @@ if (id != "") {
                 console.log('inside not found timeout');
                 snacknotfound.className = snacknotfound.className.replace("shownotfound", "");
             }, 3000);
-            window.open(`https://localhost:7162/api/Patient`);
+            //window.open(`https://localhost:7162`);
         }
-
     });
-
 }
 
 
@@ -203,7 +201,10 @@ function cancelChanges() {
 }
 
 function changeImage(imageupload) {
-    imageupload.src = imageupload.src.replace("_t", "_b");
+    console.log('inside image upload'+imageupload.target.files.length)
+    let image = document.getElementById('imageid');
+    image.src = URL.createObjectURL(imageupload.target.files[0]);
+    console.log(image);
 }
 
 
@@ -444,10 +445,8 @@ function removeSection(contactdelete) {
     contactdelete.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 }
 function removeSectionPhone(phonedelete) {
+    var removephonefirst = document.getElementById('remove-phone-first');
     phonedelete.parentElement.parentElement.remove();
-    if (phonedelete.parentElement.parentElement.parentElement.children[1].children[0] == null) {
-        phonedelete.parentElement.parentElement.parentElement.children[1].remove();
-    }
 }
 
 
@@ -502,12 +501,19 @@ function enableMultiBirth() {
     }
 }
 
+document.getElementById('type-select').onchange = function () {
+    document.getElementById('value-select').disabled = false;
+}
+
 function enableDeceased() {
     console.log('inside funtion');
     if (document.getElementById('deceased-check').checked == true) {
         console.log('inside if');
         document.getElementById('deceased-enable').disabled = false;
         console.log('after if');
+        document.getElementById('deceased-enable').onchange = function () {
+            document.getElementById('deceased-time-enable').disabled = false;
+        }
     }
     else {
         console.log('inside else');
@@ -516,11 +522,6 @@ function enableDeceased() {
     }
 }
 
-document.getElementById('deceased-enable').onchange = function () {
-    document.getElementById('deceased-time-enable').disabled = false;
-}
 
 
-document.getElementById('type-select').onchange = function() {
-        document.getElementById('value-select').disabled = false;
-}
+

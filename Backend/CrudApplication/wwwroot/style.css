@@ -48,9 +48,11 @@ body .ui-datepicker .ui-timepicker {
     background-color: white;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    font-size: 35px;
-    padding: 4px;
+    font-size: 30px;
+    padding: 5px;
 }
+
+
 
 .headermain > i{
     padding-left: 10px;
@@ -58,7 +60,7 @@ body .ui-datepicker .ui-timepicker {
 }
 
 .searchpatientbox {
-    margin-left: 450px;
+    margin-left: 550px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding-top: 10px;
@@ -99,7 +101,7 @@ body .ui-datepicker .ui-timepicker {
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     float: left;
-    width: 10.5%;
+    width: 11%;
     margin-left: 10px;
     padding: 0.4rem;
     font-size: 16px;
@@ -175,7 +177,7 @@ body .ui-datepicker .ui-timepicker {
 .buttonss {
     margin-top: 1px;
     right: 80px;
-    top: 160px;
+    top: 150px;
     width: 80%;
     text-align: right;
     position: fixed;
@@ -229,7 +231,7 @@ body .ui-datepicker .ui-timepicker {
     position: fixed;
     z-index: 1;
     right: 85px;
-    top: 110px;
+    top: 100px;
     font-size: 17px;
     opacity:1;
 }
@@ -252,7 +254,7 @@ body .ui-datepicker .ui-timepicker {
     position: fixed;
     z-index: 1;
     right: 85px;
-    top: 110px;
+    top: 100px;
     font-size: 17px;
     opacity:1;
 }
@@ -274,7 +276,7 @@ body .ui-datepicker .ui-timepicker {
     position: fixed;
     z-index: 1;
     right: 85px;
-    top: 110px;
+    top: 100px;
     font-size: 17px;
     opacity: 1;
 }
@@ -286,48 +288,48 @@ body .ui-datepicker .ui-timepicker {
 }
 @-webkit-keyframes fadein {
     from {
-        top: 110px;
+        top: 100px;
         opacity: 0;
     }
 
     to {
-        top: 110px;
+        top: 100px;
         opacity: 1;
     }
 }
 
 @keyframes fadein {
     from {
-        top:110px;
+        top:100px;
         opacity: 0;
     }
 
     to {
-        top: 110px;
+        top: 100px;
         opacity: 1;
     }
 }
 
 @-webkit-keyframes fadeout {
     from {
-        top: 110px;
+        top: 100px;
         opacity: 1;
     }
 
     to {
-        top: 110px;
+        top: 100px;
         opacity: 0;
     }
 }
 
 @keyframes fadeout {
     from {
-        top: 110px;
+        top: 100px;
         opacity: 1;
     }
 
     to {
-        top: 110px;
+        top: 100px;
         opacity: 0;
     }
 }
@@ -430,13 +432,14 @@ body .ui-datepicker .ui-timepicker {
 
 .section12 {
     width: 100%;
-    font-size: 25px;
+    font-size: 22px;
     display: flex;
     overflow-x: scroll;
     padding-right: 10px;
     padding-left: 10px;
     margin-bottom: 10px;
 }
+
 .fieldset-contact {
     border-radius: 3px;
     border: 1px solid #e0e0e0;
@@ -537,6 +540,7 @@ body .ui-datepicker .ui-timepicker {
     border-collapse: collapse;
     width: 100%;
     font-size: 13px;
+    border-radius: 1rem;
 }
 .contact-pref-header{
     font-size:16px;

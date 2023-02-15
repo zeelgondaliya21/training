@@ -207,11 +207,11 @@ namespace CrudApplication.Controllers
                     try
                     {
                         myReader = myCommand.ExecuteReader();
-                        table.Load(myReader);
+                        table.Load(myReader); 
                         myReader.Close();
                         transactionScope.Complete();
                     }
-                    catch(Exception ex )
+                    catch(Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                         transactionScope.Dispose();
@@ -221,9 +221,7 @@ namespace CrudApplication.Controllers
                         mycon.Close();
                     }
                 }
-
             }
-
             return new JsonResult(table);
         }
         /// <summary>
@@ -271,7 +269,6 @@ namespace CrudApplication.Controllers
                         mycon.Close();
                     }
                 }
-
             }
             return new JsonResult(table);
         }

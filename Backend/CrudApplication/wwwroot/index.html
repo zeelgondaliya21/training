@@ -38,7 +38,7 @@
         <a href="#about"><i class="fa-solid fa-calendar-week"></i></a>
         <a href="#about"><i class="fa-solid fa-circle-question"></i></a>
         <a href="#about"><i class="fa-solid fa-lock"></i></a>
-
+        
     </div>
     <div class="rightsidebar">
         <i class="fa-solid fa-fax"></i>
@@ -50,7 +50,7 @@
         <i class="fa-solid fa-note-sticky"></i>
     </div>
     <div class="current-tabs-bar"></div>
-    <div style="height:1%; padding: 14px 0px 0px 65px; color:#627D98; font-size:25px;"><h6>Patient Bar</h6></div>
+    <div style="height:1%; padding: 14px 0px 0px 40px; color:#627D98; font-size:25px;"><h6>Patient Bar</h6></div>
     <div class="super">
         <form name="formfin" id="formfinal" class="form-fi" onsubmit="submitData(event)" action="#" method="POST">
            
@@ -111,7 +111,7 @@
                         <a>Reminder Preference</a><br>
                         <span class="tooltiptext">Reminder Preference</span>
                     </div>
-                    <hr style="margin-bottom:10px;">
+                    <hr style="margin-bottom:10px; border:1px solid #e0e0e0; margin-right:10px;">
                     <div class="tooltip">
                         <a>Allergy</a><br>
                         <span class="tooltiptext">Allergy</span>
@@ -140,7 +140,7 @@
                         <a>Vitals</a><br>
                         <span class="tooltiptext">Vitals</span>
                     </div>
-                    <hr style="margin-bottom:10px;">
+                    <hr style="margin-bottom:10px; border:1px solid #e0e0e0; margin-right:10px;">
                     <div class="tooltip">
                         <a>Authorization</a><br>
                         <span class="tooltiptext">Authorization</span>
@@ -194,14 +194,14 @@
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <label class="image-div" id="image-div">
+                                        <label class="image-div" id="image-div" aria-label="close">
 
                                             <img src="./empty.jfif" alt="person" id="imageid"
                                                  name="img" class="image" />
 
 
                                             <span class="upload-image"><i class="fa fa-upload"></i></span>
-                                            <input type="file" onchange="changeImage(this)" id="image-input" class="image-input" />
+                                            <input type="file" onchange="changeImage(event)" id="image-input" class="image-input" />
                                         </label>
 
                                     </td>
@@ -588,7 +588,7 @@
 
 
 
-                                        <div class="phone-header">
+                                        <div class="phone-header" id="remove-phone-first">
                                             <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
                                             <div class="phone-keywords">
                                                 <div class="font-contact">Type</div>
@@ -596,8 +596,9 @@
                                                 <div class="font-contact">Number</div>
                                                 <div class="font-contact">Ext.</div>
                                             </div>
-                                            <hr />
+                                            <hr/>
                                             <div class="phone-keywords-header">
+                                                
                                                 <div class="phone-keywords-input">
                                                     <select name="type1" id="type">
                                                         <option>Call</option>
@@ -622,6 +623,7 @@
                                                 </div>
 
                                             </div>
+                                            
                                         </div>
 
                                         <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
