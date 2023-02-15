@@ -1,5 +1,6 @@
 
 let localStore; 
+let temp;
 //GetByID 
 let chartnumberValue = document.getElementById("chartid");
 let firstnameValue = document.getElementById("fname");
@@ -28,6 +29,7 @@ if (id != "") {
         return r.json();
     }).then((d) => {
         const t = d[0];
+        temp = d[0];
         localStore = d[0];
 
         chartnumberValue.innerHTML = t.chart_number;
@@ -48,18 +50,23 @@ if (id != "") {
         //console.log(d);
         //console.log(m);
         //console.log(y);
-    })
+
+    }).catch(e1 =>
+    {
+        if (id != null) {
+            var snacknotfound = document.getElementById('snackbar-not-found');
+            snacknotfound.className = "shownotfound";
+            setTimeout(function () {
+                console.log('hello');
+                console.log('inside not found timeout');
+                snacknotfound.className = snacknotfound.className.replace("shownotfound", "");
+            }, 3000);
+            //window.open(`https://localhost:7162`);
+        }
+    });
 }
-/*
-if (id!=null && chartnumberValue.split('T')[1].toString() == "00") {
-    var snacknotfound = document.getElementById('snackbar-not-found');
-    snacknotfound.className = "shownotfound";
-    setTimeout(function () {
-        console.log('inside not found timeout');
-        snacknotfound.className = snacknotfound.className.replace("shownotfound", "");
-    }, 3000);
-}
-*/
+
+
 function submitData(event) {
     event.preventDefault();
     //object of formdata
@@ -194,7 +201,10 @@ function cancelChanges() {
 }
 
 function changeImage(imageupload) {
-    imageupload.src = imageupload.src.replace("_t", "_b");
+    console.log('inside image upload'+imageupload.target.files.length)
+    let image = document.getElementById('imageid');
+    image.src = URL.createObjectURL(imageupload.target.files[0]);
+    console.log(image);
 }
 
 
@@ -231,7 +241,7 @@ function addSection(contact) {
     contact.parentElement.parentElement.nextElementSibling.insertAdjacentHTML(
         'beforeend',
         `
-                                  <div id="form1" class="section1">
+                               <div id="form1" class="section1">
                                     <fieldset class="fieldset-contact">
                                         <legend class="contact-legend">
                                             <select name="home" id="add1">
@@ -241,9 +251,107 @@ function addSection(contact) {
                                             </select>
                                             <span class="address-header">
                                                 <span><h6>Address</h6></span>
-                                                <span class="font-contact"><i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="address-add-btn"></i></span>
+                                                <span><i class="fa-solid fa-trash-can" onclick="removeSection(this)" id="address-add-btn" style="font-size:13px;"></i></span>
+                                                <span id="then"></span>
                                             </span>
                                         </legend>
+                                        <div>
+                                            <div>
+                                                <span class="font-contact"><label>Street</label><br><input type="text" name="street1"></span>
+
+                                                <div class="address-keywords">
+                                                    <span class="font-contact">Zip</span>
+                                                    <span class="font-contact">City</span>
+                                                    <span class="font-contact">State</span>
+                                                    <span class="font-contact">Country</span>
+
+                                                </div>
+
+                                                <div class="location-class">
+                                                    <div class="location-input">
+                                                        <input type="text" />
+
+                                                    </div>
+                                                    <div class="location-input">
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="location-input">
+                                                        <select name="code1" id="code1">
+                                                            <option>California</option>
+                                                            <option>Pensilvenia</option>
+                                                            <option>Florida</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="location-input">
+                                                        <select name="code1" id="code1">
+                                                            <option>India</option>
+                                                            <option>US</option>
+                                                            <option>Canada</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="trashbin">
+                                                        <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="phone-header">
+                                            <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
+                                            <div class="phone-keywords">
+                                                <div class="font-contact">Type</div>
+                                                <div class="font-contact">Code</div>
+                                                <div class="font-contact">Number</div>
+                                                <div class="font-contact">Ext.</div>
+                                            </div>
+                                            <hr />
+                                            <div class="phone-keywords-header">
+                                                <div class="phone-keywords-input">
+                                                    <select name="type1" id="type">
+                                                        <option>Call</option>
+                                                        <option>Landline</option>
+                                                    </select>
+                                                </div>
+                                                <div class="phone-keywords-input">
+                                                    <select name="code1" id="code1">
+                                                        <option>+1(US)</option>
+                                                        <option>+91(Ind)</option>
+                                                        <option>+7(Rus)</option>
+                                                    </select>
+                                                </div>
+                                                <div class="phone-keywords-input">
+                                                    <input type="text" name="number1" id="">
+                                                </div>
+                                                <div class="phone-keywords-input">
+
+                                                </div>
+                                                <div class="trashbin">
+                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
+                                        <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
+                                        <div>
+                                            <div class="email-remove"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
+                                        </div>
+
+                                        <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
+
+                                    </fieldset>
+                                </div>
+        `
+    );
+}
+
+function addSectionLocation(location) {
+    console.log(location.parentElement.parentElement.parentElement);
+    location.parentElement.parentElement.parentElement.nextElementSibling.insertAdjacentHTML(
+        'beforeend', `
                                         <div>
                                             <span class="font-contact"><label>Street</label><br><input type="text" name="street1"></span>
 
@@ -278,22 +386,18 @@ function addSection(contact) {
                                                     </select>
                                                 </div>
                                                 <div>
-                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)"></i>
+                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)" style="font-size:16px;"></i>
                                                 </div>
                                             </div>
                                         </div>
+        `);
+    document.getElementById('remove-plus-icon').remove();
+}
 
-
-                                        <div class="phone-header">
-                                            <div><h6>Phone<i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i></h6></div>
-                                            <div class="phone-keywords">
-                                                <div class="font-contact">Type</div>
-                                                <div class="font-contact">Code</div>
-                                                <div class="font-contact">Number</div>
-                                                <div class="font-contact">Ext.</div>
-                                            </div>
-                                            <hr />
-                                            <div class="phone-keywords-header">
+function addPhone(phone) {
+    phone.parentElement.parentElement.parentElement.insertAdjacentHTML(
+        'beforeend',`
+                                           <div class="phone-keywords-header">
                                                 <div class="phone-keywords-input">
                                                     <select name="type1" id="type">
                                                         <option>Call</option>
@@ -313,101 +417,10 @@ function addSection(contact) {
                                                 <div class="phone-keywords-input" ">
                                                     
                                                 </div>
-                                                <div>
+                                                <div class="trashbin">
                                                     <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
                                                 </div>
 
-                                            </div>
-                                        </div>
-
-                                        <h6>Fax<i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i></h6>
-                                        <h6>Email<i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i></h6>
-                                        <div>
-                                            <div class="email-remove"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionEmail(this)"></i></div>
-                                        </div>
-
-                                        <h6>Website<i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i></h6>
-
-                                    </fieldset>
-                                </div>
-        `
-    );
-}
-
-function addSectionLocation(location) {
-    console.log(location.parentElement.parentElement.parentElement);
-    location.parentElement.parentElement.parentElement.insertAdjacentHTML(
-        'beforeend', `
-<div>
-                                            <span><label style="font-size: 16px; font-family:WebImsLato,sans-serif;">Street</label><br><input type="text" name="street1"></span>
-
-                                            <div style="display:flex; font-size:13px; margin-top:10px;">
-                                                <span style="width:24.7%;">Zip</span>
-                                                <span style="width:25%;">City</span>
-                                                <span style="width:24.5%;">State</span>
-                                                <span style="width:24.5%;">Country</span>
-
-                                            </div>
-
-                                            <div style="display:flex;">
-                                                <div style="width:24%; margin-right:10px;">
-                                                    <input type="text" />
-
-                                                </div>
-                                                <div style="width:24%; margin-right:10px;">
-                                                    <input type="text" />
-                                                </div>
-                                                <div style="width: 24%; margin-right: 10px;">
-                                                    <select name="code1" id="code1">
-                                                        <option>California</option>
-                                                        <option>Pensilvenia</option>
-                                                        <option>Florida</option>
-                                                    </select>
-                                                </div>
-                                                <div style="width: 24%;">
-                                                    <select name="code1" id="code1">
-                                                        <option>India</option>
-                                                        <option>US</option>
-                                                        <option>Canada</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionLocation(this)"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-`
-       
-    );
-}
-
-function addPhone(phone) {
-    phone.parentElement.parentElement.parentElement.insertAdjacentHTML(
-        'beforeend',`
-                                            <div style="display:flex; margin-top:10px;">
-                                                <div style="width:25%; margin-right:10px;">
-                                                    <select name="type1" id="type">
-                                                        <option>Call</option>
-                                                        <option>Landline</option>
-                                                    </select>
-                                                </div>
-                                                <div style="width: 25%; margin-right: 10px">
-                                                    <select name="code1" id="code1">
-                                                        <option>+1(US)</option>
-                                                        <option>+91(Ind)</option>
-                                                        <option>+7(Rus)</option>
-                                                    </select>
-                                                </div>
-                                                <div style="width: 25%; margin-right: 10px;">
-                                                    <input type="text" name="number1" id="">
-                                                </div>
-                                                <div style="width: 25%; display:flex;">
-                                                    <input type="text" name="ext1" id="" />
-                                                </div>
-                                                <div>
-                                                    <i class="fa-solid fa-trash-can" onclick="removeSectionPhone(this)"></i>
-                                                </div>
-                                                
                                             </div>
     `);
 }
@@ -415,7 +428,7 @@ function addPhone(phone) {
 function addFax(fax) {
     fax.parentElement.insertAdjacentHTML(
         "beforeend",
-        `<div class="fax-email-web"><input type="text"><i style="font-size:20px;" class="fa-solid fa-trash-can" onclick="removeSectionFax(this)"></i></div>`);
+        `<div class="fax-email-web"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionFax(this)"></i></div>`);
 }
 function addEmail(email) {
     email.parentElement.nextElementSibling.insertAdjacentHTML(
@@ -425,7 +438,7 @@ function addEmail(email) {
 function addWebsite(web) {
     web.parentElement.insertAdjacentHTML(
         'beforeend',
-        `<div class="fax-email-web"><input type="text"><i style="font-size:20px;" class="fa-solid fa-trash-can" onclick="removeSectionWeb(this)"></i></div>`);
+        `<div class="fax-email-web"><input type="text"><i class="fa-solid fa-trash-can" onclick="removeSectionWeb(this)"></i></div>`);
 }
 
 function removeSection(contactdelete) {
@@ -454,17 +467,63 @@ function removeSectionWeb(webdelete) {
 
 function removeSectionLocation(locationdelete) {
     console.log(locationdelete.parentElement.parentElement.parentElement);
-    locationdelete.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[0].insertAdjacentHTML('beforeend', `<span><i class="fa-solid fa-circle-plus" onclick="addSectionLocation(this)"></i></span>`);
-    locationdelete.parentElement.parentElement.parentElement.remove();
 
+    locationdelete.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[2].insertAdjacentHTML('beforeend', `<i id="remove-plus-icon" class="fa-solid fa-circle-plus" style="font-size:13px" onclick="addSectionLocation(this)"></i>`);
+    
+    locationdelete.parentElement.parentElement.parentElement.remove();
 }
+
 
 
 function enableFeeSchedule() {
-    var fee = document.getElementById('FeeSchedule');
-    var pay = document.getElementById('selfpaycheck');
-    pay.onchange = function () {
-        fee.enabled = this.checked;
-    };
+    console.log('inside funtion');
+    if (document.getElementById('selfpaycheck').checked == true) {
+        console.log('inside if');
+        document.getElementById('FeesSchedule').disabled = false;
+        console.log('after if');
+    }
+    else {
+        console.log('inside else');
+        document.getElementById('FeesSchedule').disabled = true;
+        console.log('after else');
+    }
 }
+
+function enableMultiBirth() {
+    console.log('inside funtion');
+    if (document.getElementById('birth-check').checked == true) {
+        console.log('inside if');
+        document.getElementById('birth-enable').disabled = false;
+        console.log('after if');
+    }
+    else {
+        console.log('inside else');
+        document.getElementById('birth-enable').disabled = true;
+        console.log('after else');
+    }
+}
+
+document.getElementById('type-select').onchange = function () {
+    document.getElementById('value-select').disabled = false;
+}
+
+function enableDeceased() {
+    console.log('inside funtion');
+    if (document.getElementById('deceased-check').checked == true) {
+        console.log('inside if');
+        document.getElementById('deceased-enable').disabled = false;
+        console.log('after if');
+        document.getElementById('deceased-enable').onchange = function () {
+            document.getElementById('deceased-time-enable').disabled = false;
+        }
+    }
+    else {
+        console.log('inside else');
+        document.getElementById('deceased-enable').disabled = true;
+        console.log('after else');
+    }
+}
+
+
+
 
