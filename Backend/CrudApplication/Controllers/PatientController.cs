@@ -200,7 +200,7 @@ namespace CrudApplication.Controllers
 
             using (NpgsqlConnection mycon = new NpgsqlConnection(postgresqlDataSource))
             {
-                mycon.Open();
+                mycon.Open(); 
                 using (TransactionScope transactionScope = new TransactionScope())
                 {
                     NpgsqlCommand myCommand = new NpgsqlCommand(query, mycon);
