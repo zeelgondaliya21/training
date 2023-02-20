@@ -1,0 +1,44 @@
+.header-bar{
+    background-color:green;
+    color:white;
+    margin-bottom:30px;
+    width:15.3%;
+    padding:10px;
+}
+.add-task-btn{
+    color: black;
+    line-height: 1rem;
+    background-color:white;
+    padding: 0.3rem 0.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    border: 1px solid;
+    color: #627D98;
+    border-radius: .2rem;
+}
+
+.taskinput
+{
+    padding: 5px;
+    color: #627d98;
+    border: 2px solid;    
+    border-radius: .2rem;
+    outline: 1px solid #dadada;
+}
+.remove-task-btn{
+    color: black;
+    line-height: 1rem;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: .2rem;
+    float:right;
+}
+
+.list-items{
+    border:1px solid;
+    border-radius:.2rem;
+    padding: 5px;   
+    width: 15%;
+    list-style-type: none;   
+    margin-top:30px;
+}

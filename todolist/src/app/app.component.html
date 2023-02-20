@@ -1,0 +1,6 @@
+<div class="header-bar">Todo List</div>
+<input type="text" #taskid placeholder="Enter your task" class="taskinput"/>
+<button (click)="addTaskFun(taskid.value)" class="add-task-btn">Add Task</button>
+<ul *ngFor="let item of list" class="list-items">
+  <li><input type="checkbox"/> {{item.name}}<button (click)="removeTaskFun(item.id)" class="remove-task-btn">Remove Task</button></li>
+</ul>
