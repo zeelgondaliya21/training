@@ -2,5 +2,17 @@
 <input type="text" #taskid placeholder="Enter your task" class="taskinput"/>
 <button (click)="addTaskFun(taskid.value)" class="add-task-btn">Add Task</button>
 <ul *ngFor="let item of list" class="list-items">
-  <li><input type="checkbox"/> {{item.name}}<button (click)="removeTaskFun(item.id)" class="remove-task-btn">Remove Task</button></li>
+  <li class="task-item">
+    <input type="checkbox"> {{item.name}}
+    <button (click)="removeTask(item.id)" class="remove-task-btn">Remove Task</button>
+    
+  </li>
 </ul>
+
+<!-- <button class="add-task-btn" (click)="completeAllTask()">Complete All Task</button>  -->
+<div><button class="add-task-btn" (click)="removeAllTask()">Remove All Task</button></div>
+
+
+
+
+
