@@ -5,6 +5,7 @@
     font-size: 30px;
     padding:10px;
 }
+
 .add-task-btn{
     color: black;
     line-height: 1rem;
@@ -23,7 +24,6 @@
     color: #627d98;
     border: 2px solid black;    
     border-radius: .2rem;
-    
 }
 .remove-task-btn{
     color: black;
@@ -32,7 +32,6 @@
     border: 2px solid black;
     border-radius: .2rem;
     float:right;
-
 }
 
 .list-items{
@@ -42,4 +41,11 @@
     width: 50%;
     list-style-type: none;   
     margin-top:20px;
+}
+
+.task-completed{
+    text-decoration:line-through;
+}
+.task-incompleted{
+    text-decoration:none;
 }

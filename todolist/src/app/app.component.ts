@@ -1,5 +1,6 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { __decorate } from 'tslib';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,18 @@ export class AppComponent {
   removeAllTask(){
     this.list=this.list.filter(item=>item.id!==item.id);
   }
-  completeAllTask(){
-    
+  taskCompleted(item : any){
+    console.log('inside fun')
+    console.log(item.class);
+    if(item.class !='task-completed'){
+      item.class = 'task-completed';
+      console.log(item.class);
+    }
+    else{
+      console.log(item.class)
+      item.class= null;
+      console.log(item.class);
+    }
+      
   }
 }

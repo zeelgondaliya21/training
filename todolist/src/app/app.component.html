@@ -3,12 +3,10 @@
 <button (click)="addTaskFun(taskid.value)" class="add-task-btn">Add Task</button>
 <ul *ngFor="let item of list" class="list-items">
   <li class="task-item">
-    <input type="checkbox"> {{item.name}}
+    <input type="checkbox" (change)="taskCompleted(this.item)">{{item.name}}
     <button (click)="removeTask(item.id)" class="remove-task-btn">Remove Task</button>
-    
   </li>
 </ul>
-
 <!-- <button class="add-task-btn" (click)="completeAllTask()">Complete All Task</button>  -->
 <div><button class="add-task-btn" (click)="removeAllTask()">Remove All Task</button></div>
 
