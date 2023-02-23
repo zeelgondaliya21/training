@@ -20,7 +20,7 @@ export class AppComponent {
     this.list=this.list.filter(item=>item.id!==item.id);
   }
   taskCompleted(item : any){
-    console.log('inside fun')
+    console.log('inside fun');
     console.log(item.class);
     if(item.class !='task-completed'){
       item.class = 'task-completed';
@@ -28,9 +28,8 @@ export class AppComponent {
     }
     else{
       console.log(item.class)
-      item.class= null;
+      item.class= 'tast-incompleted';
       console.log(item.class);
     }
-      
   }
 }
