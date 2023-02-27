@@ -1,119 +1,753 @@
+select * from race_patient;
 create table patient(
-	patient_id varchar(15) primary key,
+	patient_id serial primary key,
 	firstName varchar(20) not null,
 	lastName varchar(20) not null,
 	middleName varchar(20),
 	dob date not null,
-	gender_id varchar(10) not null,
-	race_id varchar(10) not null,
+	gender_id integer not null,
+	chart_number text generated always as ((('CHART'::text || patient_id::text))) stored,
+	constraint fk_gender_id
+    	foreign key (gender_id) 
+	  		references gender(gender_id)
 );
-
-create table chart(
-	patient_id varchar(15) not null,
-	chart_id serial primary key,
-	chart_no numeric not null,
-	chart_number numeric generated always as (chart_id+chart_no) stored,
-	constraint fk_chart
-    	foreign key (patient_id) 
-	  		references patient(patient_id)
-);
+drop table patient;
 
 create table gender(
-	gender_id varchar(10) primary key,
-	patient_id varchar(15) not null,
-	sex varchar(10) check(sex in ('Male','Female','Unknown')),
-	constraint fk_gender
-    	foreign key (patient_id) 
-	  		references patient(patient_id)
+	gender_id serial primary key,
+	sex varchar(10) not null
 );
 
-create table racePatient(
-	race_id  varchar(10) primary key,
-	patient_id varchar(15) not null,
+create table race_patient(
+	race_id  serial primary key,
+	patient_id integer not null,
+	race_type_id integer not null,
 	race varchar(10) check(race in ('Asian','American','African')),
-	constraint fk_race
+	constraint fk_patient_id
     	foreign key(patient_id) 
-	  		references patient(patient_id)
+	  		references patient(patient_id),
+	constraint fk_race_type_id
+    	foreign key(race_type_id) 
+	  		references race_type(race_type_id)
+);
+
+create table race_type(
+	race_type_id serial primary key,
+	race_type_val varchar(20) not null
 );
 
 create table address(
-	patient_id varchar(15) not null,
-	address_id varchar(10) primary key,
+	patient_id integer not null,
+	address_id serial primary key,
+	address_type_id integer not null,
 	street varchar(15) not null,
 	city varchar(15) not null,
 	state varchar(15) not null,
 	country varchar(15) not null,
-	zip  numeric(8) not null,
-	address_type numeric(5) not null,
+	zip varchar(15) not null,
 	primary_address_status boolean default false,
-	constraint fk_address
+	constraint fk_address_id
     	foreign key(patient_id) 
-	  		references patient(patient_id)
+	  		references patient(patient_id),
+	constraint fk_address_type_id
+    	foreign key(address_type_id) 
+	  		references address_type(address_type_id)	
 );
 
-create table address_type(
-	address_type_id varchar(10) primary key,
-	address_id varchar(5),
-	address_type_desc varchar(10) not null,
-	constraint fk_address_id
-    	foreign key(address_id) 
-	  		references address(address_id)
-);
 
 create table address_type(
-	address_type_id varchar(10) primary key,
-	address_id varchar(5),
-	address_type_desc varchar(10) not null,
+	address_type_id serial primary key,
+	address_type_val varchar(10) not null
+);
+
+create table phone(
+	phone_id serial primary key,
+	address_id integer not null,
+	phone_type_id integer not null,
+	phone_code numeric(5),
+	phone_number numeric(10) not null,
 	constraint fk_address_id
     	foreign key(address_id) 
-	  		references address(address_id)
+	  		references address(address_id),
+	constraint fk_phone_type_id
+    	foreign key(phone_type_id) 
+	  		references phone_type(phone_type_id)
 );
+
+create table phone_type(
+	phone_type_id serial primary key,
+	phone_type_val varchar(20) not null
+);
+
 
 create table fax(
-	address_id varchar(5) not null,
-	fax_id varchar(5) primary key,
+	address_id integer not null,
+	fax_id serial primary key,
+	fax_number varchar(20) not null,
 	primary_fax_status boolean default false,
-	constraint fk_fax
+	constraint fk_fax_id
     	foreign key (address_id) 
 	  		references address(address_id)
 );
 
-create table phone(
-	phone_id numeric(5) primary key,
-	address_id varchar(5) not null,
-	phone_code numeric(5) not null,
-	phone_number numeric(10) not null,
-	constraint fk_phone
+CREATE TABLE preference(
+	pref_id serial primary key,
+	pref_type_id integer not null,
+	patient_id integer not null,
+	address_id integer not null,
+	phone_id integer not null,
+	fax_id integer not null,
+	constraint fk_address_id
     	foreign key(address_id) 
-	  		references address(address_id)
-);
-
-create table phone_type(
-	phone_id numeric(5) not null,
-	phone_type_id varchar(5) primary key,
-	phone_type_desc varchar(10) not null,
-	constraint fk_phone_type
+	  		references address(address_id),
+	constraint fk_fax_id
+    	foreign key(fax_id) 
+	  		references fax(fax_id),
+	constraint fk_patient_id
+    	foreign key(patient_id) 
+	  		references patient(patient_id),
+	constraint fk_phone_id
     	foreign key(phone_id) 
-	  		references phone(phone_id)
+	  		references phone(phone_id),
+	constraint fk_pref_type_id
+    	foreign key(pref_type_id) 
+	  		references preference_type(pref_type_id)
 );
 
-create table phone(
-	phone_id numeric(5) primary key,
-	address_id varchar(5) not null,
-	phone_code numeric(5) not null,
-	phone_number numeric(10) not null,
-	primary_phone_status boolean default false,
-	constraint fk_phone
-    	foreign key(address_id) 
-	  		references address(address_id)
+CREATE TABLE preference_type(
+	pref_type_id serial primary key,
+	pref_type_val varchar(30) NOT NULL
 );
 
-create table phone_type(
-	phone_id numeric(5) not null,
-	phone_type_id varchar(5) primary key,
-	phone_type_desc varchar(10) not null,
-	constraint fk_phone_type
-    	foreign key(phone_id) 
-	  		references phone(phone_id)
+select * from patient;
+select * from gender;
+select * from race_type;
+select * from race_patient;
+select * from address;
+select * from phone_type;
+select * from phone;
+select * from fax;
+select * from address_type;
+select * from preference;
+select * from preference_type;
+insert into preference values (1,1,1,1,1,1);
+insert into preference values (2,1,2,2,2,2);
+insert into preference values (3,2,3,3,3,3);
+insert into preference values (4,3,4,4,4,4);
+insert into preference values (5,2,5,5,5,5);
+insert into preference_type values (1,'Primary');
+insert into preference_type values (2,'Secondary');
+insert into preference_type values (3,'Tertiary');
+insert into fax values (1,1,3498205348,true);
+insert into fax values (2,2,4456783473,false);
+insert into fax values (3,3,4594589859);
+insert into fax values (4,4,4765785959);
+insert into fax values (5,5,4576830222);
+insert into phone values (1,1,1,91,9978901114);
+insert into phone values (2,2,1,1,6139834989);
+insert into phone values (3,3,2,0261,234004);
+insert into phone values (4,4,2,2240,384599);
+insert into phone values (5,5,1,44,4893002021);
+insert into phone_type values (1,'Cell');
+insert into phone_type values (2,'Landline');
+insert into address values (1,1,1,'Ashvmegh','Ahmedabad','Gujarat','India','386001',true);
+insert into address values (2,2,1,'Shivranjani','Surat','Gujarat','India','395004',true);
+insert into address values (3,3,2,'Sola','Mumbai','Maharashtra','India','382003',false);
+insert into address values (4,4,2,'Satadhar','Banglore','Karnataka','India','347801');
+insert into address values (5,5,1,'Sarkhej','Jaipur','Rajasthan','India','384891');
+insert into address values (1,6,2,'Sarkhej2','Jaipur2','Rajasthan2','India','384892');
+insert into address_type values (2,'Secondary');
+insert into address_type values (3,'Other');
+insert into race_patient values (1,1,1);
+insert into race_patient values (2,2,1);
+insert into race_patient values (3,3,2);
+insert into race_patient values (4,1,3);
+insert into race_patient values (5,5,1);
+insert into race_type values(1,'American');
+insert into race_type values(2,'Asian');
+insert into race_type values(3,'African');
+insert into gender values(1,'Male');
+insert into gender values(2,'Female');
+insert into gender values(3,'Unknown');
+insert into patient values (1,'zeel','gondaliya','b','02-10-2001',1);
+insert into patient values (2,'abc','def','m','11-04-1991',2);
+insert into patient values (3,'bdc','ack','x','16-11-2010',3);
+
+
+--1----
+create view demographics as(
+	select p.firstname,p.lastname,p.middlename,p.dob,p.chart_number,g.sex,rt.race_type_val,a.street,a.city,a.state,a.country,a.zip,ph.phone_number ,f.fax_number
+	from patient p
+	left join gender g 
+	on p.gender_id =g.gender_id 
+	left join race_patient r
+	on p.patient_id = r.patient_id 
+	left join race_type rt
+	on p.patient_id = r.patient_id
+	and r.race_type_id  = rt.race_type_id
+	left join address a 
+    on p.patient_id =a.patient_id 
+	left join phone as ph
+	on p.patient_id  = a.patient_id 
+	and a.address_id = ph.address_id 
+	left join fax  as f
+	on p.patient_id  = a.patient_id 
+	and a.address_id = f.address_id
+	left join preference pf
+	on p.patient_id = pf.patient_id  
+	left join preference_type pt 
+	on p.patient_id = pf.patient_id 
+	and pf.pref_type_id = pt.pref_type_id
 );
+select * from demographics;
+drop view demographics;
+
+--2--
+select firstname, lastname, dob, gender_id , count(*) from patient group by firstname, lastname, dob, gender_id ;
+select firstname, count(firstname) as counter from patient group by firstname;
+select lastname, count(lastname) as counter from patient group by lastname;
+select dob, count(dob) as counter from patient group by dob;
+select gender_id , count(gender_id) as counter from patient group by gender_id;
+
+
+--3--
+create or replace function patientcreate(fn varchar(50), mn varchar(50), ln varchar(50), db date, gen integer)
+returns int
+language plpgsql
+as
+$$
+declare
+	newpk integer;
+begin 
+	insert into patient(firstname, middlename, lastname, dob, gender_id) values(fn, mn, ln, db,gen)
+	returning patient_id into newpk;
+	return newpk;
+end;
+$$;
+
+drop function patientcreate;
+
+select patientcreate(fn=>'yuvraj',ln=>'singh',mn=>'r',db=>'11-2-2001',gen=>1);
+select * from patient;
+
+
+--4---
+create or replace function patientget(
+	f_patient_id integer default null,
+	f_firstname varchar(50) default null,
+	f_middlename varchar(50) default null,
+	f_lastname varchar(50) default null,
+	f_dob date default null,
+	f_sex varchar(50) default null,
+	size int default 10::integer,
+	page int default 1::integer)
+returns table (
+	patient_id integer,
+	firstame varchar,
+	middlename varchar, 
+	lastname varchar,
+	dob date,
+	chart_number text,
+	sex varchar)
+	language plpgsql
+as
+$$
+declare
+	declare queryStatement varchar;
+	declare var integer:=1;
+begin
+		queryStatement:='select p.patient_id,p.firstname,p.middlename,p.lastname,p.dob,p.chart_number,g.sex
+		from patient p
+		inner join gender g 
+		on p.gender_id = g.gender_id
+		where 1=1';
+		queryStatement:=queryStatement||
+		case
+			when
+				$1 is not null
+			then ' and p.patient_id  = $1' else '' end|| 
+		case
+			when
+				$2 is not null 
+			then 
+				' and p.firstname=$2' else '' end||
+		case
+			when 
+				$3 is not null
+			then
+				' and p.middlename=$3' else '' end||
+		case	
+			when
+				$4 is not null
+			then 
+				' and p.lastname=$4' else '' end||
+		case
+			when 
+				$5 is not null
+			then 
+				' and p.dob=$5' else '' end||
+		case	
+			when 
+				$6 is not null 
+			then
+				' and g.sex=$6' else '' end;
+		
+		queryStatement:=queryStatement||' order by p.firstname asc, p.lastname asc, p.dob asc,g.sex asc ';
+		queryStatement:=queryStatement||' limit '||size||' offset (('||page||'-1)*'||size||');';
+		return query execute queryStatement using f_patient_id , f_firstname , f_middlename , f_lastname , f_dob , f_sex , size , page;
+		RAISE NOTICE 'query%',queryStatement;
+	end;
+$$;
+
+drop function get_patient_data;
+
+select get_patient_data(f_firstname=>'elon');
+select get_patient_data(f_middlename=>'b');
+select get_patient_data(f_lastname=>'gondaliya');
+select get_patient_data(f_patient_id=>1);
+select get_patient_data(f_dob=>'02-10-2001');
+select get_patient_data(f_sex=>'Male');
+select get_patient_data(f_firstname=>'elon',f_sex=>'Unknown');
+select get_patient_data(size=>5,page=>1);
+select * from patientget();
+select get_patient_data(f_patient_id=>6);
+select * from patient;		
+
+
+--5----
+create or replace function get_patient_info(phonenumber varchar)
+returns table (firstname varchar, middlename varchar, lastname varchar, dob date, sex varchar, race_type_val varchar, street varchar, city varchar, state varchar, country varchar, phone_number varchar, fax_number varchar)
+language plpgsql
+as
+$$
+declare
+begin
+	return query select p.firstname, p.middlename, p.lastname, p.dob, g.sex, rt.race_type_val, a.street, a.city, a.state, a.country, ph.phone_number, f.fax_number
+		from
+		patient p
+		left join gender g 
+		on p.gender_id= g.gender_id 
+		left join race_patient r
+		on p.patient_id = r.patient_id 
+		left join race_type rt
+		on p.patient_id = r.patient_id
+		and r.race_type_id  = rt.race_type_id
+		left join address a 
+		on p.patient_id  = a.patient_id  
+		left join phone ph 
+		on p.patient_id = a.patient_id 
+		and a.address_id = ph.address_id 
+		left join fax f 
+		on p.patient_id = a.patient_id
+		and a.address_id = f.address_id 
+		where ph.phone_number = phonenumber;
+end;
+$$;
+
+select get_patient_info('9978901114');
+
+
+create view demographics2 as(
+	select pt.pref_type_val,p.firstname,p.lastname,p.middlename,p.dob,p.chart_number,g.sex,rt.race_type_val,a.street,a.city,a.state,a.country,a.zip,ph.phone_number ,f.fax_number
+	from preference_type pt
+	inner join preference pf
+	on pt.pref_type_id =pf.pref_type_id 
+	inner join patient p
+	on pt.pref_type_id =pf.pref_type_id 
+	and pf.patient_id =p.patient_id 
+	inner join gender g 
+	on pt.pref_type_id =pf.pref_type_id 
+	and pf.patient_id =p.patient_id
+	and p.gender_id =g.gender_id 
+	inner join race_patient r
+	on pt.pref_type_id =pf.pref_type_id 
+	and pf.patient_id =r.patient_id  
+	inner join race_type rt
+	on pt.pref_type_id =pf.pref_type_id 
+	and pf.patient_id =r.patient_id 
+	and r.race_type_id  = rt.race_type_id
+	inner join address a 
+	on pt.pref_type_id =pf.pref_type_id 
+	and pf.address_id = a.address_id 
+	inner join phone as ph
+	on pt.pref_type_id =pf.pref_type_id 
+	and pf.phone_id  =ph.phone_id    
+	inner join fax  as f
+	on pt.pref_type_id =pf.pref_type_id 
+	and pf.fax_id  =f.fax_id  
+	where pt.pref_type_val ='Primary' --comment out if all or specific preference required
+	order by pref_type_val
+);
+drop view demographics2;
+select * from demographics2;
+select * from preference;
+select * from preference_type;
+insert into fax values (2,6,5349879384);
+insert into fax values (3,7,4398749855);
+insert into fax values (1,9,4587945999);
+select * from phone;
+insert into fax values (1,8,4876547995);
+insert into preference values (6,2,1,6,7,8);
+insert into preference values (7,3,1,8,8,9);
+insert into phone values (6,2,2,6574,875398);
+insert into phone values (7,1,2,2610,901114);
+insert into phone values (8,8,2,2611,701114);
+select * from patient;
+select * from address;
+select * from fax;
+
+
+insert into address values (2,7,2,'Satelite','Delhi','Delhi','India','374850');
+insert into address values (1,8,3,'Shyamal','Chennai','Tamilnadu','India','374851');
+		
+	
+	
+
+
+start transaction;
+SET @account_id_list = ""; 
+CALL updateBillerContactInfo1(@account_id_list); 
+SELECT @account_id_list;
+
+commit;
+
+ROLLBACK;
+
+
+
+create procedure updatePatient(
+p_patient_id integer,
+p_firstname varchar default null,
+p_lastname varchar default null,
+p_middlename varchar default null,
+p_dob date default null,
+p_gender_id integer default null
+)
+language plpgsql
+as 
+$$
+begin
+	update patient
+	set 
+	firstname=p_firstname,
+	lastname =p_lastname,
+	middlename =p_middlename,
+	dob=p_dob,
+	gender_id =p_gender_id
+	where patient_id =p_patient_id;
+end;
+$$;
+
+drop procedure updatePatient;
+
+call  updatePatient(p_patient_id=>2::integer,p_firstname=>'Virat'::varchar,p_lastname=>'Kohli'::varchar,p_middlename=>'m'::varchar,p_dob=>'25-12-1989'::date,p_gender_id=>1::integer);
+
+select * from patient;
+	
+ 
+
+create procedure deletePatient(
+p_patient_id integer default null,
+p_firstname varchar default null,
+p_lastname varchar default null,
+p_middlename varchar default null,
+p_dob date default null,
+p_gender_id integer default null
+)
+language plpgsql
+as 
+$$
+begin
+	delete from patient
+	where patient_id =p_patient_id;
+end;
+$$;
+
+call deletePatient(p_patient_id=>40);
+
+create procedure deletePatient(
+p_patient_id integer default null,
+p_firstname varchar default null,
+p_lastname varchar default null,
+p_middlename varchar default null,
+p_dob date default null,
+p_gender_id integer default null
+)
+language plpgsql
+as 
+$$
+begin
+	delete from patient
+	where patient_id =p_patient_id;
+end;
+$$;
+
+call deletePatient(p_patient_id=>6);
+
+insert into patient values(6,'a','b','c','02-10-2001','1');
+
+
+create procedure createPatient(
+p_firstname varchar default null,
+p_lastname varchar default null,
+p_middlename varchar default null,
+p_dob date default null,
+p_gender_id integer default null
+)
+language plpgsql
+as 
+$$
+begin
+	insert into patient (firstname,lastname,middlename,dob,gender_id) values (p_firstname,p_lastname,p_middlename,p_dob,p_gender_id); 
+end;
+$$;
+
+select * from patient;
+call createPatient(p_firstname=>'a',p_lastname=>'b',p_middlename=>'c',p_dob=>'02-10-2001',p_gender_id=>1);
+
+create procedure getPatientById(p_patient_id integer default null)
+language plpgsql
+as 
+$$
+begin
+	select * from patient
+	where patient_id =p_patient_id;
+
+end;
+$$;
+
+drop procedure g;
+call getPatientById(p_patient_id=>1);
+
+call deletePatient(p_patient_id=>12);
+
+insert into patient values(6,'a','b','c','02-10-2001','1');
+select * from Patient;
+call deletePatient(p_patient_id=>6);
+
+alter table patient add column deleted boolean;
+update patient set deleted = false where patient_id>0;
+
+
+
+
+--delete
+
+create procedure deletePatientData(
+p_patient_id integer
+)
+language plpgsql
+as 
+$$
+begin
+	update patient
+	set 
+	deleted =true
+	where patient_id =p_patient_id;
+end;
+$$;
+
+call deletepatientdata (p_patient_id=>18);
+select * from patient;
+select * from gender;
+
+//post
+
+create or replace function patientcreate(f_firstname varchar(50), f_middlename varchar(50), f_lastname varchar(50), f_dob date, f_sex varchar(50))
+returns int
+language plpgsql
+as
+$$
+declare
+	newpk integer;
+begin 
+	
+	insert into patient(firstname, middlename, lastname, dob, gender_id) values(f_firstname, f_middlename, f_lastname,f_dob,(select gender_id  from gender where sex=f_sex))
+	returning patient_id into newpk;
+	return newpk;
+end;
+$$;
+
+drop function patientcreate;
+
+select patientcreate(f_firstname=>'mitali',f_lastname=>'raj',f_middlename=>'k',f_dob=>'11-07-2001',f_sex=>'Male');
+select * from patient;
+select * from gender;
+//get/getbyid
+
+create or replace function patientget(
+	f_patient_id integer default null,
+	f_firstname varchar(50) default null,
+	f_middlename varchar(50) default null,
+	f_lastname varchar(50) default null,
+	f_dob date default null,
+	f_sex varchar(50) default null,
+	size int default 10::integer,
+	page int default 1::integer)
+returns table (
+	patient_id integer,
+	firstname varchar,
+	middlename varchar, 
+	lastname varchar,
+	dob date,
+	chart_number text,
+	sex varchar)
+	language plpgsql
+as
+$$
+declare
+	declare queryStatement varchar;
+	declare var integer:=1;
+begin
+		queryStatement:='select p.patient_id,p.firstname,p.middlename,p.lastname,p.dob,p.chart_number,g.sex
+		from patient p
+		inner join gender g 
+		on p.gender_id = g.gender_id
+		where 1=1';
+		queryStatement:=queryStatement||
+		case
+			when
+				$1 is not null
+			then ' and p.patient_id  = $1' else '' end|| 
+		case
+			when
+				$2 is not null 
+			then 
+				' and p.firstname=$2' else '' end||
+		case
+			when 
+				$3 is not null
+			then
+				' and p.middlename=$3' else '' end||
+		case	
+			when
+				$4 is not null
+			then 
+				' and p.lastname=$4' else '' end||
+		case
+			when 
+				$5 is not null
+			then 
+				' and p.dob=$5' else '' end||
+		case	
+			when 
+				$6 is not null 
+			then
+				' and g.sex=$6' else '' end;
+		
+		queryStatement:=queryStatement||' order by p.firstname asc, p.lastname asc, p.dob asc,g.sex asc ';
+		queryStatement:=queryStatement||' limit '||size||' offset (('||page||'-1)*'||size||');';
+		return query execute queryStatement using f_patient_id , f_firstname , f_middlename , f_lastname , f_dob , f_sex , size , page;
+		RAISE NOTICE 'query%',queryStatement;
+	end;
+$$;
+
+drop function patientget;
+
+select get_patient_data(f_firstname=>'elon');
+select get_patient_data(f_middlename=>'b');
+select get_patient_data(f_lastname=>'gondaliya');
+select get_patient_data(f_patient_id=>1);
+select get_patient_data(f_dob=>'02-10-2001');
+select get_patient_data(f_sex=>'Male');
+select get_patient_data(f_firstname=>'elon',f_sex=>'Unknown');
+select get_patient_data(size=>5,page=>1);
+select * from patientget();
+select get_patient_data(f_patient_id=>6);
+select * from patient;		
+
+
+///patientupdate
+
+create or replace function patientupdate
+(
+f_patient_id integer,
+f_firstname varchar(4000) default null, 
+f_lastname varchar(4000) default null, 
+f_sex varchar default null,
+f_middlename varchar(4000) default null, 
+f_dob date default null
+)
+returns table (
+patient_id integer, 
+firstname varchar(200), 
+lastname varchar(200), 
+middlename varchar(200), 
+dob date,
+genderid integer,
+chart_number text, 
+deleted boolean
+) as 
+$$ 
+declare
+updates varchar(4000) := '';
+update_query varchar(4000) := '';
+sexId integer:=null;
+begin 
+    
+    sexId := case when $4 is not null then (select gender_id from gender where sex = $4) else null end;
+    
+    updates := 	case when $2 is not null then 'firstname = $2' else '' end ||
+                    case when $3 is not null then ', lastname = $3' else '' end ||
+                    case when sexId is not null then ', gender_id =' || sexId else '' end ||
+                    case when $5 is not null then ', middlename = $5' else '' end ||
+                    case when $6 is not null then ', dob = $6' else '' end;
+    
+    update_query := 'update patient set '||
+    				case when updates != '' 
+                    then updates || ' where patient_id = $1 and deleted = false returning *'
+                    else ' where 1 != 1 returning *'
+                    end;
+               
+    RAISE NOTICE '%',update_query;
+    return query execute update_query using f_patient_id,f_firstname, f_lastname,f_sex, f_middlename, f_dob;
+	
+   end;
+$$ language plpgsql;
+
+drop function patientupdate;
+
+select patientupdate(f_patient_id=>20,f_firstname=>'rahul',f_lastname=>'lokesh',f_sex=>'Male',f_middlename=>'l',f_dob=>'20-10-2001');
+select * from patient;
+
+
+//delete 
+
+create or replace function patientdelete
+(
+ f_patient_id in integer 
+)
+returns table (
+patient_id integer, 
+firstname varchar(200), 
+lastname varchar(200), 
+middlename varchar(200), 
+dob date, 
+gender_id integer, 
+chart_number text, 
+deleted boolean
+) as 
+$$ 
+declare
+delete_query varchar(4000);
+begin 
+    
+    delete_query := 'update patient set deleted = true'  || 
+                    case when f_patient_id is not null 
+                    then ' where patient_id = $1 and deleted = false returning *' 
+                    else ' where 1 != 1 returning *'
+                    end;
+               
+    
+    return query execute delete_query using f_patient_id;
+   RAISE NOTICE 'query%',delete_query;
+end;
+$$ 
+language plpgsql;
+
+drop function patientdelete;
+
+select patientdelete(f_patient_id=>42);
+
+select * from patient;
 
