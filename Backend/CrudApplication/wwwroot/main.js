@@ -114,8 +114,7 @@ function submitData(event) {
             .then(data => {
                 window.open(`https://localhost:7162/?id=${data[0].patientcreate}`, '_self');
             })
-        
-        .catch(err => console.log(err));
+        .catch(err => console.log(err));        
     }
 
     //put data if id found in url
